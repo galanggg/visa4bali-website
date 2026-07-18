@@ -1,0 +1,72 @@
+============================================================
+P1 CITABLE PASSAGES - PLAIN TEXT PASTE FILE
+No em-dashes / en-dashes. Paste each block into the matching
+Elementor text widget, replacing the old thin copy.
+Facts: founded 2014, PT Visa Empat Bali, prices live-verified.
+============================================================
+
+
+------------------------------------------------------------
+BLOCK A - ABOUT US INTRO
+PAGE: /about-us/  (heading "Visa Services From Experienced Agents")
+ALSO: homepage "About Visa4Bali" section — layout too tight for full text,
+      use the SHORT TEASER below instead (full version stays on /about-us/).
+STYLE: set text widget alignment to LEFT (not center). Paste as 3 paragraphs below.
+
+HOMEPAGE SHORT TEASER (~55 words, replaces "No 1 visa agency" paragraph):
+Visa4Bali (PT Visa Empat Bali) is a Jimbaran-based visa agency helping foreign visitors with Indonesian tourist visas, e-VOA, extensions, KITAS, and overstay resolution since 2014. Working directly with the immigration office rather than through brokers, our specialist team manages each application end to end and supports clients in English and Russian.
+------------------------------------------------------------
+Visa4Bali, the trading name of PT Visa Empat Bali, is a visa agency based in Jimbaran, Bali, that has helped foreign visitors with Indonesian visa applications and extensions since 2014. The agency handles tourist visas (211/C1), e-VOA and its extensions, KITAS stay permits, family visas, and overstay resolutions, working directly with the Indonesian immigration office rather than through third-party brokers.
+
+Founded by Mr. Rolly, whose team has processed thousands of visa and stay-permit cases over more than a decade, Visa4Bali manages each application end to end, from document collection to final approval, and supports clients in both English and Russian.
+
+Because the agency liaises directly with immigration officials, standard tourist-visa processing takes 5 to 6 working days, with a 3-day expedited option for time-sensitive cases. This direct relationship with immigration, rather than outsourcing to intermediaries, is what lets Visa4Bali keep pricing transparent and predictable for every client.
+
+
+------------------------------------------------------------
+BLOCK B - E-VOA 30 DAYS DESCRIPTION
+PAGE: /product/e-voa-30-days/
+------------------------------------------------------------
+E-VOA (electronic Visa on Arrival) is a 30-day Indonesian tourist visa bought online before you fly to Bali, so you skip the airport VOA queue and go straight to the immigration counter on arrival. Visa4Bali processes E-VOA applications in 1 to 2 working days for Rp750,000, a fee that already includes both the e-VOA and the government e-VOA charge. The visa grants an initial 30-day stay and can be extended once for a further 30 days, giving a maximum total stay of 60 days. To apply you need three things: a passport with at least 6 months' validity remaining, a clear photo of the passport holder, and your onward flight ticket. Because approval happens before departure, E-VOA is the fastest way to secure a 30-day Bali tourist visa without queuing.
+
+
+------------------------------------------------------------
+BLOCK C - TOURIST VISA 211 EXTENSION DESCRIPTION
+PAGE: /product/social-visa-b-211-ru/
+------------------------------------------------------------
+The Tourist Visa 211/C1 lets you stay in Indonesia for up to 180 days without leaving the country, and Visa4Bali handles the full extension process for Rp1,800,000.
+
+The visa gives an initial 60-day stay, which can then be extended twice, 60 days at a time, to reach the 180-day maximum. Each extension is issued as an electronic stay permit with a soft-copy file and a barcode registered in the immigration system, so there is no physical sticker to collect. Weekends and Indonesian public holidays are not counted as processing days, so apply before your current permit expires; the extension can still be completed shortly after. To start, Visa4Bali needs only your passport, and the team prepares every required application document and arranges a local sponsor on your behalf.
+
+
+------------------------------------------------------------
+BLOCK D - REMOTE WORKING VISA (E33G) DESCRIPTION
+PAGE: /product/remote-working-visa-e33g/
+------------------------------------------------------------
+The Remote Working Visa (E33G) is a 12-month, multiple-entry Indonesian stay permit for foreigners employed by a company based outside Indonesia, letting them live in Bali, and bring their family, while working remotely. Visa4Bali arranges the E33G for Rp12,000,000 to Rp13,500,000, which includes the US$150 government tax, sponsorship, the e-visa, the government e-visa fee, and a 100% approval guarantee. Processing takes 5 to 6 working days. To qualify you must show income of at least US$60,000 per year, proven with either a salary statement from your employer or bank-account records. The documents required are a passport valid for at least 6 months, a clear photo of the passport holder, and the income proof described above. Because it is multiple-entry and valid for a full year, the E33G suits digital nomads and remote employees who want a longer, more stable base in Bali than a tourist visa allows.
+
+
+------------------------------------------------------------
+BLOCK E - HOMEPAGE FAQ ANSWERS (keep questions, swap answers)
+PAGE: homepage "Popular Questions From our Client"
+NOTE: keep this text identical to the FAQPage schema in P2.
+------------------------------------------------------------
+
+Q1. How do I apply for a 211 tourist visa with Visa4Bali, and what documents do I need?
+
+To apply for a 211/C1 tourist visa with Visa4Bali, first contact us by WhatsApp or email to confirm the visa details, or book directly through this website. To begin processing we need only two things from you: a clear photo of your passport (make sure it has at least 6 months of validity remaining) and a photo of the passport holder. Once we have these, our team prepares the full application and liaises directly with the Indonesian immigration office on your behalf. You do not need to visit an immigration office yourself; we handle document preparation, submission, and follow-up from start to finish.
+
+
+Q2. How long does a Bali tourist visa take to process?
+
+Tourist visa processing with Visa4Bali takes 5 to 6 working days for the standard service, or 3 working days if you choose the expedited option; pick whichever fits your travel plans. Working days exclude Saturdays, Sundays, and Indonesian public holidays, so allow for those when timing your application. We recommend starting the process before your current stay permit expires, so your new visa or extension is ready in time and you avoid any risk of an overstay fine.
+
+
+Q3. How do I extend my visa in Bali?
+
+To extend your visa in Indonesia you need the required application documents and a sponsor based in Indonesia. If you would like Visa4Bali to handle the extension, we need only your passport, and our team prepares every application document and provides the local sponsor for you. The Tourist Visa 211/C1 can be extended twice, 60 days at a time, for a maximum stay of 180 days. Each extension is issued as an electronic stay permit with a barcode registered in the immigration system. Apply before your current permit expires; weekends and public holidays are not counted as processing days.
+
+
+Q4. What happens if I overstay my visa in Indonesia?
+
+Under Indonesian immigration regulations (Law No. 6 of 2011 on Immigration), overstaying a valid visa or stay permit incurs a fine of IDR 1,000,000 per day. If you have overstayed by more than 60 days, you must pay the accumulated fine and will be deported from Indonesia, and a re-entry ban may also apply. If you are already in an overstay situation, contact Visa4Bali as soon as possible; our team can advise on paying the fine correctly and arranging your departure, or, where still possible, a stay-permit resolution to minimise penalties.

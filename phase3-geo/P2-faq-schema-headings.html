@@ -1,0 +1,87 @@
+<!--
+============================================================
+GEO FIX — PRIORITY 2: FAQPage SCHEMA + QUESTION-BASED HEADINGS
+Source: GEO-ANALYSIS.md §8 (#2), §9 (1), §10 C
+Goal: mark up existing homepage FAQ as FAQPage JSON-LD (AIO/Bing
+      answer-box win) + convert declarative visa H3s into questions.
+
+SYNC WARNING: the answer text below MUST match the visible FAQ text
+from P1-citable-passages.html Block E. If you edit one, edit both —
+Google flags schema whose text does not match the visible page.
+
+HOW TO APPLY (JSON-LD):
+  Option 1 (preferred, no code): AIOSEO is already installed. Use its
+    FAQ block / FAQ schema feature on the homepage — paste each Q&A, it
+    emits valid FAQPage automatically. Avoids hand-maintained JSON-LD.
+  Option 2 (manual): paste the <script> block below via "Insert Headers
+    and Footers" plugin (Scripts in Body) ON THE HOMEPAGE ONLY, or into
+    the homepage template. Do NOT load it site-wide.
+  Only ONE FAQPage per page. Only mark up Q&As actually visible on the page.
+============================================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I apply for a 211 tourist visa with Visa4Bali, and what documents do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To apply for a 211/C1 tourist visa with Visa4Bali, first contact us by WhatsApp or email to confirm the visa details, or book directly through this website. To begin processing we need only two things from you: a clear photo of your passport (make sure it has at least 6 months of validity remaining) and a photo of the passport holder. Once we have these, our team prepares the full application and liaises directly with the Indonesian immigration office on your behalf. You do not need to visit an immigration office yourself; we handle document preparation, submission, and follow-up from start to finish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a Bali tourist visa take to process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourist visa processing with Visa4Bali takes 5-6 working days for the standard service, or 3 working days if you choose the expedited option. Working days exclude Saturdays, Sundays, and Indonesian public holidays, so allow for those when timing your application. We recommend starting the process before your current stay permit expires, so your new visa or extension is ready in time and you avoid any risk of an overstay fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extend my visa in Bali?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To extend your visa in Indonesia you need the required application documents and a sponsor based in Indonesia. If you would like Visa4Bali to handle the extension, we need only your passport; our team prepares every application document and provides the local sponsor for you. The Tourist Visa 211/C1 can be extended twice, 60 days at a time, for a maximum stay of 180 days. Each extension is issued as an electronic stay permit with a barcode registered in the immigration system. Apply before your current permit expires; weekends and public holidays are not counted as processing days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I overstay my visa in Indonesia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under Indonesian immigration regulations (Law No. 6 of 2011 on Immigration), overstaying a valid visa or stay permit incurs a fine of IDR 1,000,000 per day. If you have overstayed by more than 60 days, you must pay the accumulated fine and will be deported from Indonesia, and a re-entry ban may also apply. If you are already in an overstay situation, contact Visa4Bali as soon as possible; our team can advise on paying the fine correctly and arranging your departure, or, where still possible, a stay-permit resolution to minimise penalties."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!--
+============================================================
+QUESTION-BASED HEADING CONVERSION MAP
+Source: GEO-ANALYSIS.md §6, §10 C
+WHERE: homepage service cards + /our-services/ visa-type H3s.
+WHY: question-phrased headings match how users prompt AI engines,
+     turning each visa card into a self-contained quotable Q&A unit.
+HOW: edit the H3 heading text in Elementor for each card. Keep the H3 tag.
+============================================================
+
+  OLD H3 (declarative)          ->  NEW H3 (question)
+  ------------------------------------------------------------------
+  211 60 day Visa               ->  How long can I stay in Bali on a 211 tourist visa extension?
+  Evoa 30 days                  ->  How long is Bali's e-VOA valid, and can it be extended?
+  Remote Working Visa (E33G)    ->  Who qualifies for Indonesia's E33G remote working visa?
+  Family Visa                   ->  Who can apply for an Indonesian family (dependent) visa?
+  D1/D2 Multiple Entry Visa     ->  How long is the D1/D2 multiple-entry visa valid for?
+  Best Selling Services         ->  (keep — section label, not a content heading)
+  About Visa4Bali               ->  (keep as-is, or -> "Who is Visa4Bali?")
+
+  DO NOT change the H1 or convert section-label headings into questions.
+  Keep one H1 per page (already fixed per audit/action-plan #7).
+============================================================
+-->

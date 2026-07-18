@@ -1,0 +1,170 @@
+<!--
+============================================================
+GEO FIX — PRIORITY 4: PRODUCT / REVIEW / PERSON SCHEMA + sameAs
+Source: GEO-ANALYSIS.md §8 (#4), §9 (2,3,4,5), §5
+Goal: give AI engines structured entity data instead of bare prose.
+      Targets Authority & Brand Signals (35/100, 2nd-weakest dimension).
+
+HOW TO APPLY: prefer AIOSEO's native schema where it exists (Product via
+  WooCommerce is often auto-emitted — CHECK view-source first before adding
+  a duplicate). For Person/founder + sameAs, edit AIOSEO Organization
+  settings or inject the JSON-LD via header plugin. Validate every block at
+  https://validator.schema.org and https://search.google.com/test/rich-results
+
+WARNING — do NOT duplicate schema. If WooCommerce/AIOSEO already emits a
+  Product block on a product page, DO NOT add a second one; only fill gaps.
+============================================================ -->
+
+
+<!-- ============================================================
+     4A — PRODUCT SCHEMA  (per product page)
+     Real prices verified 2026-07-07. Currency IDR.
+     Check view-source first: WooCommerce may already emit Product schema.
+     If it does, just confirm price/description are correct; skip this.
+     ============================================================ -->
+
+<!-- E-VOA 30 Days  — /product/e-voa-30-days/ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "E-VOA 30 Days (Electronic Visa on Arrival)",
+  "description": "Electronic Visa on Arrival for Bali, Indonesia. Valid 30 days, extendable once for a further 30 days (60 days maximum stay). Processed in 1-2 working days. Price includes the e-VOA and the government e-VOA fee.",
+  "brand": { "@type": "Organization", "name": "Visa4Bali" },
+  "offers": {
+    "@type": "Offer",
+    "price": "750000",
+    "priceCurrency": "IDR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://visa4bali.com/product/e-voa-30-days/"
+  }
+}
+</script>
+
+<!-- Tourist Visa 211 Extension — /product/social-visa-b-211-ru/ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Tourist Visa 211/C1 Extension",
+  "description": "Extension service for the Indonesian 211/C1 tourist visa. Initial 60-day stay, extendable twice (60 days each) up to a 180-day maximum. Issued as an electronic stay permit with barcode.",
+  "brand": { "@type": "Organization", "name": "Visa4Bali" },
+  "offers": {
+    "@type": "Offer",
+    "price": "1800000",
+    "priceCurrency": "IDR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://visa4bali.com/product/social-visa-b-211-ru/"
+  }
+}
+</script>
+
+<!-- Remote Working Visa (E33G) — /product/remote-working-visa-e33g/  (price range) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Remote Working Visa (E33G)",
+  "description": "12-month multiple-entry Indonesian stay permit for foreigners employed by a company outside Indonesia. Processed in 5-6 working days. Requires proof of income of at least US$60,000/year. Price includes sponsorship, e-visa, government e-visa fee, and the US$150 government tax.",
+  "brand": { "@type": "Organization", "name": "Visa4Bali" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "12000000",
+    "highPrice": "13500000",
+    "priceCurrency": "IDR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://visa4bali.com/product/remote-working-visa-e33g/"
+  }
+}
+</script>
+
+<!-- TEMPLATE for the remaining ~8 products: copy a block above, swap name,
+     description, url, and price. [OWNER INPUT] real price per product —
+     do NOT guess visa prices. -->
+
+
+<!-- ============================================================
+     4B — ORGANIZATION: fix sameAs + email
+     Add to the EXISTING Organization node (via AIOSEO social profiles
+     settings, or the custom Organization JSON-LD). Do not create a 2nd
+     Organization node — merge into the one already present.
+     ============================================================ -->
+<!--
+  CURRENT sameAs (declared):  instagram.com/visa4bali , tiktok.com/@visa4bali
+  ADD:
+    - YouTube CHANNEL url   [OWNER INPUT] — the site only links a single video
+      (youtube.com/watch?v=MLpWrANjFbI). sameAs wants the channel, e.g.
+      https://www.youtube.com/@visa4bali . If no channel exists, create one and
+      publish the intro video there — YouTube is the strongest off-site AI-citation
+      signal and is currently almost unused.
+    - Facebook BUSINESS PAGE url [OWNER INPUT] — the only FB link on-site
+      (facebook.com/rolly.extensionbali) is a PERSONAL profile, not a business
+      page. Do NOT put a personal profile in Organization.sameAs. Either create a
+      Facebook Business Page and use that, or move the personal profile to the
+      founder Person node (4C) instead.
+  ALSO: set Organization email = info1visaforbali@gmail.com (see P3-nap-copyright-fix.md 3A).
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Visa4Bali",
+  "url": "https://visa4bali.com/",
+  "email": "info1visaforbali@gmail.com",
+  "foundingDate": "2014",
+  "sameAs": [
+    "https://www.instagram.com/visa4bali",
+    "https://www.tiktok.com/@visa4bali",
+    "https://www.youtube.com/@visa4bali"
+  ],
+  "founder": { "@type": "Person", "name": "Rolly", "jobTitle": "Founder & Visa Consultant" }
+}
+</script>
+
+
+<!-- ============================================================
+     4C — PERSON (founder) — E-E-A-T "Experience" signal for YMYL visa content
+     Link via founder on Organization (shown above). Fill [OWNER INPUT].
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rolly",
+  "jobTitle": "Founder & Visa Consultant",
+  "worksFor": { "@type": "Organization", "name": "Visa4Bali", "url": "https://visa4bali.com/" },
+  "description": "Founder of Visa4Bali, handling Indonesian visa applications, extensions, and stay-permit cases in Bali since 2014.",
+  "knowsAbout": ["Indonesian immigration", "tourist visas", "visa extensions", "KITAS", "overstay resolution"]
+}
+</script>
+<!-- [OWNER INPUT] add full name, and if any: professional licence/registration
+     number, LinkedIn URL (add to Person.sameAs), and a short bio on /about-us/.
+     A named, credentialed founder is a direct trust signal for immigration content. -->
+
+
+<!-- ============================================================
+     4D — REVIEW / AggregateRating  (homepage testimonials)
+     ONLY publish with REAL, verifiable numbers. Fabricated ratings violate
+     Google policy and risk a manual action. Pull genuine figures from your
+     Google Business Profile.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Visa4Bali",
+  "url": "https://visa4bali.com/",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "OWNER_INPUT_REAL_AVG",
+    "reviewCount": "OWNER_INPUT_REAL_COUNT",
+    "bestRating": "5"
+  }
+}
+</script>
+<!-- [OWNER INPUT] replace OWNER_INPUT_REAL_AVG / OWNER_INPUT_REAL_COUNT with your
+     actual Google Business Profile rating + review count. If you cannot verify
+     real numbers, DELETE this 4D block entirely — do not ship a made-up rating.
+     Also: audit/action-plan #11 flags the on-page testimonials as duplicated
+     (same 4 reviews x3). Replace with unique real Google reviews before marking
+     up individual Review nodes. -->

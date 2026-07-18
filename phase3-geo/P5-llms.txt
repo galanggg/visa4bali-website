@@ -1,0 +1,41 @@
+# Visa4Bali
+
+> Visa agency in Jimbaran, Bali, providing Indonesian tourist visas (211/C1, e-VOA), visa extensions, KITAS stay permits, remote-working (E33G) visas, family visas, and overstay resolution for foreign visitors since 2014. English- and Russian-language support.
+
+## About
+
+- [About Us](https://visa4bali.com/about-us/): Company background, founder Rolly, team, and service philosophy. Working directly with the Indonesian immigration office since 2014.
+- [Contact Us](https://visa4bali.com/contact-us/): WhatsApp +62 878-6227-3133, email info1visaforbali@gmail.com, Jimbaran office, Mon–Fri.
+
+## Services
+
+- [Our Services](https://visa4bali.com/our-services/): Full list of visa and extension services with a 4-step process.
+- [E-VOA 30 Days](https://visa4bali.com/product/e-voa-30-days/): Electronic Visa on Arrival, 30 days, extendable once to 60 days total, 1–2 working day processing. Rp750,000 (includes government fee).
+- [Tourist Visa 211/C1 Extension](https://visa4bali.com/product/social-visa-b-211-ru/): 60-day initial stay, two 60-day extensions, up to 180 days total. Rp1,800,000.
+- [Remote Working Visa (E33G)](https://visa4bali.com/product/remote-working-visa-e33g/): 12-month multiple-entry permit for remote workers employed outside Indonesia; income requirement US$60,000/year. Rp12,000,000–13,500,000 (includes US$150 government tax). 5–6 working day processing.
+- [Family Visa](https://visa4bali.com/product/family-visa/): Dependent visa for family members of a visa or stay-permit holder.
+
+## FAQ
+
+- Bali tourist visa processing takes 5–6 working days standard, or 3 working days expedited (excludes weekends and Indonesian public holidays).
+- Overstaying a valid Indonesian visa or stay permit incurs a fine of IDR 1,000,000 per day; overstays beyond 60 days result in payment of the fine and deportation (Law No. 6 of 2011 on Immigration).
+
+## Policies
+
+- [Privacy Policy](https://visa4bali.com/privacy-policy/)
+
+<!--
+============================================================
+GEO FIX — PRIORITY 5a: llms.txt REPLACEMENT
+Source: GEO-ANALYSIS.md §4, §8 (#5)
+HOW TO APPLY: replace the current auto-generated /llms.txt (Hostinger Tools
+  Plugin dump full of "Hello world", Checkout, Basket boilerplate). Upload
+  this file to the domain root as /llms.txt via Hostinger File Manager / FTP,
+  OR disable the plugin's auto-generation and serve this static file.
+CAVEAT: llms.txt has NO proven AI-citation weight today (no major vendor
+  confirms parsing it). This is hygiene / future-proofing, not a score lever.
+  Remove this HTML comment before uploading if you prefer a clean file
+  (comments are harmless in a served .txt but unnecessary).
+[OWNER INPUT] confirm WhatsApp number, office hours, and family-visa URL.
+============================================================
+-->

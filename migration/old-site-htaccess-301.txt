@@ -1,0 +1,74 @@
+# === Visa4Bali OLD SITE → MAIN SITE 301 REDIRECTS ===
+# Place this block ABOVE "# BEGIN WordPress" in old.visa4bali.com/public_html/.htaccess
+# All permanent (301). Transfers ranking authority to main domain.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# --- EN pages ---
+RewriteRule ^about-us/?$ https://visa4bali.com/about-us/ [R=301,L]
+RewriteRule ^contact-us/?$ https://visa4bali.com/contact-us/ [R=301,L]
+RewriteRule ^our-team/?$ https://visa4bali.com/about-us/ [R=301,L]
+RewriteRule ^visa-services/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^business-services/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^tour-trip-service/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^shop/?$ https://visa4bali.com/shop/ [R=301,L]
+RewriteRule ^cart/?$ https://visa4bali.com/shop/ [R=301,L]
+RewriteRule ^checkout/?$ https://visa4bali.com/shop/ [R=301,L]
+RewriteRule ^my-account/?$ https://visa4bali.com/ [R=301,L]
+RewriteRule ^term-conditions/?$ https://visa4bali.com/privacy-policy/ [R=301,L]
+RewriteRule ^refund_returns/?$ https://visa4bali.com/privacy-policy/ [R=301,L]
+RewriteRule ^exit-permit-epo-for-kitas-holders/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^family-kitas-c-317c-318/?$ https://visa4bali.com/product/family-visa/ [R=301,L]
+RewriteRule ^family-kitas-for-children-conversion/?$ https://visa4bali.com/product/family-visa/ [R=301,L]
+RewriteRule ^retirement-visa-c-319/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^artist-visa/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^student-kitas-c-316/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^working-visa-kitas-c-312/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^pt-private-limited/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^pma-foreign-investment/?$ https://visa4bali.com/our-services/ [R=301,L]
+
+# --- EN products ---
+RewriteRule ^product/visa4bali-onshore/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^product/visa4bali-offshore/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^product/social-visa-b-211/?$ https://visa4bali.com/product/c12-d12-visa/ [R=301,L]
+RewriteRule ^product/visa-on-arrival-extension/?$ https://visa4bali.com/product/e-voa-30-days/ [R=301,L]
+RewriteRule ^product/offshore-business-visa-d212/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^product/kitas-investor-313-314/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^product/overstay-fee/?$ https://visa4bali.com/our-services/ [R=301,L]
+
+# --- RU pages ---
+RewriteRule ^ru/mainpage-ru/?$ https://visa4bali.com/ [R=301,L]
+RewriteRule ^ru/about-us-2/?$ https://visa4bali.com/about-us/ [R=301,L]
+RewriteRule ^ru/contact-us-ru/?$ https://visa4bali.com/contact-us/ [R=301,L]
+RewriteRule ^ru/visa-services-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/business-services-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/artist-visa-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/exit-permit-epo-for-kitas-holders-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/family-kitas-c-317c-318-ru/?$ https://visa4bali.com/product/family-visa/ [R=301,L]
+RewriteRule ^ru/family-kitas-for-children-conversion-ru/?$ https://visa4bali.com/product/family-visa/ [R=301,L]
+RewriteRule ^ru/retirement-visa-c-319-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/student-kitas-c-316-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/working-visa-kitas-c-312-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/pt-private-limited-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/pma-foreign-investment-ru/?$ https://visa4bali.com/our-services/ [R=301,L]
+RewriteRule ^ru/term-conditions-ru/?$ https://visa4bali.com/privacy-policy/ [R=301,L]
+
+# --- RU products (clean 1:1 to main -ru slugs) ---
+RewriteRule ^ru/product/visa-on-arrival-extension-ru/?$ https://visa4bali.com/product/visa-on-arrival-extension-ru/ [R=301,L]
+RewriteRule ^ru/product/social-visa-b-211-ru/?$ https://visa4bali.com/product/social-visa-b-211-ru/ [R=301,L]
+RewriteRule ^ru/product/visa4bali-offshore-ru/?$ https://visa4bali.com/product/visa4bali-offshore-ru/ [R=301,L]
+RewriteRule ^ru/product/visa4bali-onshore-ru/?$ https://visa4bali.com/product/visa4bali-onshore-ru/ [R=301,L]
+RewriteRule ^ru/product/offshore-business-visa-d212-ru/?$ https://visa4bali.com/product/offshore-business-visa-d212-ru/ [R=301,L]
+RewriteRule ^ru/product/overstay-fee-ru/?$ https://visa4bali.com/product/overstay-fee-ru/ [R=301,L]
+
+# --- CATCH-ALL: any other old page (incl homepage) → main homepage ---
+# Keeps wp-admin/wp-login reachable so you can still manage the old site.
+RewriteCond %{REQUEST_URI} !^/wp-admin [NC]
+RewriteCond %{REQUEST_URI} !^/wp-login\.php [NC]
+RewriteCond %{REQUEST_URI} !^/wp-content [NC]
+RewriteCond %{REQUEST_URI} !^/wp-includes [NC]
+RewriteRule ^(.*)$ https://visa4bali.com/ [R=301,L]
+</IfModule>
+
+# === END 301 REDIRECTS ===
