@@ -135,6 +135,73 @@
     line-height:1.5 !important;
   }
 
+  /* --- 8. Tap targets reach 44px ----------------------------------------------
+     Round 3 #11, added 2026-08-15. Measured logged-out at 390 before the
+     change: 19 of 27 interactive elements on the homepage were under 44px and
+     9 were under 30px; 16 of 17 on /about-us/.
+
+     Every selector below was read off the live DOM rather than guessed. The
+     measured offenders were: hamburger 26x24, drawer menu items 320x42, close
+     button 45x41, cart toggle 64x42, video button 42x42, "Watch Intro" 104x12,
+     "Service Detail" 139x15, accordion header 320x23, social icons 38x38, and
+     footer icon-list links at 24px.
+
+     min-height alone is not enough: several of these are inline-block, so the
+     label would sit at the top of the enlarged box with dead space beneath.
+     They are switched to a flex box and centred.
+
+     Note this only reaches elements that are links. Icon-list *items* that are
+     plain text — the feature lists on /our-services/, the address and opening
+     hours in the footer — are untouched, which is why those lists do not grow. */
+  .elementor-icon-list-item > a,
+  .elementor-social-icon,
+  .elementor-button,
+  .jkit-hamburger-menu,
+  .jkit-close-menu,
+  .jkit-video-popup-btn,
+  .icon-box-link,
+  .jkit-nav-menu .menu-item > a,
+  .card-header-button{
+    min-height:44px;
+  }
+  .elementor-social-icon,
+  .elementor-button,
+  .jkit-video-popup-btn,
+  .icon-box-link{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+  }
+  .elementor-icon-list-item > a,
+  .card-header-button,
+  .jkit-nav-menu .menu-item > a{
+    display:flex !important;
+    align-items:center;
+  }
+  .jkit-hamburger-menu,
+  .jkit-close-menu{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    min-width:44px;
+  }
+  .elementor-social-icon,
+  .jkit-video-popup-btn{
+    min-width:44px;
+  }
+
+  /* The logo. Checked first: `.elementor-widget-image a` matches exactly one
+     element per page — the header logo linking home — so this is narrow, not a
+     blanket rule on images. It renders 35x35 on /about-us/ and 75px on the
+     homepage, where min-height changes nothing.
+     Separately, every one of those logos carries alt="", so the link has no
+     accessible name at all. That is a content fix, tracked under #22. */
+  .elementor-widget-image a{
+    min-height:44px;
+    display:inline-flex !important;
+    align-items:center;
+  }
+
 }
 
 /* --- 6. Footer mount --------------------------------------------------------

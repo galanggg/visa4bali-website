@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Round 2 is complete** — footer consolidated across all 10 page types, #4, #5 and #15 shipped and verified, #3 closed as not reproducing. Next up is Round 3, unless the owner wants the header consolidation first.
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2 complete. **Round 3 in progress** — #17 (body text 16px) and #11 (44px tap targets) shipped and verified. Remaining: #18 (blocked on an owner decision), #9, #23.
 
 ---
 
@@ -25,7 +25,7 @@ Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17) and **section 8** (44px tap targets, #11), both inside the mobile query. Now 9,732 chars, sha256 `c64d2f18`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -166,15 +166,51 @@ Rollback is deleting menu item **2109** — no export needed, the change is pure
 
 ~~⚠️ Footer is **duplicated per page**~~ — resolved 2026-08-15, see above. The earlier note that `/product/*` used "a third variant" was half right: it was a second variant, and `/shop/` turned out to have no Elementor footer at all.
 
-### ⬜ Round 3 — consistency
+### 🔶 Round 3 — consistency (in progress)
 
-| # | Fix |
+#### ✅ #17 — body text 16px, and #11 — 44px tap targets (shipped 2026-08-15)
+
+Both are CSS-only, added as **sections 7 and 8** of WPCode snippet 2054 inside the existing `max-width:767px` query. Disabling the snippet still reverts everything. The editor's content was SHA-256 hashed against [`round1-mobile.css`](round1-mobile.css) before every save and again after reload, so the mirror is known-exact rather than assumed.
+
+**#17.** Measured at 390 before the change: 181 body-text elements on the homepage at 14px/21px against a single one at 16px; every body element on the other three primary pages at 14px. **Desktop was already 16px**, so this makes mobile match desktop rather than inventing a scale.
+
+Written as an explicit selector list, not a blanket bump — several heading tags here are small labels (H6 at 14px ×20 on `/about-us/`, H5 at 11px on `/our-services/`) and the accordion's `.title` is 18px, all of which a flat rule would have resized or shrunk. Verified beforehand that every element the selectors match was at 14px.
+
+Left at 14px deliberately: `jkit_fun_fact .title`, a caption under a large counter. (Its copy reads "Success**full** Visa & Extension Created" — a spelling error, owner's call to fix.)
+
+**#11.** Every selector was read off the live DOM. Measured offenders: hamburger 26×24, drawer menu items 320×42, close button 45×41, cart toggle 64×42, video button 42×42, `Watch Intro` 104×**12**, `Service Detail` 139×**15**, accordion header 320×23, social icons 38×38, footer links 24px, and the `/about-us/` logo 35×35. `min-height` alone was not enough — several are `inline-block`, so the label would have sat at the top of an enlarged box; those are switched to a centred flex box.
+
+Only *links* are reached, which is why plain-text icon-list items — the feature lists on `/our-services/`, the address and opening hours in the footer — did not grow.
+
+| Page | Tap targets under 44px | Body text | Page height | Overflow |
+|---|---|---|---|---|
+| `/` | **19 of 27 → 0 of 30** | 78 elements now 16px | 9,037 → 9,780px | 0 |
+| `/about-us/` | **16 of 17 → 0 of 17** | 12 elements | 16,365 → 16,815px | 0 |
+| `/our-services/` | → **0 of 26** | 21 elements | 9,257 → 9,535px | 0 |
+| `/contact-us/` | → **0 of 26** | 10 elements | 4,407 → 4,640px | 0 |
+
+Footer grew 1,083 → 1,298px on mobile, from six links gaining vertical padding.
+
+Desktop 1440 re-checked after both changes: footer still 978px, social icons still 38×38, footer links still 24px, nav items still 40px — all identical to the pre-change values. Nothing crossed the breakpoint.
+
+#### Remaining in Round 3
+
+| # | Fix | Note |
+|---|---|---|
+| 18 | Heading scale | ⚠️ **Needs an owner decision, not a sweep** — see the inventory below |
+| 9 | About Us team grid → 2 columns | 20 team widgets, each 350px wide in a single column, together **8,400px of the page's 16,815px**. Two columns would cut roughly 4,200px. |
+| 23 | Label both office locations on Contact | Lombok branch confirmed real by owner, currently an unlabelled second map |
+
+**#18 inventory, measured at 390.** The audit's "H2 renders at 48 / 32 / 28px" understated it — heading tags are used for both headings and small labels, so no tag-based rule is safe:
+
+| Page | Headings as rendered |
 |---|---|
-| 11 | Tap targets to 44px (26 on `/`, 31 on `/our-services/`, 20 on `/about-us/`) |
-| 17 | Body text 14px → 16px |
-| 18 | Heading scale (H2 renders at 48 / 32 / 28px) |
-| 9 | About Us team grid → 2 columns (page is 16,897px tall on mobile) |
-| 23 | Label both office locations on Contact — Lombok branch confirmed real by owner, currently an unlabelled second map |
+| `/` | H1 30 · H2 30 · H2 28 · H3 24 · H4 18 |
+| `/about-us/` | H1 36 · H2 32 ×2 · H3 20 ×21 · H4 18 ×2 · H5 **11** ×2 · H6 **14** ×20 |
+| `/our-services/` | H1 36 · H2 32 · H2 20 · H2 **16** · H3 24 ×2 · H3 20 ×10 · H3 **14** ×2 · H4 18 ×2 · H5 **11** ×2 · H6 16 |
+| `/contact-us/` | H1 36 · H3 26 ×2 · H3 24 · H3 20 · H4 18 ×2 · H6 20 ×3 |
+
+The bolded ones are labels wearing heading tags. Fixing this means choosing a scale and applying it per widget, and deciding whether the mislabelled ones become non-headings — a design and structure decision.
 
 ### ⬜ Round 4 — cleanup
 
