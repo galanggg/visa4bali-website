@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2 complete. **Round 3 in progress** — #17 (body text 16px), #11 (44px tap targets) and #9 (About Us team grid) shipped and verified. Remaining: #18 (blocked on an owner decision) and #23.
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Rounds 1, 2 and 3 are all complete and verified.** Remaining work is Round 4 (cleanup), the deferred items, and the open question of consolidating the header the way the footer was.
 
 ---
 
@@ -25,7 +25,7 @@ Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9), all inside the mobile query. Now 12,309 chars, sha256 `f532d983`. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Now 14,378 chars, sha256 `9286c47e`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -166,7 +166,7 @@ Rollback is deleting menu item **2109** — no export needed, the change is pure
 
 ~~⚠️ Footer is **duplicated per page**~~ — resolved 2026-08-15, see above. The earlier note that `/product/*` used "a third variant" was half right: it was a second variant, and `/shop/` turned out to have no Elementor footer at all.
 
-### 🔶 Round 3 — consistency (in progress)
+### ✅ Round 3 — consistency (complete 2026-08-15)
 
 #### ✅ #17 — body text 16px, and #11 — 44px tap targets (shipped 2026-08-15)
 
@@ -193,12 +193,41 @@ Footer grew 1,083 → 1,298px on mobile, from six links gaining vertical padding
 
 Desktop 1440 re-checked after both changes: footer still 978px, social icons still 38×38, footer links still 24px, nav items still 40px — all identical to the pre-change values. Nothing crossed the breakpoint.
 
-#### Remaining in Round 3
+#### ✅ #23 — both office locations labelled (shipped 2026-08-15)
 
-| # | Fix | Note |
+The map section on `/contact-us/` (`265a4e2f` → column `1bf733c1`) contained **nothing but the two map widgets** — no heading of any kind, so neither map was identified.
+
+The second map points at `J2WR+4W Gili Indah, North Lombok Regency, West Nusa Tenggara`. Searching every page for "lombok", "gili", "branch", "office" and "cabang" found **no mention anywhere** — `/about-us/` still describes the company as "a visa agency based in Jimbaran, Bali". So there was no source on the site for what the second location is, and naming it was the owner's call, not an inference. Owner chose the head-office / branch framing.
+
+Two `heading` widgets added to page 193, H3, inheriting the same global typography and colour as the existing `Contact Information` heading:
+
+| Position | Text | Widget |
 |---|---|---|
-| 18 | Heading scale | ⚠️ **Needs an owner decision, not a sweep** — see the inventory below |
-| 23 | Label both office locations on Contact | Lombok branch confirmed real by owner, currently an unlabelled second map |
+| above map `152f4d4c` | **Head Office Bali** | `4c5102b` |
+| above map `2e2099a` | **Branch Office Lombok** | `52634c8` |
+
+Rollback is deleting those two widgets. Note the Lombok street address still appears nowhere in text — only inside the map embed.
+
+#### ✅ #18 — heading scale (shipped 2026-08-15)
+
+Owner chose the CSS-only route. **Measuring changed what "unify" meant.** The site already has a scale and mostly keeps to it — **H1 36 / H2 32 / H3 24 / H4 18**, with H5 11 as a consistent eyebrow on `/`, `/about-us/` and `/our-services/`. The audit's "H2 renders at 48 / 32 / 28" described a page Round 1 has since changed. The scale I proposed in the decision preview (32 / 26 / 20) would have moved more headings than it fixed, so the existing scale was kept and eight strays brought onto it:
+
+| Page | Heading | Was | Now |
+|---|---|---|---|
+| `/` | We provide an easy process | H2 28 | 32 |
+| `/` | Easy and stress-free visa process | H4 20 | 18 |
+| `/` | Problem Solver for your visa issue | H4 20 | 18 |
+| `/contact-us/` | Your Details | H3 26 | 24 |
+| `/contact-us/` | How can we help? | H3 26 | 24 |
+| `/contact-us/` | Follow our social media : | H3 20 | 24 |
+| `/contact-us/` | Head Office Bali | H3 20 | 24 |
+| `/contact-us/` | Branch Office Lombok | H3 20 | 24 |
+
+**Per element, not per tag, and deliberately so.** `heading.default` serves both section headings and labels: on `/our-services/` an H2 holds the step number "04" at 20px and another holds a footnote at 16px; on `/about-us/` H3 is a team member's name. A tag-based rule would have inflated all of them.
+
+Left alone on purpose: the homepage hero H1/H2 at 30px — Round 1 forced that down from 48px because "To Travel to Bali" rendered clipped, and re-verified after this change that it still fits exactly (scrollWidth 310 = width 310); the H5 11px eyebrows, already consistent; and card-level headings from `jkit_icon_box`, `jkit_heading` and `jkit_team`.
+
+`/contact-us/` now reads H1 36 · H3 24 ×6 · H4 18. Desktop re-checked: the three homepage elements still render 40 / 20 / 20px, untouched. Extending the tidy-up to desktop is a separate decision.
 
 #### ✅ #9 — About Us team grid, two columns (shipped 2026-08-15)
 

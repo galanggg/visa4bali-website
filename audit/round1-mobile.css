@@ -252,6 +252,41 @@
     margin-top:0 !important;
   }
 
+  /* --- 10. Heading scale ------------------------------------------------------
+     Round 3 #18, added 2026-08-15. Owner chose the CSS-only route: unify the
+     sizes, leave the tag structure alone.
+
+     Measuring changed what "unify" means here. The site already has a scale
+     and mostly keeps to it — H1 36 / H2 32 / H3 24 / H4 18, plus H5 11 as a
+     consistent eyebrow label on /, /about-us/ and /our-services/. The audit's
+     "H2 renders at 48 / 32 / 28" was reading a page that Round 1 has since
+     changed. So rather than imposing a new scale, which would have moved more
+     headings than it fixed, this brings the eight strays onto the existing one.
+
+     Per element, not per tag, and that is deliberate: `heading.default` is
+     used for both section headings and labels. On /our-services/ an H2 holds
+     the step number "04" at 20px and another holds a footnote at 16px; on
+     /about-us/ H3 is a team member's name. A tag rule would have inflated all
+     of those.
+
+     Left alone on purpose:
+     - the homepage hero, H1 and H2 at 30px. Round 1 forced that down from 48px
+       because "To Travel to Bali" rendered clipped; restoring 36/32 would
+       reintroduce the clipping this project already fixed.
+     - H5 11px eyebrows, already consistent across three pages.
+     - card-level headings from jkit_icon_box, jkit_heading and jkit_team.
+
+     Mobile only, like everything else in this snippet. Desktop keeps its
+     current sizes; extending the same tidy-up there is a separate decision. */
+  .elementor-element-3fbc89a4 .elementor-heading-title{ font-size:32px !important; }
+  .elementor-element-2d7e792e .elementor-heading-title,
+  .elementor-element-188522e1 .elementor-heading-title{ font-size:18px !important; }
+  .elementor-element-77426f75 .elementor-heading-title,
+  .elementor-element-5feaf3ea .elementor-heading-title,
+  .elementor-element-59382e75 .elementor-heading-title,
+  .elementor-element-4c5102b .elementor-heading-title,
+  .elementor-element-52634c8 .elementor-heading-title{ font-size:24px !important; }
+
 }
 
 /* --- 6. Footer mount --------------------------------------------------------
