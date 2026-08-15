@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2 complete. **Round 3 in progress** — #17 (body text 16px) and #11 (44px tap targets) shipped and verified. Remaining: #18 (blocked on an owner decision), #9, #23.
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2 complete. **Round 3 in progress** — #17 (body text 16px), #11 (44px tap targets) and #9 (About Us team grid) shipped and verified. Remaining: #18 (blocked on an owner decision) and #23.
 
 ---
 
@@ -25,7 +25,7 @@ Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17) and **section 8** (44px tap targets, #11), both inside the mobile query. Now 9,732 chars, sha256 `c64d2f18`. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9), all inside the mobile query. Now 12,309 chars, sha256 `f532d983`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -198,8 +198,22 @@ Desktop 1440 re-checked after both changes: footer still 978px, social icons sti
 | # | Fix | Note |
 |---|---|---|
 | 18 | Heading scale | ⚠️ **Needs an owner decision, not a sweep** — see the inventory below |
-| 9 | About Us team grid → 2 columns | 20 team widgets, each 350px wide in a single column, together **8,400px of the page's 16,815px**. Two columns would cut roughly 4,200px. |
 | 23 | Label both office locations on Contact | Lombok branch confirmed real by owner, currently an unlabelled second map |
+
+#### ✅ #9 — About Us team grid, two columns (shipped 2026-08-15)
+
+**Page 16,815 → 11,642px, 19.8 → 13.8 phone screens.** Section 9 of the snippet, mobile only.
+
+A plain 50%-width rule was not enough, and that only became visible by measuring: the 20 cards are not one grid but **eight inner sections** holding 3/1/3/3/3/2/3/2 columns. Halving the width gave rows of 2, then 1, then 2, then 1 — 13,249px and visibly ragged. The fix removes those eight sections and their containers from the box tree with `display:contents`, making all 20 columns siblings of one wrapping flex row. Result: **10 rows of exactly 2**, uniform 169px cards at x=20 and x=201, gutter intact at 20px.
+
+Two things checked rather than assumed:
+
+- **The cards are layered compositions.** Each column holds a `jkit_team` block, a heading, an absolutely-positioned photo overlay at a fixed `left:-32px`, and an absolutely-positioned 210px spacer. I first suspected those 20 spacers were 4,200px of dead height — measuring showed they are `position:absolute` and cost nothing. Narrowing the column also did not break the overlay: it is sized in percentages and tracks the column.
+- **Cards came out staggered by 20px.** Not a design choice — desktop has no stagger. Elementor puts `margin-top:20px` on the widget-wrap of every column after the first, to space them while stacked; side by side it reads as misalignment. Zeroed, with row spacing moved to the flex gap.
+
+`fd36e36` is the wrapper column, confirmed to appear on `/about-us/` only. A trailing empty 1px section rides along in the flatten; it is last in the order so it displaces nothing, but a card added after it would land after it.
+
+Desktop 1440 re-checked: inner sections still `display:block`, still 3/1/3/3/3/2/3/2 at the original 423 / 1270 / 635px widths. Nothing crossed the breakpoint. Tap targets on the page remain 0 under 44px, overflow 0.
 
 **#18 inventory, measured at 390.** The audit's "H2 renders at 48 / 32 / 28px" understated it — heading tags are used for both headings and small labels, so no tag-based rule is safe:
 

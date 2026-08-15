@@ -202,6 +202,56 @@
     align-items:center;
   }
 
+  /* --- 9. About Us team grid: two columns -------------------------------------
+     Round 3 #9, added 2026-08-15. The team area was 20 cards stacked one per
+     row, 16,815px of a 16,815px page — 19.8 phone screens to scroll past.
+
+     The obstacle is structural, and it is why a plain 50%-width rule is not
+     enough. The 20 cards are not one grid: they sit in **eight** inner
+     sections holding 3/1/3/3/3/2/3/2 columns. Halving the column width alone
+     produces rows of 2 then 1, then 2 then 1 — measured, 13,249px and visibly
+     ragged. So the eight sections and their containers are removed from the
+     box tree with `display:contents`, which makes all 20 columns siblings in
+     one wrapping flex row. Verified: 10 rows of exactly 2, no exceptions.
+
+     Two things were measured rather than assumed:
+
+     - The cards are layered compositions — the photo overlay is absolutely
+       positioned at a fixed `left:-32px`, so narrowing the column could have
+       broken the alignment. It did not: the overlay is sized in percentages
+       and tracks the column.
+     - Cards in a row came out staggered by 20px. That is not a design choice
+       — desktop has no stagger. Elementor puts `margin-top:20px` on the
+       widget-wrap of every column after the first, to space them while they
+       are stacked. Side by side it becomes a misalignment, so it is zeroed
+       and the row spacing comes from the flex gap instead.
+
+     `fd36e36` is the wrapper column, confirmed present on /about-us/ only.
+     A trailing empty section rides along in the flatten; it is last in the
+     order and 1px tall, so it does not displace any card. If a team member is
+     ever added in a new inner section, it is covered automatically — but a
+     card added *after* that empty section would land after it. */
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-section,
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-section > .elementor-container{
+    display:contents !important;
+  }
+  .elementor-element-fd36e36 > .elementor-widget-wrap{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:flex-start !important;
+    gap:24px 12px !important;
+  }
+  /* the two section headings stay full width */
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-widget{
+    width:100% !important;
+  }
+  .elementor-element-fd36e36 .elementor-column{
+    width:calc(50% - 6px) !important;
+  }
+  .elementor-element-fd36e36 .elementor-column > .elementor-widget-wrap{
+    margin-top:0 !important;
+  }
+
 }
 
 /* --- 6. Footer mount --------------------------------------------------------
