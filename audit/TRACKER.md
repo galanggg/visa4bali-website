@@ -255,6 +255,32 @@ Desktop 1440 re-checked: inner sections still `display:block`, still 3/1/3/3/3/2
 
 The bolded ones are labels wearing heading tags. Fixing this means choosing a scale and applying it per widget, and deciding whether the mislabelled ones become non-headings — a design and structure decision.
 
+### 🐞 Sticky footer — found and fixed 2026-08-15 (owner-reported)
+
+Owner reported a band above the navbar on desktop, dark on `/our-services/`. Root cause: the footer section had **Jeg Elementor Kit's "Sticky Element"** turned on.
+
+```
+jkit_sticky_section = enabled   jkit_sticky_position = fixed
+jkit_sticky_trigger = up        jkit_sticky_device   = desktop   jkit_sticky_zindex = 1
+```
+
+JKit's script pinned the whole footer to the top of the viewport — `position:fixed; top:22px`, full width, 978px tall, behind the page at z-index 1. Its top edge showed as a navy `rgb(8,15,40)` strip above the header, and the `CONTACT US` button sat clipped against it.
+
+It took measuring to find, because hit-testing the strip returned the header section with a **transparent** background and every ancestor up to `body` was transparent or white. Nothing in the normal paint path explained the colour. Sweeping every element for a dark background intersecting the top 90px is what surfaced a `position:fixed` section that had no business being there.
+
+**Not caused by the consolidation, but spread by it.** The exports in [`rollback/`](rollback/), taken *before* deletion, settle it — the setting was already on 4 of the 6 original inline footers:
+
+| Original footer | `jkit_sticky_section` |
+|---|---|
+| home 149 · about-us 155 · contact-us 193 · our-services 102 | **enabled** |
+| basket 336 · product 424 | empty |
+
+Since template 2055 was built from home's footer, the consolidation carried the flag onto all 10 page types, including the six that were previously clean. Turned off on **2055** (`1020e61f`) and **2059** (`14795f19`); `jkit-sticky-element--enabled` now appears **0 times** on all 9 page types.
+
+**Visitors were affected, not just admins.** Logged-out at 1900: on load the footer is in flow at y=4980, but after the visitor scrolls up it pins to `position:fixed; top:22px` and stays pinned. Re-verified after the fix — it stays `relative` through the same scroll-up, and the header sits at y=0.
+
+The residual dark bar in the owner's screenshots at y 0–32 is the WordPress admin bar, which is normal and invisible to visitors.
+
 ### ⬜ Round 4 — cleanup
 
 | # | Fix |
