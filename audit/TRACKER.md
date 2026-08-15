@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2: footer consolidation **complete** across all 10 page types, fixes **#5 and #15 shipped and verified**, **#3 closed as not reproducing**. Remaining in Round 2: **#4** (mobile menu) only.
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Round 2 is complete** — footer consolidated across all 10 page types, #4, #5 and #15 shipped and verified, #3 closed as not reproducing. Next up is Round 3, unless the owner wants the header consolidation first.
 
 ---
 
@@ -53,7 +53,7 @@ Homepage section IDs used: `705659ef` header · `6fd792fa` hero · `a3ec264` her
 
 Desktop 1440 re-measured after the change: identical to baseline. No regression.
 
-### 🔶 Round 2 — mobile conversion path (in progress)
+### ✅ Round 2 — mobile conversion path (complete 2026-08-15)
 
 #### ✅ Footer consolidation — complete, 10 of 10 page types
 
@@ -139,11 +139,30 @@ Re-measured at 390 after Round 1, logged-out. The float sits at x 304–360 / y 
 
 Most likely fixed as a side effect of Round 1 dropping the hero padding from 160px to 56px, which moved the button up. Owner reviewed a live screenshot and agreed it is not a problem. **I had claimed this got worse after the footer rewrite — that was wrong, called from a screenshot rather than measured.**
 
-#### Numbered fixes — remaining in Round 2
+#### ✅ #4 — `CONTACT US` in the mobile menu (shipped 2026-08-15)
 
-| # | Fix | Where | Blocked by |
-|---|---|---|---|
-| 4 | `CONTACT US` missing from mobile menu (desktop has it, mobile menu `#menu-header-menu` has 3 items) | Appearance → Menus, + the jkit mobile header section | ⚠️ **No rollback material exists for menu edits** — the JSON exports cover Elementor page content only |
+**One edit, not five.** The worry that the per-page header duplication would force five edits was wrong: every page — including the three with no branded header, which fall back to hello-elementor — renders the *same* WP menu, `Header Menu` (term **5**, location `menu-1`). The per-page `jkit_nav_menu` widgets differ in element ID but all pull that one menu.
+
+**The cause was not what the audit recorded.** `CONTACT US` was never a menu item that mobile dropped. The WP menu had 3 items at *every* breakpoint. Desktop's `Contact Us` is a separate **button widget** carrying `elementor-hidden-tablet elementor-hidden-mobile` — deliberately hidden. And it only exists on three pages:
+
+| Page | Contact Us button | On mobile |
+|---|---|---|
+| `/` (149) | `3682679` | hidden |
+| `/about-us/` (155) | `1fedbe36` | hidden |
+| `/our-services/` (102) | `285f06e` | hidden |
+| other 6 page types | none at all | — |
+
+So on mobile there was **no route to `/contact-us/` from the header on any page**. Adding one menu item fixed all nine at once.
+
+Owner chose to **keep the desktop CTA button** as well, so desktop now shows both a nav item and the coloured button — a normal pattern, and it avoided three more Elementor edits.
+
+Menu 5 is now `Home (305) · About Us (167) · Our Services (168) · Contact Us (2109)`, all `publish`, in that order. Verified logged-out after a cache purge on all 9 page types, and by opening the hamburger at 390: 4 items visible, `Contact Us` at y=388, tap target **320×42px**, 0 overflow.
+
+Rollback is deleting menu item **2109** — no export needed, the change is purely additive.
+
+⚠️ *My own mess, cleaned up:* the first attempt used `admin-ajax.php?action=add-menu-item`, which only stages a **draft** item; it never joins the menu until the form is saved. That left orphan draft item **2108**, which I then deleted via `DELETE /wp/v2/menu-items/2108?force=true` after confirming it was draft, titled `Contact Us`, and attached to no menu. The working path is the real UI: tick the page, `#submit-posttype-page`, then `#save_menu_footer`.
+
+**Noticed, not acted on:** several page types render the same menu **two or three times** in the DOM (`menu-header-menu`, `-1`, `-2`) — the theme header and the Elementor header both output it. 3 copies on `/our-services/`, `/basket/` and `/product/*`; 2 on `/privacy-policy/`, `/shop/`, `/my-account/`. Pre-existing, invisible to sighted users, but it is repeated navigation for screen readers. Belongs with the header consolidation question.
 
 ~~⚠️ Footer is **duplicated per page**~~ — resolved 2026-08-15, see above. The earlier note that `/product/*` used "a third variant" was half right: it was a second variant, and `/shop/` turned out to have no Elementor footer at all.
 
