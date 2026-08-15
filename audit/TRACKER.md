@@ -25,7 +25,7 @@ Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Now 14,378 chars, sha256 `9286c47e`. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Then **section 11** (header background) and **section 12** (header nav spacing, ≥1025px) for the owner-reported header band — both *outside* the mobile query. Now 17,685 chars, sha256 `e0cec3b9`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -280,6 +280,39 @@ Since template 2055 was built from home's footer, the consolidation carried the 
 **Visitors were affected, not just admins.** Logged-out at 1900: on load the footer is in flow at y=4980, but after the visitor scrolls up it pins to `position:fixed; top:22px` and stays pinned. Re-verified after the fix — it stays `relative` through the same scroll-up, and the header sits at y=0.
 
 The residual dark bar in the owner's screenshots at y 0–32 is the WordPress admin bar, which is normal and invisible to visitors.
+
+### 🐞 Header overlap band — found and fixed 2026-08-15 (owner-reported)
+
+Owner reported a pale strip above the navbar, present on `/` but not on `/contact-us/`.
+
+**Mechanism.** Every page header carries a fixed negative bottom margin so it sits *over* the section beneath it — the transparent-header-over-hero pattern. Desktop uses `-99px`, mobile `-76px`. But the header's right column is a **wrapping flex row**, so when its contents stop fitting on one line the header grows taller than that fixed overlap, and the difference is left above the hero's background, exposing the white body behind:
+
+```
+band height = header height − overlap
+```
+
+Usable width in that column is **853px** — the column measures 873px but its widget-wrap has `padding:10px` with `border-box`. Contents need **886px** on `/` and `/our-services/` (they carry the cart widget) and 787px on `/about-us/` and `/contact-us/`. The container is capped at 1290px, so on the cart pages no viewport width could ever make it fit.
+
+Finding it needed measurement, not inspection: hit-testing the strip returned the header section with a **transparent** background and every ancestor up to `body` was transparent or white, so nothing in the paint path explained it. The geometry did.
+
+| Width | `/` · `/our-services/` | `/about-us/` · `/contact-us/` |
+|---|---|---|
+| 1900 | 38px (0 before fix #4) | 0 |
+| 1300 | 38px (0 before fix #4) | 0 |
+| 1150 | 40px | 40px |
+| 1025 | 40px (**38px before fix #4**) | 40px |
+| 390 | 35px | 35px |
+
+**Partly mine.** Adding `Contact Us` to the WP menu for #4 added a 157px item to a row with 144px of slack. Below roughly 1100px the band already existed; above it, my change is what introduced it — and on the cart pages it pushed the requirement past the container cap, so it showed at every desktop width. My first report of this said the whole thing was my doing; measuring at 1025 with the item hidden showed a 38px band still there, which corrected that.
+
+**Fixed in two parts, because neither alone covers the range** — sections **11** and **12** of snippet 2054:
+
+- **11, background.** The four overlapping headers (`705659ef`, `3235a6ef`, `8463f45`, `2b01d8b7`) are painted `#f5f7fb`, the exact flat colour of the section beneath each — verified on all four, no background images. Any residual shortfall is now invisible at any width and any header height. `/basket/` and `/product/*` headers are **excluded on purpose**: they use `margin-bottom:0`, overlap nothing, and sit on white, so painting them would create a strip that is not there today.
+- **12, spacing.** Nav item left margin `30px → 18px` at ≥1025px frees 48px, so menu + button + cart fit one line and the header stays 95px. Tuned by measurement — 22px left 854px against 853 and still wrapped by a single pixel. Desktop only; the mobile drawer keeps its own spacing and its 44px tap targets from section 8.
+
+Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4, band 0. `/` and `/contact-us/` at 1150 → header still 139px but header and section colours identical, nothing visible. `/` at 390 → same, drawer items still 44px. `/basket/` → header still transparent, widgets on one row, 0 overflow.
+
+**Still fragile by design.** The overlap is a hard-coded number that assumes a single-row header. Section 11 is what makes that safe to live with; anything that widens the header row again will wrap silently rather than show a strip.
 
 ### ⬜ Round 4 — cleanup
 

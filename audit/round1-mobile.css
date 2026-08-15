@@ -312,3 +312,68 @@
 .elementor .v4b-footer-mount > .elementor-container > .elementor-column > .elementor-widget-wrap{
   padding:0 !important;
 }
+
+/* --- 11. Header overlap band ------------------------------------------------
+   Owner-reported 2026-08-15: a pale strip across the top of the page, above
+   the navbar, on some pages and not others.
+
+   Mechanism, measured on all four pages. The header section carries a fixed
+   negative bottom margin so it sits *over* the section beneath it — the usual
+   transparent-header-over-hero pattern. Desktop uses -99px, mobile -76px. But
+   the header's right column is a wrapping flex row (menu + CONTACT US button
+   + cart), so when its contents no longer fit on one line the header grows
+   taller than that fixed overlap. Whatever it grows by is left sitting above
+   the hero's background, showing the bare white body behind it.
+
+       band height = header height - overlap
+
+   Space in that column is 873px at the 1290px container cap. Contents need
+   886px on / and /our-services/ (they carry the cart widget) and 787px on
+   /about-us/ and /contact-us/, so the widest layout is already 13px short on
+   the cart pages and no viewport width can fix it — the container is capped.
+   Measured: 38px band at 1900 and 1300, 40px at 1150 and 1025, 35px at 390.
+
+   Two parts to the fix, because neither alone is enough:
+
+   1. This rule. The header is painted the same colour as the section beneath
+      it, so any residual overlap shortfall is invisible at any width and any
+      header height. Verified: all four of these pages use a flat
+      rgb(245,247,251) with no background image on the section below.
+   2. Section 12, which tightens the nav spacing so the header stays one row
+      at normal desktop widths. That restores the intended layout; on its own
+      it could not cover 1025-1200, where the band predates this project.
+
+   Deliberately scoped to these four header IDs. The /basket/ and /product/*
+   headers (d400355, 2ff20782) have margin-bottom:0 — they do not overlap
+   anything, and their pages sit on white, so painting them would *create* a
+   strip that is not there today. */
+.elementor-element-705659ef,
+.elementor-element-3235a6ef,
+.elementor-element-8463f45,
+.elementor-element-2b01d8b7{
+  background-color:#f5f7fb !important;
+}
+
+/* --- 12. Header nav spacing -------------------------------------------------
+   Frees 48px in the header's right column (12px off each of the four nav
+   items' left margin, 30px -> 18px) so menu + button + cart fit on one line
+   again and the header stays 95px instead of 137px.
+
+   The usable width is 853px, not the 873px the column measures: its
+   widget-wrap carries padding:10px with border-box. Contents needed 886px.
+   Measured while tuning — 22px left 854px against 853 and still wrapped by a
+   single pixel; 18px lands at 838px, 15px clear.
+
+   Desktop only. The mobile drawer uses different spacing — margin 0 0 10px,
+   padding 15px — and its items were brought to a 44px tap target in section 8;
+   this must not eat into that.
+
+   Adding "Contact Us" to the WP menu for fix #4 is what pushed the row over:
+   that item is 157px wide and the column only had 144px of slack. The real
+   fragility is older than that — a hard-coded overlap that assumes a
+   single-row header. Section 11 is what makes it safe. */
+@media (min-width:1025px){
+  .jkit-nav-menu .jkit-menu > li > a{
+    margin-left:18px !important;
+  }
+}
