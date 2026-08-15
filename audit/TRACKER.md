@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2: footer consolidation **complete** across all 10 page types, and fixes **#5 and #15 shipped and verified**. Remaining in Round 2: **#3** (WhatsApp float) and **#4** (mobile menu).
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. Round 2: footer consolidation **complete** across all 10 page types, fixes **#5 and #15 shipped and verified**, **#3 closed as not reproducing**. Remaining in Round 2: **#4** (mobile menu) only.
 
 ---
 
@@ -124,18 +124,25 @@ Verified logged-out in an isolated context across **all 10 page types** plus a r
 
 Rollback: the deleted `Support` column is exported for both templates in [`rollback/`](rollback/).
 
-**Two things this surfaced, neither acted on:**
-
-- **#3 got more urgent.** The WhatsApp float now covers *working* links on mobile — it sits over `Our Services` and `Contact` in the footer, not just the hero button. Before this change those links were dead, so the overlap cost nothing.
-- Footer link rows are **21px tall**, well under the 44px target. That is Round 3 #11, unchanged by this work, but it now applies to links people will actually try to tap.
+**One thing this surfaced, not acted on:** footer link rows are **21px tall**, well under the 44px target. That is Round 3 #11, unchanged by this work, but it now applies to links people will actually try to tap.
 
 Also observed and left alone: the footer row carries an explicit mobile column reversal (computed `order: 10 / 9 / 8`), so on mobile the stack reads Contact Info → Quick Links → logo/social/copyright. Pre-existing and deliberate-looking.
+
+#### ❌ #3 — WhatsApp float overlap: closed, does not reproduce (2026-08-15)
+
+Re-measured at 390 after Round 1, logged-out. The float sits at x 304–360 / y 758–814, with its "Need Help? Chat with us" label extending the zone left to x=141.
+
+- **Homepage at scroll 0:** `EXPLORE NOW` occupies y 599–653. The float is 105px below it. Nothing at all intersects the float zone.
+- **Full-page sweep, 31 scroll positions over 9,037px:** the only element persistently under the float is the float's own label. Every other element registers at exactly 1 of 31 positions — i.e. it passes underneath while scrolling, which is inherent to any fixed element. `EXPLORE NOW` never registers.
+- **No "pricing footnote" exists** on the page to be covered.
+- **Footer:** link *text* ends at x ≤ 243; only the anchors' empty right margin (x 304–346) meets the float. No text is ever obscured.
+
+Most likely fixed as a side effect of Round 1 dropping the hero padding from 160px to 56px, which moved the button up. Owner reviewed a live screenshot and agreed it is not a problem. **I had claimed this got worse after the footer rewrite — that was wrong, called from a screenshot rather than measured.**
 
 #### Numbered fixes — remaining in Round 2
 
 | # | Fix | Where | Blocked by |
 |---|---|---|---|
-| 3 | WhatsApp float widget covers `EXPLORE NOW`, the pricing footnote, and now the footer's Quick Links | WP admin → WhatsApp → Floating Widget; or CSS | — |
 | 4 | `CONTACT US` missing from mobile menu (desktop has it, mobile menu `#menu-header-menu` has 3 items) | Appearance → Menus, + the jkit mobile header section | ⚠️ **No rollback material exists for menu edits** — the JSON exports cover Elementor page content only |
 
 ~~⚠️ Footer is **duplicated per page**~~ — resolved 2026-08-15, see above. The earlier note that `/product/*` used "a third variant" was half right: it was a second variant, and `/shop/` turned out to have no Elementor footer at all.
