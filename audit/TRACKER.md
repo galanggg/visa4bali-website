@@ -3,7 +3,9 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Rounds 1, 2 and 3 are all complete and verified.** Remaining work is Round 4 (cleanup), the deferred items, and the open question of consolidating the header the way the footer was.
+**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Rounds 1, 2 and 3 are all complete and verified**, plus two owner-reported bugs found and fixed the same day (sticky footer, header overlap band). Remaining work is Round 4 (cleanup), the deferred items, and the open question of consolidating the header the way the footer was.
+
+Snippet 2054 now has **12 sections**, 17,685 chars, sha256 `e0cec3b9`. Sections 1–5 and 7–10 are inside `@media (max-width:767px)`; sections 6, 11 and 12 are outside it. Disabling the snippet still reverts every CSS change made by this project.
 
 ---
 
