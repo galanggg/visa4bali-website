@@ -107,6 +107,34 @@
     padding-bottom:32px !important;
   }
 
+  /* --- 7. Body text at a readable size ---------------------------------------
+     Round 3 #17, added 2026-08-15. Measured logged-out at 390 before the
+     change: 181 body-text elements on the homepage rendered at 14px/21px
+     against a single one at 16px, and every body element on /about-us/,
+     /our-services/ and /contact-us/ was 14px.
+
+     Deliberately an explicit selector list rather than a blanket bump. Several
+     heading tags here are used as small labels — H6 at 14px twenty times on
+     /about-us/, H5 at 11px on /our-services/ — and a global rule would resize
+     those silently. Headings stay untouched; the heading scale is #18 and
+     needs a design decision, not a sweep. The accordion's `.title` (18px) is
+     excluded for the same reason: a flat 16px would have shrunk it.
+
+     Verified before writing this: every element these selectors match on all
+     four primary pages was at 14px, so nothing shrinks. MetForm's nested
+     document matches none of them.
+
+     Line-height stays at the existing 1.5 ratio — one variable at a time. */
+  .elementor-widget-text-editor,
+  .elementor-widget-text-editor p,
+  .elementor-widget-icon-list .elementor-icon-list-text,
+  .elementor-widget-jkit_testimonials p,
+  .elementor-widget-jkit_icon_box .icon-box-description,
+  .elementor-widget-jkit_accordion p{
+    font-size:16px !important;
+    line-height:1.5 !important;
+  }
+
 }
 
 /* --- 6. Footer mount --------------------------------------------------------
