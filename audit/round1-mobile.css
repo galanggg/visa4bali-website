@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Visa4Bali — Round 1: mobile spacing normalisation
+   Added 2026-08-15. Scope: max-width 767px only. Desktop and tablet untouched.
+   Disable this snippet to revert every rule below.
+   Verified live at 360x800 and 390x844 on / , /about-us/ , /our-services/ , /contact-us/
+   ========================================================================== */
+
+@media (max-width: 767px){
+
+  /* --- 1. One mobile gutter --------------------------------------------------
+     Before: widget left edges landed on 18/25/35/36/40/45/50/55px.
+     After:  page content starts at 20px and ends 20px from the right.
+     Section padding goes to 0 so backgrounds stay full-bleed; the gutter
+     lives on the container. Inner sections keep their own padding (that is
+     card padding, not page gutter) but lose Elementor's built-in 15px. */
+  .elementor-section.elementor-top-section{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .elementor-section.elementor-top-section > .elementor-container{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  .elementor-top-column > .elementor-widget-wrap{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .elementor-section.elementor-inner-section > .elementor-container{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  /* MetForm renders its own nested Elementor document inside the contact
+     card. Without this it receives a second 20px gutter and the inputs
+     shrink to 220px. */
+  .metform-form-main-wrapper .elementor-section.elementor-top-section > .elementor-container{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  /* Image widgets carrying a hard pixel width (About Us team photos are
+     400px) must not exceed their column. */
+  .elementor-widget-image.elementor-widget__width-initial{
+    max-width:100% !important;
+  }
+
+  /* --- 2. Hero headings fit the screen ---------------------------------------
+     "To Travel to Bali" was 48px inside a 749px-wide widget on a 390px
+     screen and rendered clipped mid-letter. */
+  .elementor-element-a3ec264{
+    width:100% !important;
+    max-width:100% !important;
+  }
+  .elementor-element-79705f24 .elementor-heading-title,
+  .elementor-element-a3ec264 .elementor-heading-title{
+    font-size:30px !important;
+    line-height:1.15 !important;
+  }
+
+  /* Hero avatar row sat flush against the heading below it. */
+  .elementor-element-7307c6bd,
+  .elementor-element-2b2aacd4,
+  .elementor-element-7d00a154{
+    margin-bottom:10px !important;
+  }
+
+  /* --- 3. Nothing pushes the viewport ----------------------------------------
+     The 64px cart toggle overflowed a 20px slot, forcing 11-13px of
+     horizontal document scroll on every page with the cart widget.
+     The ShopLentor quick-view modal added its own. Both now bounded. */
+  .elementor-widget-woocommerce-menu-cart,
+  .elementor-widget-woocommerce-menu-cart .elementor-widget-container,
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__wrapper{
+    width:max-content !important;
+    max-width:none !important;
+  }
+  #htwlquick-viewmodal{ max-width:100% !important; }
+  #htwlquick-viewmodal .htwl-modal-dialog{ max-width:100% !important; }
+
+  /* --- 4. Hero vertical padding ----------------------------------------------
+     Was 160px top / 100px bottom, pushing the value proposition off-screen. */
+  .elementor-element-6fd792fa{
+    padding-top:56px !important;
+    padding-bottom:56px !important;
+  }
+  /* Pre-footer CTA band, also 160px. */
+  .elementor-element-61463a8e{
+    padding-top:56px !important;
+  }
+
+  /* --- 5. One vertical rhythm -------------------------------------------------
+     32px per section edge = a consistent 64px between sections.
+     Before: gaps ran 20 / 60 / 100 / 100px with no pattern.
+     Scoped per page root, added only after visual verification of that page.
+     149 = home (header + hero excluded), 155 = about, 102 = services,
+     193 = contact. */
+  .elementor-149 .elementor-top-section:not(.elementor-element-705659ef):not(.elementor-element-6fd792fa),
+  .elementor-155 .elementor-top-section,
+  .elementor-102 .elementor-top-section,
+  .elementor-193 .elementor-top-section,
+  /* 2059 = global footer template (Theme Builder), added 2026-08-15 when the
+     footer was consolidated out of the page roots. */
+  .elementor-2059 .elementor-top-section{
+    padding-top:32px !important;
+    padding-bottom:32px !important;
+  }
+
+}
+
+/* --- 6. Footer mount --------------------------------------------------------
+   149, 155 and 193 use the elementor_canvas page template, which renders no
+   theme footer location, so a Theme Builder footer can never appear on them.
+   They mount the shared footer through an Elementor Template widget pointing
+   at library template 2055 instead. That widget adds one wrapper section and
+   column around the real footer, which would otherwise apply the gutter, the
+   rhythm and the container max-width a second time.
+
+   These rules make the wrapper transparent so the footer measures identically
+   to the Theme Builder pages at every breakpoint. Deliberately outside the
+   mobile media query — the double container also shows up on desktop.
+   Verified: footer 1312px tall / first heading at x=30 on mobile 390, and
+   container 1290px on desktop 1440, on all six page types. */
+.elementor .elementor-section.elementor-element.v4b-footer-mount.elementor-top-section{
+  padding:0 !important;
+}
+.elementor .elementor-section.elementor-element.v4b-footer-mount.elementor-top-section > .elementor-container{
+  max-width:none !important;
+  padding:0 !important;
+}
+.elementor .v4b-footer-mount > .elementor-container > .elementor-column > .elementor-widget-wrap{
+  padding:0 !important;
+}

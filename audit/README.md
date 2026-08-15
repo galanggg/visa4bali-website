@@ -20,10 +20,15 @@ Audit of **visa4bali.com** — WordPress-based Bali visa agency site.
 | Analytics | MonsterInsights (Google Analytics) |
 | Other | jeg-elementor-kit, wp-whatsapp, Jetpack, Envato Elements, Hostinger AI tools |
 
+## Start here
+
+**[TRACKER.md](TRACKER.md)** — current state of the UI/UX fix work: what shipped, what's next, live snippet IDs, open questions. Updated 2026-08-15.
+
 ## Audit docs
 
 | Area | File | Top issue |
 |---|---|---|
+| **UI/UX (current)** | [ui-ux-2026-08.md](ui-ux-2026-08.md) | Fresh audit 2026-08-15 — mobile spacing, 27 findings; Round 1 shipped |
 | SEO | [seo.md](seo.md) | Two `<h1>` tags, fragmented headings, thin content |
 | Security | [security.md](security.md) | User enumeration via REST API, readme/xmlrpc exposed |
 | Performance | [performance.md](performance.md) | ~25+ render-blocking CSS files, oversized images, no `lazy` |
