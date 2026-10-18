@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-10-18 · **Current position:** Rounds 1, 2 and 3 complete and verified (2026-08-15), plus two owner-reported bugs fixed the same day (sticky footer, header overlap band). **Round 4 started 2026-10-18: #16 complete** — snippet section 13 for the hidden widgets, and gtag excluded from WP Rocket's Delay JS for the Contact form. Remaining: the rest of Round 4, the deferred items, and the open question of consolidating the header the way the footer was.
+**Last updated:** 2026-10-18 · **Current position:** Rounds 1–3 complete and verified (2026-08-15). **Round 4, 2026-10-18:** #16 ✅, #21 ✅, and #22 partly done — team photos, logos, empty headings and group A, with group B (5 photos of real people) waiting on the owner to name them. **Next:** #20 (Rp0), then #24 and #19 — none re-measured yet, so measure before changing anything. After that: the deferred #12–#14, and the open question of consolidating the header. The owner has declined a site backup (2026-08-15 and 2026-10-18).
 
 Snippet 2054 now has **14 sections**, 19,848 chars, sha256 `7a8f388e`. Sections 1–5 and 7–10 are inside the first `@media (max-width:767px)` block; 6, 11, 12 and 14 are outside it; 13 carries its own `@media (max-width:767px)`. Disabling the snippet still reverts every CSS change made by this project.
 
@@ -322,10 +322,31 @@ Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4,
 |---|---|
 | 16 | ✅ **Complete 2026-10-18** — see below |
 | 20 | Cart reads "Rp0" when empty |
-| 21 | Icon-font labels leak into the accessible name — footer "Jki-facebook-f", contact page "Jki-facebook-light", plus a stray glyph `ףּ` (unverified). **Re-measured 2026-10-18:** the labels are `elementor-screen-only` text (1×1px), *not visible on screen* — screen readers announce the Facebook link as "Jki-facebook-f". The link target `facebook.com/rolly.extension` was **confirmed correct by the owner** on 2026-10-18. |
+| 21 | ✅ **Complete 2026-10-18** — Facebook links announced as "Jki-facebook-f"; Contact Us Facebook icon had no link. See below |
 | 22 | 🟡 **Team photos, logos, empty headings and group A done 2026-10-18** — see below. Remaining: group B, the 5 real-people photos, waiting on the owner for who is in them |
 | 24 | Slider ARIA reads "slide 17 to 18 of 5" |
 | 19 | Container max-width varies 1270 / 1290 / 1310px on desktop |
+
+#### ✅ #21 — Facebook link labels
+
+The August finding was re-measured on 2026-10-18. One claim held up, one turned out false, and one new problem was found.
+
+- **Held up.** Elementor's Social Icons widget builds each link's screen-reader text from the icon's name. Font Awesome icons give clean names ("Instagram", "Tiktok"). JKit icons give `Jki-facebook-f` / `Jki-facebook-light`. This is a screen-reader problem only — the text is `elementor-screen-only`, 1×1px, and was never visible. It affects three widgets:
+  - footer template 2059, widget `17570a22`
+  - library template 2055, widget `3f22845d`
+  - Contact Us 193, widget `cf331a2`
+- **False: the stray glyph `ףּ`.** That is the CSS `content` (U+FB43) of the `jki-facebook-light` icon. The `jkiticon` font has a glyph for it and the icon renders correctly. The audit read the CSS as text.
+- **New: the Contact Us Facebook icon had no `href`.** Instagram and TikTok next to it worked.
+- **Correction:** the Facebook URL is `https://www.facebook.com/rolly.extensionbali`. An earlier note in this session quoted it truncated as `rolly.extension`. The owner re-confirmed the full URL.
+
+**Fix.** On all three widgets, the Facebook item's link got the custom attribute `aria-label|Facebook`. Contact Us also got the same URL as the footer, per the owner. Icons are untouched, so nothing changes visually. The two footer templates stay identical.
+
+Rollback exports, made before editing, are in `rollback/social-icons-*-before.json`. The editor preview does not render `custom_attributes`, so the change could only be proven after publishing.
+
+**Verified logged-out:**
+
+- Served HTML on all 10 page types has `aria-label="Facebook"` and the correct URL.
+- In the accessibility tree, both Contact Us links are named `link "Facebook"`. The leftover `Jki-…` text sits under an `ignored` node.
 
 #### 🟡 #22 — alt text and empty headings
 
