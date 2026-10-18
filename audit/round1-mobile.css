@@ -401,3 +401,23 @@
     animation:none !important;
   }
 }
+
+/* --- 14. Empty JKit team headings (#22) -------------------------------------
+   Every About Us team card is a jkit_team widget whose name, designation and
+   social fields are left blank — the visible name and role come from a
+   separate jkit_heading underneath. JKit still prints the blank fields, so
+   the page carried 20 empty <h3 class="profile-title">, which screen readers
+   list as unnamed headings.
+
+   display:none takes them out of the accessibility tree. All three are 0px
+   tall, so nothing moves: cards stay 420px and the document 10344px at 390,
+   measured with and without the rule. .profile-body itself is left alone —
+   its 20px bottom padding is part of the card spacing.
+
+   All widths, deliberately outside any media query. :empty means a card that
+   ever gets a real name in the widget shows it again. */
+.elementor-widget-jkit_team .profile-body > .profile-title:empty,
+.elementor-widget-jkit_team .profile-body > .profile-designation:empty,
+.elementor-widget-jkit_team .profile-body > .social-list:empty{
+  display:none;
+}

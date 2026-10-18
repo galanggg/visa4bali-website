@@ -5,7 +5,7 @@ Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file 
 
 **Last updated:** 2026-10-18 · **Current position:** Rounds 1, 2 and 3 complete and verified (2026-08-15), plus two owner-reported bugs fixed the same day (sticky footer, header overlap band). **Round 4 started 2026-10-18: #16 complete** — snippet section 13 for the hidden widgets, and gtag excluded from WP Rocket's Delay JS for the Contact form. Remaining: the rest of Round 4, the deferred items, and the open question of consolidating the header the way the footer was.
 
-Snippet 2054 now has **13 sections**, 18,791 chars, sha256 `5936c7c3`. Sections 1–5 and 7–10 are inside the first `@media (max-width:767px)` block; 6, 11 and 12 are outside it; 13 carries its own `@media (max-width:767px)`. Disabling the snippet still reverts every CSS change made by this project.
+Snippet 2054 now has **14 sections**, 19,848 chars, sha256 `7a8f388e`. Sections 1–5 and 7–10 are inside the first `@media (max-width:767px)` block; 6, 11, 12 and 14 are outside it; 13 carries its own `@media (max-width:767px)`. Disabling the snippet still reverts every CSS change made by this project.
 
 ---
 
@@ -27,7 +27,7 @@ Snippet 2054 now has **13 sections**, 18,791 chars, sha256 `5936c7c3`. Sections 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Then **section 11** (header background) and **section 12** (header nav spacing, ≥1025px) for the owner-reported header band — both *outside* the mobile query. 2026-10-18: **section 13** (entrance animations off on mobile, #16) appended in its own mobile query. Now 18,791 chars, sha256 `5936c7c3`. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Then **section 11** (header background) and **section 12** (header nav spacing, ≥1025px) for the owner-reported header band — both *outside* the mobile query. 2026-10-18: **section 13** (entrance animations off on mobile, #16) appended in its own mobile query. Then **section 14** (empty JKit team headings, #22, all widths). Now 19,848 chars, sha256 `7a8f388e`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -322,10 +322,37 @@ Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4,
 |---|---|
 | 16 | ✅ **Complete 2026-10-18** — see below |
 | 20 | Cart reads "Rp0" when empty |
-| 21 | Icon-font labels leak as text — footer "Jki-facebook-f", contact page "Jki-facebook-light" + stray glyph `ףּ` |
-| 22 | About Us: 20 empty headings used as spacers, 46 images with no alt |
+| 21 | Icon-font labels leak into the accessible name — footer "Jki-facebook-f", contact page "Jki-facebook-light", plus a stray glyph `ףּ` (unverified). **Re-measured 2026-10-18:** the labels are `elementor-screen-only` text (1×1px), *not visible on screen* — screen readers announce the Facebook link as "Jki-facebook-f". The link target `facebook.com/rolly.extension` was **confirmed correct by the owner** on 2026-10-18. |
+| 22 | 🟡 **Team photos, logos and empty headings done 2026-10-18** — see below. Remaining: Home and Services content images |
 | 24 | Slider ARIA reads "slide 17 to 18 of 5" |
 | 19 | Container max-width varies 1270 / 1290 / 1310px on desktop |
+
+#### 🟡 #22 — alt text and empty headings
+
+The August finding was re-measured on 2026-10-18 before any change, and two parts of it were wrong.
+
+- **"90 images with no alt" on About Us** is really 46 images plus 44 `<noscript>` copies from WP Rocket's lazyload. The 46 are: 20 team photos (`jkit_team`), 20 `graphic-contour.png` ornaments (decorative, so empty alt is *correct*), 2 logos, and 2 others.
+- **The "20 empty headings used as spacers"** are not spacers. They are `<h3 class="profile-title"></h3>` that JKit prints for every team card, because the widget's own name, designation and social fields are blank. The visible name and role come from a separate `jkit_heading` below each card.
+- **[`alt-text-list.md`](alt-text-list.md) (May) is stale and should not be used.** It invents job titles — Ari as "immigration consultant" where the page says "Assistant Operations" — and lists people no longer on the page.
+
+**Shipped:**
+
+- **Alt text for 22 attachments**, set in the Media Library through REST: 20 team photos as `Name, Role at Visa4Bali`, with name and role taken from the page's own `jkit_heading`; plus logos 816 and 690 as `Visa4Bali logo`. Owner approved the format. One attachment (1473) was probed first, to prove that `jkit_team` renders through `wp_get_attachment_image` and picks up library alt. Before-state is in [`rollback/alt-text-2026-10-18-before.json`](rollback/alt-text-2026-10-18-before.json): all 22 were `""`.
+- **AIOSEO Image SEO rewrites alt on output.** With `altTag.stripPunctuation: true` it drops commas, and converts dashes to spaces, so the page renders `Ari Assistant Operations at Visa4Bali` while the database keeps the comma. The owner chose to leave AIOSEO as it is.
+- **Snippet section 14:** `display:none` on the three `:empty` children of `.profile-body` in `jkit_team`, at all widths.
+
+**Verified logged-out:**
+
+| | 390px | 1440px |
+|---|---|---|
+| Team photos with alt | 20 / 20 | — |
+| Logo alt on About and Home | `Visa4Bali logo` | `Visa4Bali logo` |
+| Exposed empty headings | 0 | 0 |
+| Cards | 420px, same as before | 501px, identical with the rule neutralised |
+| Document height | 10344px, same as before | 9613px, identical with the rule neutralised |
+| Horizontal overflow | 0 | — |
+
+**Remaining:** Home content images (`FENY2-BG`, `NANDA1-BG`, `ORES2`, `Desain-tanpa-judul-13`, `TAM00244`, branch-office client logos), the About secretary/image-box photos, and the Services stock photos.
 
 #### ✅ #16 — content hidden until JS runs
 
@@ -386,7 +413,7 @@ The cost is about +0.2–0.5s LCP, because gtag now downloads during page load. 
 
 1. ~~**Backup**~~ — owner decided 2026-08-15 to proceed without one. Substitute safety net: every deleted section was exported to [`rollback/`](rollback/) and saved as library template 2055 first.
 2. ~~**Footer consolidation**~~ — owner chose to consolidate, then chose option B for the Canvas pages. Complete. **Follow-up worth raising: the header is still duplicated per page**, and consolidating it is the same job over again — plus it is what #4 actually needs.
-3. **About Us photos** — cards for **Ari** and **Rhoga** use the same image. Pre-existing, not caused by Round 1. Wrong upload?
+3. ~~**About Us photos**~~ — cards for **Ari** and **Rhoga** used the same image. On 2026-10-18 they render different files (`ARI.png` 1473, `RHOGA.png` 1474) showing different people, so this looks resolved.
 4. ~~**`EXPLORE NOW`**~~ — owner chose `/our-services/` on 2026-08-15. Shipped.
 
 ---
