@@ -323,7 +323,7 @@ Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4,
 | 16 | ✅ **Complete 2026-10-18** — see below |
 | 20 | Cart reads "Rp0" when empty |
 | 21 | Icon-font labels leak into the accessible name — footer "Jki-facebook-f", contact page "Jki-facebook-light", plus a stray glyph `ףּ` (unverified). **Re-measured 2026-10-18:** the labels are `elementor-screen-only` text (1×1px), *not visible on screen* — screen readers announce the Facebook link as "Jki-facebook-f". The link target `facebook.com/rolly.extension` was **confirmed correct by the owner** on 2026-10-18. |
-| 22 | 🟡 **Team photos, logos and empty headings done 2026-10-18** — see below. Remaining: Home and Services content images |
+| 22 | 🟡 **Team photos, logos, empty headings and group A done 2026-10-18** — see below. Remaining: group B, the 5 real-people photos, waiting on the owner for who is in them |
 | 24 | Slider ARIA reads "slide 17 to 18 of 5" |
 | 19 | Container max-width varies 1270 / 1290 / 1310px on desktop |
 
@@ -352,7 +352,36 @@ The August finding was re-measured on 2026-10-18 before any change, and two part
 | Document height | 10344px, same as before | 9613px, identical with the rule neutralised |
 | Horizontal overflow | 0 | — |
 
-**Remaining:** Home content images (`FENY2-BG`, `NANDA1-BG`, `ORES2`, `Desain-tanpa-judul-13`, `TAM00244`, branch-office client logos), the About secretary/image-box photos, and the Services stock photos.
+**Group A, shipped 2026-10-18 (owner approved).** These 11 attachments had empty stored alt. Before-state is in [`rollback/alt-text-2026-10-18-before-groupA.json`](rollback/alt-text-2026-10-18-before-groupA.json). Alt text was written from what each image actually shows.
+
+| ID | Where | Alt |
+|---|---|---|
+| 602 | Home, partner logos | `Lauren Phoenix Devaiil logo` |
+| 603 | Home, partner logos | `Visa4Bali Jakarta logo` |
+| 604 | Home, partner logos | `Visa4Bali Jaktim logo` |
+| 605 | Home, partner logos | `Visa4Bali Jimbaran logo` |
+| 606 | Home, partner logos | `Visa4Bali Luwuk logo` |
+| 43 | Services, 4 steps | `Consultant reviewing a visa application with a client` |
+| 57 | Services, 4 steps | `Filling in a visa application form` |
+| 58 | Services, 4 steps | `Handshake after a visa application, passport in hand` |
+| 59 | Services, 4 steps | `Handing over a passport and documents for a visa application` |
+| 42 | About, stock photo | `Smiling consultant in a navy suit pointing` |
+| 117 | About, image box, stock photo | `Smiling professional in glasses` |
+
+- The two stock photos are deliberately *not* described as Visa4Bali staff.
+- Before this change, the four Services photos rendered their **filename** as alt (for example `top-view-of-woman-holding-pen-…-e1692632864660.jpg`).
+- One attachment per widget type was probed first, before the rest were written: `jkit_client_logo` (602), `jkit_image_box` (117) and the Elementor custom-size `image` (43). All three read Media Library alt. All 11 were verified in served logged-out HTML.
+- AIOSEO's punctuation stripping applies only to images rendered through `wp_get_attachment_image`, such as the team photos. The Services `image` widget builds its own `<img>`, so its commas survive. This is inconsistent but harmless.
+
+**Group B, waiting on the owner.** These are photos of real people, so the alt needs the owner to say who they are:
+
+| ID | Where | What it shows | Question |
+|---|---|---|---|
+| 589 | Home, "Apply for a Visa" | Woman in the red-and-black uniform; filename `FENY2` | Is this Feny? |
+| 590 | Home, used twice | Woman in the red-and-black uniform; filename `NANDA1` | Is this Nanda? |
+| 595 | Home | Man in the red-and-black uniform; filename `ORES2` | Is this Orest? |
+| 292 | Home, "Best Visa consultant…" | Man in a batik shirt; filename `Desain-tanpa-judul-13` | Who is this? |
+| 321 | Home, FAQ | Two staff in purple uniforms; filename `TAM00244` | Who are they? |
 
 #### ✅ #16 — content hidden until JS runs
 
@@ -411,7 +440,7 @@ The cost is about +0.2–0.5s LCP, because gtag now downloads during page load. 
 
 ## Open questions for the owner
 
-1. ~~**Backup**~~ — owner decided 2026-08-15 to proceed without one. Substitute safety net: every deleted section was exported to [`rollback/`](rollback/) and saved as library template 2055 first.
+1. ~~**Backup**~~ — owner decided 2026-08-15 to proceed without one, and **declined again on 2026-10-18**. Substitute safety net: every deleted section was exported to [`rollback/`](rollback/) and saved as library template 2055 first.
 2. ~~**Footer consolidation**~~ — owner chose to consolidate, then chose option B for the Canvas pages. Complete. **Follow-up worth raising: the header is still duplicated per page**, and consolidating it is the same job over again — plus it is what #4 actually needs.
 3. ~~**About Us photos**~~ — cards for **Ari** and **Rhoga** used the same image. On 2026-10-18 they render different files (`ARI.png` 1473, `RHOGA.png` 1474) showing different people, so this looks resolved.
 4. ~~**`EXPLORE NOW`**~~ — owner chose `/our-services/` on 2026-08-15. Shipped.
