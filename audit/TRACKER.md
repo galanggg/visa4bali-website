@@ -3,9 +3,9 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-08-15 · **Current position:** Round 1 shipped and verified. **Rounds 1, 2 and 3 are all complete and verified**, plus two owner-reported bugs found and fixed the same day (sticky footer, header overlap band). Remaining work is Round 4 (cleanup), the deferred items, and the open question of consolidating the header the way the footer was.
+**Last updated:** 2026-10-18 · **Current position:** Rounds 1, 2 and 3 complete and verified (2026-08-15), plus two owner-reported bugs fixed the same day (sticky footer, header overlap band). **Round 4 started 2026-10-18: #16 mobile half shipped** (snippet section 13); its Contact-form half waits on a WP Rocket probe. Remaining: the rest of Round 4, the deferred items, and the open question of consolidating the header the way the footer was.
 
-Snippet 2054 now has **12 sections**, 17,685 chars, sha256 `e0cec3b9`. Sections 1–5 and 7–10 are inside `@media (max-width:767px)`; sections 6, 11 and 12 are outside it. Disabling the snippet still reverts every CSS change made by this project.
+Snippet 2054 now has **13 sections**, 18,791 chars, sha256 `5936c7c3`. Sections 1–5 and 7–10 are inside the first `@media (max-width:767px)` block; 6, 11 and 12 are outside it; 13 carries its own `@media (max-width:767px)`. Disabling the snippet still reverts every CSS change made by this project.
 
 ---
 
@@ -27,7 +27,7 @@ Snippet 2054 now has **12 sections**, 17,685 chars, sha256 `e0cec3b9`. Sections 
 
 | Artifact | Where | Notes |
 |---|---|---|
-| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Then **section 11** (header background) and **section 12** (header nav spacing, ≥1025px) for the owner-reported header band — both *outside* the mobile query. Now 17,685 chars, sha256 `e0cec3b9`. |
+| WPCode snippet `V4B — Round 1 mobile spacing` | ID **2054**, CSS type, site-wide header, **active** | Source mirrored at [`round1-mobile.css`](round1-mobile.css). Disable to revert all of Round 1. Edited 2026-08-15 for the footer consolidation: `.elementor-2059` added to the vertical-rhythm rule, and a new **section 6** added *outside* the mobile media query to neutralise the `v4b-footer-mount` wrapper. Edited again the same day for Round 3: **section 7** (body text 16px, #17), **section 8** (44px tap targets, #11) and **section 9** (About Us team grid, #9) and **section 10** (heading scale, #18), all inside the mobile query. Then **section 11** (header background) and **section 12** (header nav spacing, ≥1025px) for the owner-reported header band — both *outside* the mobile query. 2026-10-18: **section 13** (entrance animations off on mobile, #16) appended in its own mobile query. Now 18,791 chars, sha256 `5936c7c3`. |
 | Elementor Theme Builder template `V4B — Global Footer` | post **2059**, type `footer`, **published** | Conditions: `Include / Entire Site`, minus `Exclude / Singular / Pages / Home (149)` and `About Us (155)`. Section HTML tag set to `footer` so the page keeps a landmark. ⚠️ Those two excludes are **inert** — Canvas ignores footer locations anyway — and Contact Us (193) has no matching exclude, so the three Canvas pages are treated inconsistently. Harmless today; it would start to matter the moment any of them is switched to Full Width. |
 | Elementor library template `V4B — Footer source (from Home 149) 2026-08-15` | post **2055**, type `section` | **Live**, not just a backup — Home, About Us and Contact Us render it through a Template widget. Also the thing to re-insert if a removal needs undoing. |
 
@@ -316,16 +316,45 @@ Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4,
 
 **Still fragile by design.** The overlap is a hard-coded number that assumes a single-row header. Section 11 is what makes that safe to live with; anything that widens the header row again will wrap silently rather than show a strip.
 
-### ⬜ Round 4 — cleanup
+### 🟡 Round 4 — cleanup (started 2026-10-18)
 
 | # | Fix |
 |---|---|
-| 16 | WP Rocket delays 50 scripts; 16 widgets sit at `visibility:hidden` until first interaction, showing a ~1,100px blank gap on slow connections |
+| 16 | 🟡 **Mobile half shipped 2026-10-18** — see below. Contact Us form still waits on JS |
 | 20 | Cart reads "Rp0" when empty |
 | 21 | Icon-font labels leak as text — footer "Jki-facebook-f", contact page "Jki-facebook-light" + stray glyph `ףּ` |
 | 22 | About Us: 20 empty headings used as spacers, 46 images with no alt |
 | 24 | Slider ARIA reads "slide 17 to 18 of 5" |
 | 19 | Container max-width varies 1270 / 1290 / 1310px on desktop |
+
+#### 🟡 #16 — content hidden until JS runs
+
+The cause was re-measured on 2026-10-18 before any change, logged-out, in cold isolated contexts, at 390px on Fast 3G with 4x CPU. The August write-up was right about the symptom but not the timing.
+
+1. `.elementor-invisible{visibility:hidden}` comes from Elementor's `frontend-lite.min.css`. Served HTML carries it on Home 18, Our Services 15, About Us 10 and Contact Us 1. Before interaction Home had 35 hidden elements and a **1201px** blank band (y 1028–2229).
+2. Only Elementor's `init()` removes the class, and `init()` waits for jQuery ready.
+3. WP Rocket 3.17.2.1 fires its synthetic DOMContentLoaded only after `await A(normal); await A(defer); await A(async)` — so it waits for **every** delayed script, async ones included.
+4. The slowest of those is third-party `googletagmanager.com/gtag/js`. Every first-party delayed script had finished by about 2.4s.
+
+| Run | gtag finished | First widget revealed |
+|---|---|---|
+| Baseline 1 | 9.95s | **10.55s** |
+| Baseline 2 | 4.35s | **4.84s** |
+| Probe, gtag removed | — | 3.47s |
+| Probe, gtag removed | — | 3.45s |
+
+Contact Us has the same chain. The MetForm wrapper is 0px tall before JS runs. The 1269px form appeared at 5.09s, with gtag finishing at 4.69s.
+
+**Shipped (option A, mobile only, owner decision 2026-10-18).** Snippet section 13 contains `.elementor-invisible{visibility:visible}` and `.elementor-element.animated{animation:none}`, scoped to ≤767px. It was probed in the browser first, then applied and verified logged-out on a cold load:
+
+- Home: 0 hidden elements before interaction, and the 1201px band is gone.
+- No flicker when Elementor later adds `.animated`: opacity never dropped below 1.
+- Our Services, About Us and Contact Us: 0 hidden. Overflow 0 on all four.
+- Desktop 1440 is unchanged: 36 hidden before interaction, `fadeIn` still plays.
+
+A remaining 406px "gap" on Home at y≈6860 is the FAQ images waiting on WP Rocket's image lazyload. It existed before the change and is not #16.
+
+**Open — option B.** Take gtag / MonsterInsights out of Delay JS, to remove the variable wait for the Contact form, which CSS cannot help. The owner asked for a probe first: measure Contact with gtag out of the chain, and confirm GA still records. No WP Rocket setting has been changed.
 
 ### ⏸ Deferred — owner set low priority 2026-08-15
 

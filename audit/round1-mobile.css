@@ -377,3 +377,27 @@
     margin-left:18px !important;
   }
 }
+
+/* --- 13. Entrance animations off on mobile (#16) ----------------------------
+   Elementor marks every widget with an entrance animation .elementor-invisible
+   (visibility:hidden, from frontend-lite.min.css) and only its init() removes
+   it. WP Rocket's Delay JS runs that init after its synthetic DOMContentLoaded,
+   which waits for every delayed script including async gtag — so on a cold
+   Fast 3G load the content stayed hidden 4.8–10.5s after the first touch, and
+   Home showed a 1201px blank band. Served HTML: Home 18, Our Services 15,
+   About Us 10, Contact Us 1.
+
+   Show them immediately and drop the animation, so nothing fades out again
+   when Elementor adds .animated later. Probed live before shipping: 0 hidden
+   elements before interaction, opacity never below 1 afterwards.
+
+   Mobile only, owner decision 2026-10-18 — desktop keeps its fade-ins.
+   Does not help the Contact Us MetForm form, which is rendered by JS. */
+@media (max-width:767px){
+  .elementor-invisible{
+    visibility:visible !important;
+  }
+  .elementor-element.animated{
+    animation:none !important;
+  }
+}
