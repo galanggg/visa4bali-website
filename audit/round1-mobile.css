@@ -1,0 +1,423 @@
+/* ==========================================================================
+   Visa4Bali — Round 1: mobile spacing normalisation
+   Added 2026-08-15. Scope: max-width 767px only. Desktop and tablet untouched.
+   Disable this snippet to revert every rule below.
+   Verified live at 360x800 and 390x844 on / , /about-us/ , /our-services/ , /contact-us/
+   ========================================================================== */
+
+@media (max-width: 767px){
+
+  /* --- 1. One mobile gutter --------------------------------------------------
+     Before: widget left edges landed on 18/25/35/36/40/45/50/55px.
+     After:  page content starts at 20px and ends 20px from the right.
+     Section padding goes to 0 so backgrounds stay full-bleed; the gutter
+     lives on the container. Inner sections keep their own padding (that is
+     card padding, not page gutter) but lose Elementor's built-in 15px. */
+  .elementor-section.elementor-top-section{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .elementor-section.elementor-top-section > .elementor-container{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  .elementor-top-column > .elementor-widget-wrap{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .elementor-section.elementor-inner-section > .elementor-container{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  /* MetForm renders its own nested Elementor document inside the contact
+     card. Without this it receives a second 20px gutter and the inputs
+     shrink to 220px. */
+  .metform-form-main-wrapper .elementor-section.elementor-top-section > .elementor-container{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  /* Image widgets carrying a hard pixel width (About Us team photos are
+     400px) must not exceed their column. */
+  .elementor-widget-image.elementor-widget__width-initial{
+    max-width:100% !important;
+  }
+
+  /* --- 2. Hero headings fit the screen ---------------------------------------
+     "To Travel to Bali" was 48px inside a 749px-wide widget on a 390px
+     screen and rendered clipped mid-letter. */
+  .elementor-element-a3ec264{
+    width:100% !important;
+    max-width:100% !important;
+  }
+  .elementor-element-79705f24 .elementor-heading-title,
+  .elementor-element-a3ec264 .elementor-heading-title{
+    font-size:30px !important;
+    line-height:1.15 !important;
+  }
+
+  /* Hero avatar row sat flush against the heading below it. */
+  .elementor-element-7307c6bd,
+  .elementor-element-2b2aacd4,
+  .elementor-element-7d00a154{
+    margin-bottom:10px !important;
+  }
+
+  /* --- 3. Nothing pushes the viewport ----------------------------------------
+     The 64px cart toggle overflowed a 20px slot, forcing 11-13px of
+     horizontal document scroll on every page with the cart widget.
+     The ShopLentor quick-view modal added its own. Both now bounded. */
+  .elementor-widget-woocommerce-menu-cart,
+  .elementor-widget-woocommerce-menu-cart .elementor-widget-container,
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__wrapper{
+    width:max-content !important;
+    max-width:none !important;
+  }
+  #htwlquick-viewmodal{ max-width:100% !important; }
+  #htwlquick-viewmodal .htwl-modal-dialog{ max-width:100% !important; }
+
+  /* --- 4. Hero vertical padding ----------------------------------------------
+     Was 160px top / 100px bottom, pushing the value proposition off-screen. */
+  .elementor-element-6fd792fa{
+    padding-top:56px !important;
+    padding-bottom:56px !important;
+  }
+  /* Pre-footer CTA band, also 160px. */
+  .elementor-element-61463a8e{
+    padding-top:56px !important;
+  }
+
+  /* --- 5. One vertical rhythm -------------------------------------------------
+     32px per section edge = a consistent 64px between sections.
+     Before: gaps ran 20 / 60 / 100 / 100px with no pattern.
+     Scoped per page root, added only after visual verification of that page.
+     149 = home (header + hero excluded), 155 = about, 102 = services,
+     193 = contact. */
+  .elementor-149 .elementor-top-section:not(.elementor-element-705659ef):not(.elementor-element-6fd792fa),
+  .elementor-155 .elementor-top-section,
+  .elementor-102 .elementor-top-section,
+  .elementor-193 .elementor-top-section,
+  /* 2059 = global footer template (Theme Builder), added 2026-08-15 when the
+     footer was consolidated out of the page roots. */
+  .elementor-2059 .elementor-top-section{
+    padding-top:32px !important;
+    padding-bottom:32px !important;
+  }
+
+  /* --- 7. Body text at a readable size ---------------------------------------
+     Round 3 #17, added 2026-08-15. Measured logged-out at 390 before the
+     change: 181 body-text elements on the homepage rendered at 14px/21px
+     against a single one at 16px, and every body element on /about-us/,
+     /our-services/ and /contact-us/ was 14px.
+
+     Deliberately an explicit selector list rather than a blanket bump. Several
+     heading tags here are used as small labels — H6 at 14px twenty times on
+     /about-us/, H5 at 11px on /our-services/ — and a global rule would resize
+     those silently. Headings stay untouched; the heading scale is #18 and
+     needs a design decision, not a sweep. The accordion's `.title` (18px) is
+     excluded for the same reason: a flat 16px would have shrunk it.
+
+     Verified before writing this: every element these selectors match on all
+     four primary pages was at 14px, so nothing shrinks. MetForm's nested
+     document matches none of them.
+
+     Line-height stays at the existing 1.5 ratio — one variable at a time. */
+  .elementor-widget-text-editor,
+  .elementor-widget-text-editor p,
+  .elementor-widget-icon-list .elementor-icon-list-text,
+  .elementor-widget-jkit_testimonials p,
+  .elementor-widget-jkit_icon_box .icon-box-description,
+  .elementor-widget-jkit_accordion p{
+    font-size:16px !important;
+    line-height:1.5 !important;
+  }
+
+  /* --- 8. Tap targets reach 44px ----------------------------------------------
+     Round 3 #11, added 2026-08-15. Measured logged-out at 390 before the
+     change: 19 of 27 interactive elements on the homepage were under 44px and
+     9 were under 30px; 16 of 17 on /about-us/.
+
+     Every selector below was read off the live DOM rather than guessed. The
+     measured offenders were: hamburger 26x24, drawer menu items 320x42, close
+     button 45x41, cart toggle 64x42, video button 42x42, "Watch Intro" 104x12,
+     "Service Detail" 139x15, accordion header 320x23, social icons 38x38, and
+     footer icon-list links at 24px.
+
+     min-height alone is not enough: several of these are inline-block, so the
+     label would sit at the top of the enlarged box with dead space beneath.
+     They are switched to a flex box and centred.
+
+     Note this only reaches elements that are links. Icon-list *items* that are
+     plain text — the feature lists on /our-services/, the address and opening
+     hours in the footer — are untouched, which is why those lists do not grow. */
+  .elementor-icon-list-item > a,
+  .elementor-social-icon,
+  .elementor-button,
+  .jkit-hamburger-menu,
+  .jkit-close-menu,
+  .jkit-video-popup-btn,
+  .icon-box-link,
+  .jkit-nav-menu .menu-item > a,
+  .card-header-button{
+    min-height:44px;
+  }
+  .elementor-social-icon,
+  .elementor-button,
+  .jkit-video-popup-btn,
+  .icon-box-link{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+  }
+  .elementor-icon-list-item > a,
+  .card-header-button,
+  .jkit-nav-menu .menu-item > a{
+    display:flex !important;
+    align-items:center;
+  }
+  .jkit-hamburger-menu,
+  .jkit-close-menu{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    min-width:44px;
+  }
+  .elementor-social-icon,
+  .jkit-video-popup-btn{
+    min-width:44px;
+  }
+
+  /* The logo. Checked first: `.elementor-widget-image a` matches exactly one
+     element per page — the header logo linking home — so this is narrow, not a
+     blanket rule on images. It renders 35x35 on /about-us/ and 75px on the
+     homepage, where min-height changes nothing.
+     Separately, every one of those logos carries alt="", so the link has no
+     accessible name at all. That is a content fix, tracked under #22. */
+  .elementor-widget-image a{
+    min-height:44px;
+    display:inline-flex !important;
+    align-items:center;
+  }
+
+  /* --- 9. About Us team grid: two columns -------------------------------------
+     Round 3 #9, added 2026-08-15. The team area was 20 cards stacked one per
+     row, 16,815px of a 16,815px page — 19.8 phone screens to scroll past.
+
+     The obstacle is structural, and it is why a plain 50%-width rule is not
+     enough. The 20 cards are not one grid: they sit in **eight** inner
+     sections holding 3/1/3/3/3/2/3/2 columns. Halving the column width alone
+     produces rows of 2 then 1, then 2 then 1 — measured, 13,249px and visibly
+     ragged. So the eight sections and their containers are removed from the
+     box tree with `display:contents`, which makes all 20 columns siblings in
+     one wrapping flex row. Verified: 10 rows of exactly 2, no exceptions.
+
+     Two things were measured rather than assumed:
+
+     - The cards are layered compositions — the photo overlay is absolutely
+       positioned at a fixed `left:-32px`, so narrowing the column could have
+       broken the alignment. It did not: the overlay is sized in percentages
+       and tracks the column.
+     - Cards in a row came out staggered by 20px. That is not a design choice
+       — desktop has no stagger. Elementor puts `margin-top:20px` on the
+       widget-wrap of every column after the first, to space them while they
+       are stacked. Side by side it becomes a misalignment, so it is zeroed
+       and the row spacing comes from the flex gap instead.
+
+     `fd36e36` is the wrapper column, confirmed present on /about-us/ only.
+     A trailing empty section rides along in the flatten; it is last in the
+     order and 1px tall, so it does not displace any card. If a team member is
+     ever added in a new inner section, it is covered automatically — but a
+     card added *after* that empty section would land after it. */
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-section,
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-section > .elementor-container{
+    display:contents !important;
+  }
+  .elementor-element-fd36e36 > .elementor-widget-wrap{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:flex-start !important;
+    gap:24px 12px !important;
+  }
+  /* the two section headings stay full width */
+  .elementor-element-fd36e36 > .elementor-widget-wrap > .elementor-widget{
+    width:100% !important;
+  }
+  .elementor-element-fd36e36 .elementor-column{
+    width:calc(50% - 6px) !important;
+  }
+  .elementor-element-fd36e36 .elementor-column > .elementor-widget-wrap{
+    margin-top:0 !important;
+  }
+
+  /* --- 10. Heading scale ------------------------------------------------------
+     Round 3 #18, added 2026-08-15. Owner chose the CSS-only route: unify the
+     sizes, leave the tag structure alone.
+
+     Measuring changed what "unify" means here. The site already has a scale
+     and mostly keeps to it — H1 36 / H2 32 / H3 24 / H4 18, plus H5 11 as a
+     consistent eyebrow label on /, /about-us/ and /our-services/. The audit's
+     "H2 renders at 48 / 32 / 28" was reading a page that Round 1 has since
+     changed. So rather than imposing a new scale, which would have moved more
+     headings than it fixed, this brings the eight strays onto the existing one.
+
+     Per element, not per tag, and that is deliberate: `heading.default` is
+     used for both section headings and labels. On /our-services/ an H2 holds
+     the step number "04" at 20px and another holds a footnote at 16px; on
+     /about-us/ H3 is a team member's name. A tag rule would have inflated all
+     of those.
+
+     Left alone on purpose:
+     - the homepage hero, H1 and H2 at 30px. Round 1 forced that down from 48px
+       because "To Travel to Bali" rendered clipped; restoring 36/32 would
+       reintroduce the clipping this project already fixed.
+     - H5 11px eyebrows, already consistent across three pages.
+     - card-level headings from jkit_icon_box, jkit_heading and jkit_team.
+
+     Mobile only, like everything else in this snippet. Desktop keeps its
+     current sizes; extending the same tidy-up there is a separate decision. */
+  .elementor-element-3fbc89a4 .elementor-heading-title{ font-size:32px !important; }
+  .elementor-element-2d7e792e .elementor-heading-title,
+  .elementor-element-188522e1 .elementor-heading-title{ font-size:18px !important; }
+  .elementor-element-77426f75 .elementor-heading-title,
+  .elementor-element-5feaf3ea .elementor-heading-title,
+  .elementor-element-59382e75 .elementor-heading-title,
+  .elementor-element-4c5102b .elementor-heading-title,
+  .elementor-element-52634c8 .elementor-heading-title{ font-size:24px !important; }
+
+}
+
+/* --- 6. Footer mount --------------------------------------------------------
+   149, 155 and 193 use the elementor_canvas page template, which renders no
+   theme footer location, so a Theme Builder footer can never appear on them.
+   They mount the shared footer through an Elementor Template widget pointing
+   at library template 2055 instead. That widget adds one wrapper section and
+   column around the real footer, which would otherwise apply the gutter, the
+   rhythm and the container max-width a second time.
+
+   These rules make the wrapper transparent so the footer measures identically
+   to the Theme Builder pages at every breakpoint. Deliberately outside the
+   mobile media query — the double container also shows up on desktop.
+   Verified: footer 1312px tall / first heading at x=30 on mobile 390, and
+   container 1290px on desktop 1440, on all six page types. */
+.elementor .elementor-section.elementor-element.v4b-footer-mount.elementor-top-section{
+  padding:0 !important;
+}
+.elementor .elementor-section.elementor-element.v4b-footer-mount.elementor-top-section > .elementor-container{
+  max-width:none !important;
+  padding:0 !important;
+}
+.elementor .v4b-footer-mount > .elementor-container > .elementor-column > .elementor-widget-wrap{
+  padding:0 !important;
+}
+
+/* --- 11. Header overlap band ------------------------------------------------
+   Owner-reported 2026-08-15: a pale strip across the top of the page, above
+   the navbar, on some pages and not others.
+
+   Mechanism, measured on all four pages. The header section carries a fixed
+   negative bottom margin so it sits *over* the section beneath it — the usual
+   transparent-header-over-hero pattern. Desktop uses -99px, mobile -76px. But
+   the header's right column is a wrapping flex row (menu + CONTACT US button
+   + cart), so when its contents no longer fit on one line the header grows
+   taller than that fixed overlap. Whatever it grows by is left sitting above
+   the hero's background, showing the bare white body behind it.
+
+       band height = header height - overlap
+
+   Space in that column is 873px at the 1290px container cap. Contents need
+   886px on / and /our-services/ (they carry the cart widget) and 787px on
+   /about-us/ and /contact-us/, so the widest layout is already 13px short on
+   the cart pages and no viewport width can fix it — the container is capped.
+   Measured: 38px band at 1900 and 1300, 40px at 1150 and 1025, 35px at 390.
+
+   Two parts to the fix, because neither alone is enough:
+
+   1. This rule. The header is painted the same colour as the section beneath
+      it, so any residual overlap shortfall is invisible at any width and any
+      header height. Verified: all four of these pages use a flat
+      rgb(245,247,251) with no background image on the section below.
+   2. Section 12, which tightens the nav spacing so the header stays one row
+      at normal desktop widths. That restores the intended layout; on its own
+      it could not cover 1025-1200, where the band predates this project.
+
+   Deliberately scoped to these four header IDs. The /basket/ and /product/*
+   headers (d400355, 2ff20782) have margin-bottom:0 — they do not overlap
+   anything, and their pages sit on white, so painting them would *create* a
+   strip that is not there today. */
+.elementor-element-705659ef,
+.elementor-element-3235a6ef,
+.elementor-element-8463f45,
+.elementor-element-2b01d8b7{
+  background-color:#f5f7fb !important;
+}
+
+/* --- 12. Header nav spacing -------------------------------------------------
+   Frees 48px in the header's right column (12px off each of the four nav
+   items' left margin, 30px -> 18px) so menu + button + cart fit on one line
+   again and the header stays 95px instead of 137px.
+
+   The usable width is 853px, not the 873px the column measures: its
+   widget-wrap carries padding:10px with border-box. Contents needed 886px.
+   Measured while tuning — 22px left 854px against 853 and still wrapped by a
+   single pixel; 18px lands at 838px, 15px clear.
+
+   Desktop only. The mobile drawer uses different spacing — margin 0 0 10px,
+   padding 15px — and its items were brought to a 44px tap target in section 8;
+   this must not eat into that.
+
+   Adding "Contact Us" to the WP menu for fix #4 is what pushed the row over:
+   that item is 157px wide and the column only had 144px of slack. The real
+   fragility is older than that — a hard-coded overlap that assumes a
+   single-row header. Section 11 is what makes it safe. */
+@media (min-width:1025px){
+  .jkit-nav-menu .jkit-menu > li > a{
+    margin-left:18px !important;
+  }
+}
+
+/* --- 13. Entrance animations off on mobile (#16) ----------------------------
+   Elementor marks every widget with an entrance animation .elementor-invisible
+   (visibility:hidden, from frontend-lite.min.css) and only its init() removes
+   it. WP Rocket's Delay JS runs that init after its synthetic DOMContentLoaded,
+   which waits for every delayed script including async gtag — so on a cold
+   Fast 3G load the content stayed hidden 4.8–10.5s after the first touch, and
+   Home showed a 1201px blank band. Served HTML: Home 18, Our Services 15,
+   About Us 10, Contact Us 1.
+
+   Show them immediately and drop the animation, so nothing fades out again
+   when Elementor adds .animated later. Probed live before shipping: 0 hidden
+   elements before interaction, opacity never below 1 afterwards.
+
+   Mobile only, owner decision 2026-10-18 — desktop keeps its fade-ins.
+   Does not help the Contact Us MetForm form, which is rendered by JS. */
+@media (max-width:767px){
+  .elementor-invisible{
+    visibility:visible !important;
+  }
+  .elementor-element.animated{
+    animation:none !important;
+  }
+}
+
+/* --- 14. Empty JKit team headings (#22) -------------------------------------
+   Every About Us team card is a jkit_team widget whose name, designation and
+   social fields are left blank — the visible name and role come from a
+   separate jkit_heading underneath. JKit still prints the blank fields, so
+   the page carried 20 empty <h3 class="profile-title">, which screen readers
+   list as unnamed headings.
+
+   display:none takes them out of the accessibility tree. All three are 0px
+   tall, so nothing moves: cards stay 420px and the document 10344px at 390,
+   measured with and without the rule. .profile-body itself is left alone —
+   its 20px bottom padding is part of the card spacing.
+
+   All widths, deliberately outside any media query. :empty means a card that
+   ever gets a real name in the widget shows it again. */
+.elementor-widget-jkit_team .profile-body > .profile-title:empty,
+.elementor-widget-jkit_team .profile-body > .profile-designation:empty,
+.elementor-widget-jkit_team .profile-body > .social-list:empty{
+  display:none;
+}

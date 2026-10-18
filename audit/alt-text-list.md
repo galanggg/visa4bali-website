@@ -1,5 +1,7 @@
 # Image Alt Text List — visa4bali.com
 
+> **⚠️ Stale — do not use as-is (2026-10-18).** The job titles here were invented and do not match the site (e.g. Ari is "Assistant Operations" on the page, not "immigration consultant"), and several people listed no longer appear. The team photos and logos were done from the page's own text instead — see `TRACKER.md` → #22.
+
 Generated 2026-05-30. Paste into WP Admin → Media → Library → image → Alt Text field → Update.
 
 **Library state**: 83 images total, 82 empty alt, 1 filled.
