@@ -1,0 +1,80 @@
+{
+ "exportedAt": "2026-10-18",
+ "post": 2055,
+ "widgetId": "3f22845d",
+ "model": {
+  "id": "3f22845d",
+  "elType": "widget",
+  "isInner": false,
+  "isLocked": false,
+  "settings": {
+   "social_icon_list": [
+    {
+     "social_icon": {
+      "value": "jki jki-facebook-f",
+      "library": "jkiticon"
+     },
+     "_id": "fb29ced",
+     "link": {
+      "url": "https://www.facebook.com/rolly.extensionbali",
+      "is_external": "true",
+      "nofollow": "",
+      "custom_attributes": ""
+     }
+    },
+    {
+     "social_icon": {
+      "value": "fab fa-instagram",
+      "library": "fa-brands"
+     },
+     "_id": "05a1da2",
+     "link": {
+      "url": "https://www.instagram.com/visa4bali",
+      "is_external": "true",
+      "nofollow": "",
+      "custom_attributes": ""
+     }
+    },
+    {
+     "_id": "0ef7c90",
+     "social_icon": {
+      "value": "fab fa-tiktok",
+      "library": "fa-brands"
+     },
+     "link": {
+      "url": "https://www.tiktok.com/@visa4bali",
+      "is_external": "true",
+      "nofollow": "",
+      "custom_attributes": ""
+     }
+    }
+   ],
+   "shape": "circle",
+   "align": "left",
+   "icon_color": "custom",
+   "icon_primary_color": "#FFFFFF30",
+   "icon_secondary_color": "#FFFFFF",
+   "icon_size": {
+    "unit": "px",
+    "size": 16,
+    "sizes": []
+   },
+   "icon_padding": {
+    "unit": "em",
+    "size": 0.7,
+    "sizes": []
+   },
+   "icon_spacing": {
+    "unit": "px",
+    "size": 16,
+    "sizes": []
+   },
+   "__globals__": {
+    "hover_secondary_color": "globals/colors?id=primary",
+    "hover_primary_color": "globals/colors?id=9f9ca80"
+   }
+  },
+  "elements": [],
+  "widgetType": "social-icons"
+ }
+}
