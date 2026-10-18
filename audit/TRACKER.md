@@ -3,7 +3,7 @@
 Single source of truth for the mobile-tidiness work started 2026-08-15.
 Findings and evidence live in [`ui-ux-2026-08.md`](ui-ux-2026-08.md); this file tracks **state**.
 
-**Last updated:** 2026-10-18 · **Current position:** Rounds 1, 2 and 3 complete and verified (2026-08-15), plus two owner-reported bugs fixed the same day (sticky footer, header overlap band). **Round 4 started 2026-10-18: #16 mobile half shipped** (snippet section 13); its Contact-form half waits on a WP Rocket probe. Remaining: the rest of Round 4, the deferred items, and the open question of consolidating the header the way the footer was.
+**Last updated:** 2026-10-18 · **Current position:** Rounds 1, 2 and 3 complete and verified (2026-08-15), plus two owner-reported bugs fixed the same day (sticky footer, header overlap band). **Round 4 started 2026-10-18: #16 complete** — snippet section 13 for the hidden widgets, and gtag excluded from WP Rocket's Delay JS for the Contact form. Remaining: the rest of Round 4, the deferred items, and the open question of consolidating the header the way the footer was.
 
 Snippet 2054 now has **13 sections**, 18,791 chars, sha256 `5936c7c3`. Sections 1–5 and 7–10 are inside the first `@media (max-width:767px)` block; 6, 11 and 12 are outside it; 13 carries its own `@media (max-width:767px)`. Disabling the snippet still reverts every CSS change made by this project.
 
@@ -320,14 +320,14 @@ Verified logged-out: `/` at 1900 → header 95px, one row, next section at −4,
 
 | # | Fix |
 |---|---|
-| 16 | 🟡 **Mobile half shipped 2026-10-18** — see below. Contact Us form still waits on JS |
+| 16 | ✅ **Complete 2026-10-18** — see below |
 | 20 | Cart reads "Rp0" when empty |
 | 21 | Icon-font labels leak as text — footer "Jki-facebook-f", contact page "Jki-facebook-light" + stray glyph `ףּ` |
 | 22 | About Us: 20 empty headings used as spacers, 46 images with no alt |
 | 24 | Slider ARIA reads "slide 17 to 18 of 5" |
 | 19 | Container max-width varies 1270 / 1290 / 1310px on desktop |
 
-#### 🟡 #16 — content hidden until JS runs
+#### ✅ #16 — content hidden until JS runs
 
 The cause was re-measured on 2026-10-18 before any change, logged-out, in cold isolated contexts, at 390px on Fast 3G with 4x CPU. The August write-up was right about the symptom but not the timing.
 
@@ -354,7 +354,23 @@ Contact Us has the same chain. The MetForm wrapper is 0px tall before JS runs. T
 
 A remaining 406px "gap" on Home at y≈6860 is the FAQ images waiting on WP Rocket's image lazyload. It existed before the change and is not #16.
 
-**Open — option B.** Take gtag / MonsterInsights out of Delay JS, to remove the variable wait for the Contact form, which CSS cannot help. The owner asked for a probe first: measure Contact with gtag out of the chain, and confirm GA still records. No WP Rocket setting has been changed.
+**Shipped (option B, owner decision 2026-10-18 after a probe).** `googletagmanager.com/gtag/js` was added to WP Rocket → File Optimization → Delay JS → Excluded JavaScript Files. The field was empty before, and no one-click exclusions were on. This takes gtag out of the chain that the synthetic DOMContentLoaded waits on. MonsterInsights' config (`mi_track_user` inline and `frontend-gtag.min.js`) stays delayed, so GA behaves exactly as before: `page_view` is sent after the first interaction, and no hit fires before it.
+
+Contact Us, cold, Fast 3G, 4x CPU, 390px:
+
+| | Baseline ×2 | Probe ×2 (initScript swap) | Live ×2 |
+|---|---|---|---|
+| Form appears after touch | 5.00 / 4.97s | 3.93 / 3.91s | 4.00 / **3.90s** |
+| GA `page_view` → `G-FJP9BS0KTV` | ✓ | ✓ | ✓ |
+| LCP | 6.42 / 6.38s | 6.64 / 6.87s | 7.39* / 6.78s |
+
+\*The first live run hit a page cache that was cold right after the purge (TTFB 1334ms vs 216ms on the second run).
+
+The cost is about +0.2–0.5s LCP, because gtag now downloads during page load. The gain is about 1.1s here, and more when gtag is slow — it took up to 9.95s on Home. The remaining ~3.9s is the other 49 delayed scripts; cutting it further would mean excluding jQuery/Elementor, which is not recommended.
+
+- **Rollback:** empty that field, then purge. The before-state is saved, credentials redacted, at [`rollback/wp-rocket-settings-2026-10-18-before-gtag-exclusion.redacted.json`](rollback/wp-rocket-settings-2026-10-18-before-gtag-exclusion.redacted.json). **Do not import that file** — its keys are redacted. A re-export after saving, diffed against it, showed exactly one change: `delay_js_exclusions: [] → ['googletagmanager.com/gtag/js']`.
+- **Trap on that settings page:** "Save Changes and Optimize" belongs to the **Database** tab and runs a DB cleanup. The right button is `#wpr-options-submit` ("Save Changes").
+- **Test artefact, not a bug:** dispatching a synthetic `touchstart` on `document` or `window` throws `Cannot read properties of null (reading 'parentNode')` from WP Rocket's handler, which walks `target.parentNode`. A touch on a real element gives 0 console errors.
 
 ### ⏸ Deferred — owner set low priority 2026-08-15
 
