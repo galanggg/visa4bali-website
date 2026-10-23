@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Visa4Bali · Resor Jimbaran · Visas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="b.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="b-home.html"><img src="img/logo.png" alt="Visa4Bali" width="360" height="178"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="b-home.html">Home</a>
+      <a href="b-layanan.html" aria-current="page">Visas</a>
+      <a href="b-home.html#about">About</a>
+      <a href="b-home.html#contact">Contact us</a>
+    </nav>
+    <a class="top-wa num" href="https://wa.me/6287862273133"><svg><use href="#i-chat"/></svg>+62 878 6227 3133</a>
+    <a class="btn btn-k top-mob" style="padding:10px 16px;font-size:14px" href="https://wa.me/6287862273133">WhatsApp</a>
+    <button class="menu" type="button" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+  <section class="p-hero">
+    <img src="img/jimbaran.jpg" alt="" width="1280" height="960">
+    <div class="wrap">
+      <h1>Our visas</h1>
+      <p class="lead">Choose the visa that fits your stay. Standard visas are paid online; for longer stays we check your documents with you on WhatsApp first.</p>
+      <div class="stays" id="stays"></div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:20px">
+    <div id="table"></div>
+    <p class="note">Prices from our June 2026 price list, in Indonesian rupiah, tax and service included. Immigration system outages can delay processing.</p>
+  </section>
+
+  <section class="sec center">
+    <div class="wrap">
+      <h2 class="h2">How it works</h2>
+      <ol class="steps">
+        <li><b>Choose your visa</b><span>Pick from the list above, or ask us which one fits your plans.</span></li>
+        <li><b>Pay</b><span>Pay on the website, or message us for other payment methods.</span></li>
+        <li><b>Send your passport photo</b><span>Send the documents by WhatsApp or email. We prepare the application.</span></li>
+        <li><b>Receive your visa</b><span>Your e-visa arrives by email, or we bring your stamped passport back.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec stone center">
+    <div class="wrap">
+      <h2 class="h2">Questions clients ask</h2>
+      <div class="faq">
+        <details open><summary>What do I need to send for a tourist visa?</summary><p>A photo of your passport's main page, valid for at least 6 months, and a photo of you holding your passport. Send them by WhatsApp or email.</p></details>
+        <details><summary>How long does it take?</summary><p>It depends on the visa: from 3–5 working days for a faster VOA extension to 12–14 working days for a C1 tourist visa. Each visa above shows its time.</p></details>
+        <details><summary>How do I extend my visa?</summary><p>An extension needs an Indonesian sponsor and a set of application documents. If we handle it, we only need your passport and we prepare everything else.</p></details>
+        <details><summary>What happens if I overstay?</summary><p>Immigration charges a fine of Rp 1,000,000 for every day of overstay. After 60 days of overstay you must pay the fine and you will be deported. Message us as early as you can.</p></details>
+      </div>
+      <div class="notice"><svg><use href="#i-shield"/></svg><p><b>Beware of scammers.</b> Our bank account is only under the VISA4BALI name. We do not have bank accounts under foreigners' names.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap cols">
+    <div><h3>Find us in Jimbaran</h3><p>Jl. Pantai Balangan, Jl. B Boulevard No.15<br>Jimbaran, Badung, Bali 80361</p><p>Monday – Friday<br>08:00 – 17:00</p></div>
+    <div><h3>Write or call us</h3><a class="num" href="https://wa.me/6287862273133">+62 878 6227 3133</a><a href="b-home.html#contact">info1visaforbali@gmail.com</a><p>Instagram · Facebook · TikTok</p></div>
+    <div><h3>Info</h3><a href="b-layanan.html">Visas &amp; prices</a><a href="b-home.html#about">About us</a><a href="#">Privacy policy</a></div>
+  </div>
+  <p class="foot-base">© 2026 PT Visa Empat Bali</p>
+  <div class="foot-strip" aria-hidden="true"></div>
+</footer>
+
+<script src="visas.js"></script>
+<script>
+  V4B.table(document.getElementById("table"));
+  document.getElementById("stays").innerHTML = V4B.groups.map(function (g) {
+    return '<div class="stay"><h3>' + g.label + '</h3><p class="from">From ' + V4B.rp(V4B.from(g)) + '</p><p>' + g.blurb + '</p><a href="#' + g.id + '">See the list →</a></div>';
+  }).join("");
+</script>
+</body>
+</html>
