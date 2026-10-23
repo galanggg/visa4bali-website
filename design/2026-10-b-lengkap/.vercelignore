@@ -1,0 +1,4 @@
+.env*
+.vercel
+PANDUAN-SLICING.md
+.shots
