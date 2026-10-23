@@ -1,0 +1,80 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/home.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.681Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/shop.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.695Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/product.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.707Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/product-chat.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.720Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/about.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.733Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/contact.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.746Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/basket.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.758Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "design/2026-10-b-lengkap/checkout.html"
+        ],
+        "createdAt": "2026-10-23T05:31:19.777Z",
+        "reason": "Claude, measured in Chrome 2026-10-23: section text insets 81-140px via .wrap padding, rule-separated list rows 15-17px from their hairline, facts row is an open rule table with no left border or background; detector does not resolve .wrap padding"
+      }
+    ]
+  }
+}
