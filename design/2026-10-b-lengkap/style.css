@@ -18,7 +18,9 @@
   --muted:#566064;      /* Text muted */
   --line:#D9D6CF;       /* Border */
   --merah:#C8102E;      /* Accent: buttons, dots */
-  --merah-2:#A30D25;    /* Accent hover, Why band */
+  --merah-2:#A30D25;    /* Accent hover */
+  --abu:#A4A9AF;        /* Why band: studio grey at the edge of team-4.jpg */
+  --abu-ink:#2B3437;    /* Muted text on --abu (5.4:1) */
   --merah-muda:#F4B4AC; /* Links on sea */
   --on-sea:#DCE6E7;     /* Text on sea */
   /* Global Fonts */
@@ -167,12 +169,12 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .ask small{display:block;margin-top:14px;color:var(--muted);font-size:var(--t-small)}
 
 /* why band */
-.why{background:var(--merah-2);color:#fff}
+.why{background:var(--abu);color:var(--ink)}
 .why .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:72px;align-items:center;padding-block:100px}
 .why h2{font-size:var(--t-h2);line-height:1.08}
 .why-points{margin-top:30px;display:flex;flex-direction:column;gap:22px}
 .why-points b{display:block;font-weight:500;font-size:var(--t-body)}
-.why-points span{color:#F3DEDB}
+.why-points span{color:var(--abu-ink)}
 .why-photos img{width:100%;height:auto;border-radius:4px}
 
 /* testimonials */
@@ -188,7 +190,7 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .cols-2 p{color:var(--muted)}
 .cols-2 p + p{margin-top:12px}
 .team-photo{margin:var(--gap-head) 0 0}
-.team-photo img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 30%;border-radius:4px}
+.team-photo img{width:100%;max-width:680px;height:auto;margin-inline:auto} /* source is 1085px wide: wider upscales it on 2x screens */
 .team-photo figcaption{margin-top:12px;font-size:var(--t-small);color:var(--muted);text-align:center}
 
 /* shop: one Loop Grid per product category, one row per product */
@@ -509,7 +511,6 @@ dialog::backdrop{background:rgba(18,36,41,.55)}
   .cols-2 > div,.ways > div,.q{max-width:66ch} /* one column: keep lines readable */
   .stays,.quotes,.cols-2,.ways{grid-template-columns:1fr;gap:40px}
   .why .wrap{grid-template-columns:1fr;gap:44px;padding-block:72px}
-  .team-photo img{aspect-ratio:4/3}
   .pt-row{grid-template-columns:80px minmax(0,1fr) auto;row-gap:6px;align-items:start}
   .pt-code{grid-row:1/4}
   .pt-name,.pt-stay,.pt-time{grid-column:2/4}
