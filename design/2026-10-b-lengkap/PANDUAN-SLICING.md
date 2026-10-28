@@ -169,7 +169,7 @@ Kalau slug diubah, buat redirect 301 dari slug lama.
 | Visa finder | Container boxed, margin-top −104 (tablet/mobile 0), shadow. **Nested Tabs** vertikal (mobile: horizontal, tab berbentuk pil). Isi tiap tab: **Loop Grid** produk kategori itu, maksimal 3, memakai Loop Item "Visa row (ringkas)". |
 | Visas for every kind of stay | Container latar Primary. 3 inner Container: label, "From Rp …", deskripsi, 3 baris contoh, link ke `/shop/#kategori`. Angka "From" diketik manual atau lewat shortcode harga minimum. |
 | Tell us about your trip | Heading + Text + Button WhatsApp |
-| Why choose us | Latar Accent Dark, teks putih. 2 kolom: 3 poin + 2 foto. Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
+| Why choose us | Latar Accent Dark, teks putih. 2 kolom: 3 poin + 1 foto tim (`team-4.jpg`). Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
 | Testimonials | Latar Secondary, 3 kolom. Review asli dari homepage lama. |
 | About teaser | 2 kolom teks + foto tim + link ke About |
 
@@ -216,17 +216,17 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 ### About (`about.html`)
 | Section | Widget |
 |---|---|
-| Hero | Seperti hero Shop, foto `team-trio.jpg` |
+| Hero | Seperti hero Shop, foto `team-3.jpg` |
 | Our story | 2 kolom 5/6: Image (owner) + caption · eyebrow · H2 · 2 paragraf · kalimat sorotan bergaris kiri merah |
 | How we work | Latar Primary, 3 kolom |
-| Team | 20 × **Image Box** (atau Loop Grid kalau staf dibuat CPT). 5 kolom desktop, 3 tablet, 2 mobile. Foto 4:5, latar putih. |
+| Team | 18 × **Image Box** (atau Loop Grid kalau staf dibuat CPT). 5 kolom desktop, 3 tablet, 2 mobile. Foto 4:5, latar putih. |
 | Visit our office | Satu kartu lebar, 2 kolom 1.5/1: **Google Maps** widget (tinggi 380, tablet/HP 300/240) · Heading + alamat + jam + link "Get directions". Cabang Lombok dihapus atas permintaan Ari (2026-10-23). |
 | CTA | Sama dengan Home |
 
 ### Contact (`contact.html`)
 | Section | Widget |
 |---|---|
-| Hero | Seperti hero Shop, foto `office.jpg` |
+| Hero | Seperti hero Shop, foto `team-4.jpg` |
 | Kontak + form | 2 kolom 5/7. Kiri: Container Primary (CTA WhatsApp) + Icon List. Kanan: **MetForm 195** yang diubah fieldnya: Name, Email, WhatsApp (opsional), Nationality, What do you need (select), tanggal (opsional), Message. Style input: latar putih, border `#D9D6CF`, radius 4, padding 13/14. |
 | Passport pick-up | Teks + 9 area (3 kolom). Sumber: deskripsi produk VOA Extension. |
 | Visit our office | Sama dengan About + peringatan penipuan |
@@ -238,11 +238,10 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | File | Ukuran | Upload ke Media Library dengan alt |
 |---|---|---|
 | `jimbaran.jpg` | 1280×960 | "Jimbaran Bay on a clear morning…" (kredit: pedrizat, CC BY-SA 2.0) |
-| `team-duo.jpg` | 1000×1294 | lihat alt di `home.html` |
-| `office.jpg` | 1600×1067 | lihat alt di `home.html` |
-| `team-trio.jpg` | 1600×1067 | lihat alt di `home.html` |
-| `owner.jpg` | 800×1000 | ⚠️ identitas belum dikonfirmasi (bagian 8) |
-| `staff/*.jpg` | 20 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto staf yang ada di About Us sekarang. |
+| `team-4.jpg` | 1030×708 | lihat alt di `home.html`. Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
+| `team-3.jpg` | 1376×768 | lihat alt di `home.html`. Dari TEAM3.jpg (kiriman Ari 2026-10-28) |
+| `owner.webp` | 680×1205, transparan | Foto Pak Rolly kiriman Ari 2026-10-28, background putih dihapus. Di Elementor: Image widget tanpa latar (transparan di atas putih), gambar rata kiri-bawah, sejajar caption |
+| `staff/*.jpg` | 18 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Staf yang tidak ada di set itu (Ari, Rhoga, Kadek, Joni, Marlon) dihapus atas permintaan Ari |
 | `logo.png`, `logo-light.png` | 360×178 | Visa4Bali |
 
 Alt text ditulis di Media Library, bukan di widget. Lihat memori pipeline alt text (#22): AIOSEO membuang tanda baca.
@@ -283,13 +282,12 @@ Harga di mockup mengikuti flyer Juni 2026. Harga di WooCommerce **berbeda** untu
 | C2, Retirement, Investor KITAS | ada di flyer | tidak ada produk | buat sebagai External product (WhatsApp) |
 
 Lainnya:
-- **Foto owner** (`owner.jpg`): benar Mr. Rolly? Alt dan caption di About menyebut namanya.
 - **Penamaan E33G** dan **lama perpanjangan C1** (dari daftar ronde 4).
 - **Kontak chat** (revisi Ari): nomor WhatsApp tim berbahasa Rusia, username Telegram untuk tim English dan tim Rusia. Di `site.js` masih placeholder `TODO_…`.
 - **Metode bayar di DOKU** yang aktif (kartu, virtual account, QRIS, e-wallet?), supaya teks di Checkout bisa lebih spesifik.
 - **Halaman terms & privacy policy** untuk checkbox di Checkout. Link di mockup masih `#`.
 - **E33G** (`product-chat.html`): proses 12–14 hari kerja (flyer) vs 5–6 hari kerja (WooCommerce), harga 12 jt vs 13 jt.
-- **Role staf**: diambil apa adanya dari About Us sekarang. Masih ada orangnya semua?
+- **Role staf**: role lama diambil dari About Us sekarang. Ayik, Sumar dan Juniarta baru masuk di set foto 2026-10-28 dan role-nya belum ada (di mockup tertulis "Role to confirm").
 - Klaim yang **sengaja tidak dipakai** karena belum terverifikasi: penghargaan "best visa agency", angka counter (20K+ klien, 48 tim, 144K+ visa).
 
 ---

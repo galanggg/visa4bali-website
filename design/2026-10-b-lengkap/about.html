@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -41,7 +41,7 @@
 
 <main id="main">
   <section class="p-hero short">
-    <img src="img/team-trio.jpg" alt="" width="1600" height="1067" style="object-position:50% 30%">
+    <img src="img/team-3.jpg" alt="" width="1376" height="768" style="object-position:50% 30%">
     <div class="wrap">
       <h1>About us</h1>
       <p class="lead">A visa agency in Jimbaran, Bali, since 2014.</p>
@@ -52,7 +52,7 @@
   <section class="sec">
     <div class="wrap story">
       <figure>
-        <img src="img/owner.jpg" alt="Mr. Rolly, founder of Visa4Bali, in a batik shirt" width="800" height="1000">
+        <img class="cutout" src="img/owner.webp" alt="Mr. Rolly, founder of Visa4Bali, in a batik shirt" width="680" height="1205">
         <figcaption>Mr. Rolly, founder</figcaption>
       </figure>
       <div>
@@ -125,11 +125,12 @@
 
 <script src="site.js?v=12"></script>
 <script>
-  var team = [["Ari", "Assistant Operations"], ["Rhoga", "Online Specialist"], ["Yosi", "Senior KITAS Consultant"], ["Wira", "Senior Courier"],
-    ["Febri", "Courier"], ["Lily", "Database"], ["Janu", "Courier"], ["Feny", "Customer Service"], ["Hulwa", "Social Media Specialist"],
-    ["Chandra", "Immigration Relations"], ["Orest", "KITAS Relations"], ["Nanda", "Customer Service"], ["Kadek", "Visa Specialist"],
-    ["Primawan", "Transport Service"], ["Fendy", "Assistant Operations"], ["Joni", "Security Staff"], ["Wirata", "Security Staff"],
-    ["Suwantara", "Security Staff"], ["Hasim", "Office Boy"], ["Marlon", "Office Boy"]];
+  // TODO roles for Ayik, Sumar and Juniarta: ask Ari (new in the 2026-10-27 photo set)
+  var team = [["Yosi", "Senior KITAS Consultant"], ["Wira", "Senior Courier"], ["Febri", "Courier"], ["Lily", "Database"],
+    ["Janu", "Courier"], ["Feny", "Customer Service"], ["Hulwa", "Social Media Specialist"], ["Chandra", "Immigration Relations"],
+    ["Orest", "KITAS Relations"], ["Nanda", "Customer Service"], ["Primawan", "Transport Service"], ["Fendy", "Assistant Operations"],
+    ["Wirata", "Security Staff"], ["Suwantara", "Security Staff"], ["Hasim", "Office Boy"],
+    ["Ayik", "Role to confirm"], ["Sumar", "Role to confirm"], ["Juniarta", "Role to confirm"]];
   document.getElementById("staff").innerHTML = team.map(function (t) {
     return '<li><img src="img/staff/' + t[0].toLowerCase() + '.jpg" alt="' + t[0] + ', ' + t[1] + ' at Visa4Bali" width="480" height="600" loading="lazy"><b>' + t[0] + "</b><span>" + t[1] + "</span></li>";
   }).join("");
