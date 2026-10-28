@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -52,7 +52,7 @@
   <section class="sec">
     <div class="wrap story">
       <figure>
-        <img class="cutout" src="img/owner.webp" alt="Mr. Rolly, founder of Visa4Bali, in a batik shirt" width="680" height="1205">
+        <img class="cutout" src="img/owner.webp" alt="Mr. Rolly, founder of Visa4Bali, in a green shirt" width="768" height="1296">
         <figcaption>Mr. Rolly, founder</figcaption>
       </figure>
       <div>
@@ -125,14 +125,15 @@
 
 <script src="site.js?v=12"></script>
 <script>
-  // TODO roles for Ayik, Sumar and Juniarta: ask Ari (new in the 2026-10-27 photo set)
-  var team = [["Yosi", "Senior KITAS Consultant"], ["Wira", "Senior Courier"], ["Febri", "Courier"], ["Lily", "Database"],
-    ["Janu", "Courier"], ["Feny", "Customer Service"], ["Hulwa", "Social Media Specialist"], ["Chandra", "Immigration Relations"],
-    ["Orest", "KITAS Relations"], ["Nanda", "Customer Service"], ["Primawan", "Transport Service"], ["Fendy", "Assistant Operations"],
-    ["Wirata", "Security Staff"], ["Suwantara", "Security Staff"], ["Hasim", "Office Boy"], ["Marlon", "Office Boy"],
-    ["Ayik", "Role to confirm"], ["Sumar", "Role to confirm"], ["Juniarta", "Role to confirm"]];
+  // Order and roles from Ayik, 2026-10-28 (left to right)
+  var team = [["Ari", "Operations Manager"], ["Janu", "Operations Assistant"], ["Nanda", "Customer Service"], ["Feny", "Customer Service"],
+    ["Yosi", "KITAS Specialist"], ["Orest", "KITAS Specialist"], ["Wira", "Field Coordinator"], ["Chandra", "Client Relations Coordinator"],
+    ["Febri", "Pickup & Delivery Courier"], ["Lily", "Database Administrator"], ["Fendy", "Online Application Specialist"],
+    ["Kadek", "Online Application Specialist"], ["Hulwa", "Online Application Specialist"], ["Primawan", "Driver & Vehicle Care Staff"],
+    ["Juniarta", "Security Staff"], ["Wirata", "Security Staff"], ["Gede", "Security Staff"], ["Hasim", "Security Staff"],
+    ["Marlon", "Housekeeping Staff"]];
   document.getElementById("staff").innerHTML = team.map(function (t) {
-    return '<li><img src="img/staff/' + t[0].toLowerCase() + '.jpg" alt="' + t[0] + ', ' + t[1] + ' at Visa4Bali" width="480" height="600" loading="lazy"><b>' + t[0] + "</b><span>" + t[1] + "</span></li>";
+    return '<li><img src="img/staff/' + t[0].toLowerCase() + '.jpg" alt="' + t[0] + ', ' + t[1] + ' at Visa4Bali" width="480" height="600" loading="lazy"><b>' + t[0] + "</b><span>" + t[1].replace("&", "&amp;") + "</span></li>";
   }).join("");
 </script>
 </body>
