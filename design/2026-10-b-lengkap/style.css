@@ -173,9 +173,7 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .why-points{margin-top:30px;display:flex;flex-direction:column;gap:22px}
 .why-points b{display:block;font-weight:500;font-size:var(--t-body)}
 .why-points span{color:#F3DEDB}
-.why-photos{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end}
-.why-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
-.why-photos img:last-child{aspect-ratio:3/3.6;object-position:70% 50%}
+.why-photos img{width:100%;height:auto;border-radius:4px}
 
 /* testimonials */
 .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;margin-top:var(--gap-head);text-align:left}
@@ -284,6 +282,7 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:80px;align-items:center}
 .story figure{margin:0}
 .story img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.story img.cutout{object-fit:contain;object-position:0 100%;border-radius:0}
 .story figcaption{margin-top:12px;font-size:var(--t-small);color:var(--muted)}
 .story h2{margin-bottom:24px}
 .story p{color:var(--muted)}
@@ -562,8 +561,6 @@ dialog::backdrop{background:rgba(18,36,41,.55)}
   .team-photo figcaption{text-align:left}
   .ask{text-align:center}
   .ask .lead{margin-inline:auto}
-  .why-photos{align-items:start}
-  .why-photos img,.why-photos img:last-child{aspect-ratio:3/4}
   .crumbs li.crumb-mid{display:none}
   .pk-opt-ask{font-size:var(--t-label)}
 }
