@@ -219,7 +219,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | Hero | Seperti hero Shop, foto `team-3.jpg` |
 | Our story | 2 kolom 5/6: Image (owner) + caption · eyebrow · H2 · 2 paragraf · kalimat sorotan bergaris kiri merah |
 | How we work | Latar Primary, 3 kolom |
-| Team | 18 × **Image Box** (atau Loop Grid kalau staf dibuat CPT). 5 kolom desktop, 3 tablet, 2 mobile. Foto 4:5, latar putih. |
+| Team | 19 × **Image Box** (atau Loop Grid kalau staf dibuat CPT). 5 kolom desktop, 3 tablet, 2 mobile. Foto 4:5, latar putih. |
 | Visit our office | Satu kartu lebar, 2 kolom 1.5/1: **Google Maps** widget (tinggi 380, tablet/HP 300/240) · Heading + alamat + jam + link "Get directions". Cabang Lombok dihapus atas permintaan Ari (2026-10-23). |
 | CTA | Sama dengan Home |
 
@@ -241,7 +241,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | `team-4.jpg` | 1030×708 | lihat alt di `home.html`. Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
 | `team-3.jpg` | 1376×768 | lihat alt di `home.html`. Dari TEAM3.jpg (kiriman Ari 2026-10-28) |
 | `owner.webp` | 680×1205, transparan | Foto Pak Rolly kiriman Ari 2026-10-28, background putih dihapus. Di Elementor: Image widget tanpa latar (transparan di atas putih), gambar rata kiri-bawah, sejajar caption |
-| `staff/*.jpg` | 18 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Staf yang tidak ada di set itu (Ari, Rhoga, Kadek, Joni, Marlon) dihapus atas permintaan Ari |
+| `staff/*.jpg` | 19 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Staf yang tidak ada di set itu (Ari, Rhoga, Kadek, Joni) dihapus atas permintaan Ari. Foto Marlon menyusul 2026-10-28 |
 | `logo.png`, `logo-light.png` | 360×178 | Visa4Bali |
 
 Alt text ditulis di Media Library, bukan di widget. Lihat memori pipeline alt text (#22): AIOSEO membuang tanda baca.
