@@ -106,7 +106,7 @@ Aturan:
 - Tengah: Nav Menu (Home, Visas & prices, About us, Contact). Item aktif diberi garis bawah 1px. Breakpoint dropdown: **Tablet**.
 - Kanan: **Menu Cart** widget (revisi Ari 2026-10-23, menggantikan nomor telepon). Icon tas, teks "Basket" di desktop, Items Indicator: *Bubble* merah, Cart Type: **Side Cart**. Side cart berisi daftar visa, total, satu tombol merah "Checkout", dan catatan "Payments go to VISA4BALI only…". Di tablet/mobile teks "Basket" disembunyikan, lalu ditambah tombol merah kecil "Chat" (buka Popup Chat, bagian 3b) + hamburger. Atur dengan *Responsive › Hide On*.
 
-**Footer** (`<footer class="foot">`): latar Secondary, 3 kolom rata tengah (alamat & jam · kontak & sosial · link), copyright, lalu strip foto pantai setinggi 150px dengan mask gradasi. Strip ini bisa dibuat sebagai Container dengan background image `jimbaran.jpg` dan CSS `mask-image` (Custom CSS container).
+**Footer** (`<footer class="foot">`): latar Secondary, 3 kolom rata tengah (alamat & jam · kontak & sosial · link), copyright, lalu strip foto sawah setinggi 150px dengan mask gradasi. Strip ini bisa dibuat sebagai Container dengan background image `sidemen.jpg` dan CSS `mask-image` (Custom CSS container).
 
 ### 3b. Popup "Chat with us" (revisi Ari 2026-10-23)
 
@@ -165,7 +165,7 @@ Kalau slug diubah, buat redirect 301 dari slug lama.
 ### Home (`home.html`)
 | Section | Widget |
 |---|---|
-| Hero | Container full width, min-height 640 (tablet 520, mobile 460), background image `jimbaran.jpg` + overlay gradien. Heading H1 + Text Editor. Kredit foto wajib tetap ada (CC BY-SA). |
+| Hero | Container full width, min-height 640 (tablet 520, mobile 460), background image `sidemen.jpg` + overlay gradien. Heading H1 + Text Editor. Tanpa kredit foto (lisensi Unsplash tidak mewajibkan). |
 | Visa finder | Container boxed, margin-top −104 (tablet/mobile 0), shadow. **Nested Tabs** vertikal (mobile: horizontal, tab berbentuk pil). Isi tiap tab: **Loop Grid** produk kategori itu, maksimal 3, memakai Loop Item "Visa row (ringkas)". |
 | Visas for every kind of stay | Container latar Primary. 3 inner Container: label, "From Rp …", deskripsi, 3 baris contoh, link ke `/shop/#kategori`. Angka "From" diketik manual atau lewat shortcode harga minimum. |
 | Tell us about your trip | Heading + Text + Button WhatsApp |
@@ -237,7 +237,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 
 | File | Ukuran | Upload ke Media Library dengan alt |
 |---|---|---|
-| `jimbaran.jpg` | 1280×960 | "Jimbaran Bay on a clear morning…" (kredit: pedrizat, CC BY-SA 2.0) |
+| `sidemen.jpg` | 1600×1066 | hero Home (alt lihat `home.html`), hero Shop (alt kosong), strip footer. Sawah Sidemen + Gunung Agung, Geio Tischler / Unsplash (lisensi Unsplash, kredit tidak wajib). Pilihan Ayik 2026-10-29 |
 | `rolly-client.jpg` | 1400×933 | band Why choose us, alt lihat `home.html`. Dari BAPAK ROLL.jpg (kiriman Ari 2026-10-28) |
 | `team-office.jpg` | 1800×900 | foto tim di Home, radius 4px, lebar penuh. Alt lihat `home.html`. Dari fotoasd.jpg (kiriman Ari 2026-10-28), di-crop 2:1 |
 | `team-4.jpg` | 1030×708 | hero Contact (alt kosong). Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
