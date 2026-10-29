@@ -46,11 +46,11 @@ Pada 2026-08-15 owner pernah menolak scope ini. Perlu konfirmasi ulang sebelum m
 
 | Nama di Elementor | Token CSS | Hex | Dipakai untuk |
 |---|---|---|---|
-| Primary | `--sea` | `#1D3940` | band biru laut, kode visa, ikon |
+| Primary | `--sea` | `#1D3940` | band biru laut, band "Why choose us" (revisi Ayik 2026-10-29), kode visa, ikon |
 | Secondary | `--stone` | `#EEECE7` | band batu kapur, kotak harga, form |
 | Text | `--ink` | `#1C2326` | teks utama |
 | Accent | `--merah` | `#C8102E` | tombol utama, titik aktif |
-| Accent Dark | `--merah-2` | `#A30D25` | hover tombol, band "Why choose us" (dikembalikan ke merah, revisi Ari 2026-10-29) |
+| Accent Dark | `--merah-2` | `#A30D25` | hover tombol |
 | Text Muted | `--muted` | `#566064` | paragraf sekunder |
 | Border | `--line` | `#D9D6CF` | garis pemisah |
 | On Sea | `--on-sea` | `#DCE6E7` | teks di atas biru laut |
@@ -169,7 +169,7 @@ Kalau slug diubah, buat redirect 301 dari slug lama.
 | Visa finder | Container boxed, margin-top −104 (tablet/mobile 0), shadow. **Nested Tabs** vertikal (mobile: horizontal, tab berbentuk pil). Isi tiap tab: **Loop Grid** produk kategori itu, maksimal 3, memakai Loop Item "Visa row (ringkas)". |
 | Visas for every kind of stay | Container latar Primary. 3 inner Container: label, "From Rp …", deskripsi, 3 baris contoh, link ke `/shop/#kategori`. Angka "From" diketik manual atau lewat shortcode harga minimum. |
 | Tell us about your trip | Heading + Text + Button WhatsApp |
-| Why choose us | Latar Accent Dark, teks putih, teks kecil `#F3DEDB`. Foto radius 4px seperti gambar lain. 2 kolom: 3 poin + 1 foto Pak Rolly dengan klien (`rolly-client.jpg`). Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
+| Why choose us | Latar Primary, teks putih, teks kecil `--on-sea` `#DCE6E7`. Foto radius 4px seperti gambar lain. 2 kolom: 3 poin + 1 foto Pak Rolly dengan klien (`rolly-client.jpg`). Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
 | Testimonials | Latar Secondary, 3 kolom. Review asli dari homepage lama. |
 | About teaser | 2 kolom teks + foto tim + link ke About |
 

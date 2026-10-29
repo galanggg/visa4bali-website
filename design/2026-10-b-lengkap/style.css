@@ -12,13 +12,13 @@
   /* Global Colours */
   --white:#FFFFFF;      /* Background */
   --stone:#EEECE7;      /* Background alt (limestone) */
-  --sea:#1D3940;        /* Primary */
+  --sea:#1D3940;        /* Primary, Why band */
   --sea-2:#28474F;      /* Primary hover */
   --ink:#1C2326;        /* Text */
   --muted:#566064;      /* Text muted */
   --line:#D9D6CF;       /* Border */
   --merah:#C8102E;      /* Accent: buttons, dots */
-  --merah-2:#A30D25;    /* Accent hover, Why band */
+  --merah-2:#A30D25;    /* Accent hover */
   --merah-muda:#F4B4AC; /* Links on sea */
   --on-sea:#DCE6E7;     /* Text on sea */
   /* Global Fonts */
@@ -167,12 +167,12 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .ask small{display:block;margin-top:14px;color:var(--muted);font-size:var(--t-small)}
 
 /* why band */
-.why{background:var(--merah-2);color:#fff}
+.why{background:var(--sea);color:var(--white)}
 .why .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:72px;align-items:center;padding-block:100px}
 .why h2{font-size:var(--t-h2);line-height:1.08}
 .why-points{margin-top:30px;display:flex;flex-direction:column;gap:22px}
 .why-points b{display:block;font-weight:500;font-size:var(--t-body)}
-.why-points span{color:#F3DEDB}
+.why-points span{color:var(--on-sea)}
 .why-photos img{width:100%;height:auto;border-radius:4px}
 
 /* testimonials */
