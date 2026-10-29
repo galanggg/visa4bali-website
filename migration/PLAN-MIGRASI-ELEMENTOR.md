@@ -36,7 +36,7 @@ Tidak ada pekerjaan di WordPress sebelum semua ini selesai.
 - [ ] **Data yang belum pasti** (PANDUAN bagian 8): konflik harga Woo vs flyer, nomor WhatsApp tim Rusia, username Telegram tim English dan Rusia, metode bayar DOKU yang aktif, halaman terms & privacy.
 - [ ] **Pemetaan foto staf** dikonfirmasi: AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede.
 - [ ] **Keputusan owner** di bagian 2 dokumen ini sudah diambil.
-- [ ] **PANDUAN-SLICING.md dirapikan** (lihat bagian 7), supaya yang dibangun sesuai mockup terbaru.
+- [x] **PANDUAN-SLICING.md dirapikan** (2026-10-29, lihat bagian 7), supaya yang dibangun sesuai mockup terbaru.
 
 ---
 
@@ -211,9 +211,6 @@ Kredensial tidak pernah lewat chat. Owner login sendiri di browser yang dikendal
 
 ---
 
-## 7. Yang perlu diperbaiki di PANDUAN-SLICING.md (Fase 0)
+## 7. Sinkron dengan PANDUAN-SLICING.md
 
-- Pendahuluan masih menyebut 5 halaman. Sekarang ada 8 file: tambahan `product-chat.html`, `basket.html`, `checkout.html`.
-- Bagian 8 masih menulis role Ayik, Sumar, dan Juniarta belum ada. Sekarang sudah diisi dari daftar Ayik (2026-10-28). Yang tersisa hanya konfirmasi pemetaan file foto.
-- Bagian 1 "Keputusan dulu: template Canvas" perlu dirujukkan ke K1 di dokumen ini.
-- Saran redirect `/our-services/` di bagian 1 perlu disesuaikan dengan K3 (risiko redirect berantai dari situs lama).
+Bagian yang basi (jumlah halaman, role staf, rujukan K1 dan K3) sudah diperbaiki pada 2026-10-29. Kalau salah satu keputusan K1–K5 berubah, perbarui juga bagian 1 dan 9 di panduan.

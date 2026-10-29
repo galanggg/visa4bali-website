@@ -1,13 +1,15 @@
 # Panduan slicing: arah B "Resor Jimbaran" ke WordPress + Elementor Pro
 
-Mockup ini terdiri dari 5 halaman: `home.html`, `shop.html`, `product.html`, `about.html`, `contact.html`. Semuanya memakai satu stylesheet, `style.css`, dan satu file data, `site.js`. Mockup ini sengaja dibuat mengikuti cara kerja Elementor:
+Mockup ini terdiri dari 8 halaman: `home.html`, `shop.html`, `product.html`, `product-chat.html`, `basket.html`, `checkout.html`, `about.html`, `contact.html`. Semuanya memakai satu stylesheet, `style.css`, dan satu file data, `site.js`. Mockup ini sengaja dibuat mengikuti cara kerja Elementor:
 
 - Setiap warna dan font di `:root` (`style.css`) = satu **Global Colour / Global Font**.
 - Breakpoint hanya dua, sama dengan default Elementor: **tablet ≤1024px**, **mobile ≤767px**.
 - `.wrap` = Container *boxed*, content width **1200px**, padding kiri-kanan **20px**.
 - Setiap section punya komentar `<!-- EL: ... -->` di HTML-nya. Komentar itu menyebut widget Elementor yang dipakai.
 
-Status: arah B dipilih Ari & Devi pada 2026-10-23. Catatan 1 (kunyit diganti merah) sudah diterapkan. Harga dan beberapa fakta masih menunggu konfirmasi; daftarnya ada di bagian 8.
+Status: arah B dipilih Ari & Devi pada 2026-10-23, lalu direvisi beberapa kali (terakhir 2026-10-29). Harga dan beberapa fakta masih menunggu konfirmasi; daftarnya ada di bagian 8. Slicing ke Elementor belum boleh dimulai sebelum Ayik & Devi menyetujui desain ini.
+
+Panduan ini menjelaskan **cara** membangun tiap bagian. **Urutan, syarat tiap fase, risiko, dan rollback** ada di `migration/PLAN-MIGRASI-ELEMENTOR.md`. Kalau keduanya berbeda, ikuti plan migrasi.
 
 ---
 
@@ -25,7 +27,7 @@ Status: arah B dipilih Ari & Devi pada 2026-10-23. Catatan 1 (kunyit diganti mer
 | `contact.html` | Page **Contact Us** (193) | Elementor page |
 | header & footer | semua halaman | Theme Builder › **Header** dan **Footer** |
 
-`/our-services/` isinya akan sama dengan Shop. Saran: redirect 301 `/our-services/` → `/shop/` (atau sebaliknya: jadikan halaman Shop di WooCommerce › Settings › Products ke page `our-services`). Dengan begitu daftar harga cuma ada **satu**, dan selalu sama dengan harga checkout.
+`/our-services/` isinya akan sama dengan Shop, supaya daftar harga cuma ada **satu** dan selalu sama dengan harga checkout. Saran: jadikan page `our-services` (102) sebagai halaman Shop di WooCommerce › Settings › Products, **jangan** redirect ke `/shop/`. URL `/our-services/` sudah punya rangking dan menjadi target 24 redirect 301 dari situs lama (`migration/old-site-301-redirects.csv`); kalau dialihkan lagi ke `/shop/`, redirect itu jadi berantai dua langkah. Keputusan ini = **K3** di plan migrasi.
 
 ### ⚠️ Keputusan dulu: template Canvas
 
@@ -36,7 +38,7 @@ Redesign ini adalah saat yang tepat untuk membereskannya:
 2. Hapus header dan footer inline lama di masing-masing halaman, juga Template widget footer 2055.
 3. Buat satu Header dan satu Footer di Theme Builder, dengan kondisi *Entire Site*.
 
-Pada 2026-08-15 owner pernah menolak scope ini. Perlu konfirmasi ulang sebelum mulai.
+Pada 2026-08-15 owner pernah menolak scope ini karena memaksa header baru dibangun sekaligus. Di redesign ini header memang dibangun ulang, jadi alasan itu sudah tidak berlaku. Tetap perlu konfirmasi ulang sebelum mulai: ini keputusan **K1** di plan migrasi (rekomendasi: Full Width).
 
 ---
 
@@ -289,17 +291,19 @@ Lainnya:
 - **Metode bayar di DOKU** yang aktif (kartu, virtual account, QRIS, e-wallet?), supaya teks di Checkout bisa lebih spesifik.
 - **Halaman terms & privacy policy** untuk checkbox di Checkout. Link di mockup masih `#`.
 - **E33G** (`product-chat.html`): proses 12–14 hari kerja (flyer) vs 5–6 hari kerja (WooCommerce), harga 12 jt vs 13 jt.
-- **Role staf**: role lama diambil dari About Us sekarang. Ayik, Sumar dan Juniarta baru masuk di set foto 2026-10-28 dan role-nya belum ada (di mockup tertulis "Role to confirm").
+- **Pemetaan foto staf**: role 19 staf sudah diisi dari daftar Ayik (2026-10-28). Yang tersisa hanya konfirmasi file foto AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede (dipetakan dengan eliminasi).
 - Klaim yang **sengaja tidak dipakai** karena belum terverifikasi: penghargaan "best visa agency", angka counter (20K+ klien, 48 tim, 144K+ visa).
 
 ---
 
 ## 9. Urutan kerja yang disarankan
 
-1. Konfirmasi bagian 8 dan keputusan Canvas (bagian 1).
+Ringkasan saja; detail tiap langkah, syarat lanjut, dan rollback ada di `migration/PLAN-MIGRASI-ELEMENTOR.md`.
+
+1. Persetujuan desain dari Ayik & Devi, konfirmasi bagian 8, dan keputusan K1–K5 di plan migrasi (termasuk Canvas dan `/our-services/`, bagian 1).
 2. Site Settings: warna, font, tombol, layout (bagian 2).
 3. Rapikan produk WooCommerce: kategori, atribut, short description, tipe External (bagian 4).
 4. Theme Builder: Header, Footer, Loop Item "Visa row", Product Archive, Single Product.
-5. Halaman: Home → About → Contact. Buat sebagai **draft/duplikat** dulu, jangan langsung timpa halaman live.
+5. Halaman: Home → About → Contact. Buat sebagai **draft/duplikat** dulu, jangan langsung timpa halaman live. Template Theme Builder juga tetap draft tanpa kondisi sampai go-live.
 6. Cek logged-out di 390 / 768 / 1024 / 1440. Admin melewati delay JS WP Rocket, jadi hasilnya bisa beda.
-7. Ganti halaman live, lalu buat redirect untuk slug yang berubah.
+7. Go-live sekaligus (big-bang) mengikuti checklist Fase 6 di plan migrasi: backup dulu, isi draft dimasukkan ke page ID asli supaya slug dan meta SEO tetap, lalu redirect untuk slug yang berubah.
