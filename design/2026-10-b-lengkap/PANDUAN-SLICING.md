@@ -216,7 +216,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 ### About (`about.html`)
 | Section | Widget |
 |---|---|
-| Hero | Seperti hero Shop, foto `team-3.jpg` |
+| Hero | Seperti hero Shop, foto `ulun-danu.jpg` |
 | Our story | 2 kolom 5/6: Image (owner) + caption · eyebrow · H2 · 2 paragraf · kalimat sorotan bergaris kiri merah |
 | How we work | Latar Primary, 3 kolom |
 | Team | 19 × **Image Box** (atau Loop Grid kalau staf dibuat CPT). 5 kolom desktop, 3 tablet, 2 mobile. Foto 4:5, latar putih. |
@@ -226,7 +226,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 ### Contact (`contact.html`)
 | Section | Widget |
 |---|---|
-| Hero | Seperti hero Shop, foto `team-4.jpg` |
+| Hero | Seperti hero Shop, foto `uluwatu.jpg` |
 | Kontak + form | 2 kolom 5/7. Kiri: Container Primary (CTA WhatsApp) + Icon List. Kanan: **MetForm 195** yang diubah fieldnya: Name, Email, WhatsApp (opsional), Nationality, What do you need (select), tanggal (opsional), Message. Style input: latar putih, border `#D9D6CF`, radius 4, padding 13/14. |
 | Passport pick-up | Teks + 9 area (3 kolom). Sumber: deskripsi produk VOA Extension. |
 | Visit our office | Sama dengan About + peringatan penipuan |
@@ -240,8 +240,8 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | `sidemen.jpg` | 1600×1066 | hero Home (alt lihat `home.html`), hero Shop (alt kosong), strip footer. Sawah Sidemen + Gunung Agung, Geio Tischler / Unsplash (lisensi Unsplash, kredit tidak wajib). Pilihan Ayik 2026-10-29 |
 | `rolly-client.jpg` | 1400×933 | band Why choose us, alt lihat `home.html`. Dari BAPAK ROLL.jpg (kiriman Ari 2026-10-28) |
 | `team-office.jpg` | 1800×900 | foto tim di Home, radius 4px, lebar penuh. Alt lihat `home.html`. Dari fotoasd.jpg (kiriman Ari 2026-10-28), di-crop 2:1 |
-| `team-4.jpg` | 1030×708 | hero Contact (alt kosong). Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
-| `team-3.jpg` | 1376×768 | hero About (alt kosong). Dari TEAM3.jpg (kiriman Ari 2026-10-28) |
+| `ulun-danu.jpg` | 1600×1067 | hero About (alt kosong). Pura Ulun Danu, Katarzyna Zygnerska / Unsplash (lisensi Unsplash, kredit tidak wajib). Revisi Ari 2026-10-29 |
+| `uluwatu.jpg` | 1600×1065 | hero Contact (alt kosong). Pantai Uluwatu, Max Kukurudziak / Unsplash (lisensi Unsplash, kredit tidak wajib). Revisi Ari 2026-10-29 |
 | `owner.webp` | 768×1296, transparan | Foto Pak Rolly ROLLY3.jpg (revisi Ayik 2026-10-28), background putih dihapus. Di Elementor: Image widget tanpa latar (transparan di atas putih), gambar rata kiri-bawah, sejajar caption |
 | `staff/*.jpg` | 19 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Urutan dan role dari Ayik 2026-10-28 (kiri ke kanan), lihat `team` di `about.html`. File AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede (dipetakan dengan eliminasi, ⚠️ perlu konfirmasi). Foto Marlon menyusul 2026-10-28 |
 | `logo.png`, `logo-light.png` | 360×178 | Visa4Bali |
