@@ -50,8 +50,7 @@ Pada 2026-08-15 owner pernah menolak scope ini. Perlu konfirmasi ulang sebelum m
 | Secondary | `--stone` | `#EEECE7` | band batu kapur, kotak harga, form |
 | Text | `--ink` | `#1C2326` | teks utama |
 | Accent | `--merah` | `#C8102E` | tombol utama, titik aktif |
-| Accent Dark | `--merah-2` | `#A30D25` | hover tombol |
-| Abu studio | `--abu` | `#A4A9AF` | band "Why choose us" (revisi Ayik 2026-10-28: warna abu tepi foto `team-4.jpg` supaya foto menyatu). Teks `--ink`, teks kecil `--abu-ink` `#2B3437` (5.4:1) |
+| Accent Dark | `--merah-2` | `#A30D25` | hover tombol, band "Why choose us" (dikembalikan ke merah, revisi Ari 2026-10-29) |
 | Text Muted | `--muted` | `#566064` | paragraf sekunder |
 | Border | `--line` | `#D9D6CF` | garis pemisah |
 | On Sea | `--on-sea` | `#DCE6E7` | teks di atas biru laut |
@@ -170,7 +169,7 @@ Kalau slug diubah, buat redirect 301 dari slug lama.
 | Visa finder | Container boxed, margin-top −104 (tablet/mobile 0), shadow. **Nested Tabs** vertikal (mobile: horizontal, tab berbentuk pil). Isi tiap tab: **Loop Grid** produk kategori itu, maksimal 3, memakai Loop Item "Visa row (ringkas)". |
 | Visas for every kind of stay | Container latar Primary. 3 inner Container: label, "From Rp …", deskripsi, 3 baris contoh, link ke `/shop/#kategori`. Angka "From" diketik manual atau lewat shortcode harga minimum. |
 | Tell us about your trip | Heading + Text + Button WhatsApp |
-| Why choose us | Latar Abu studio, teks Ink (gelap). Foto radius 4px seperti gambar lain. 2 kolom: 3 poin + 1 foto tim (`team-4.jpg`). Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
+| Why choose us | Latar Accent Dark, teks putih, teks kecil `#F3DEDB`. Foto radius 4px seperti gambar lain. 2 kolom: 3 poin + 1 foto Pak Rolly dengan klien (`rolly-client.jpg`). Simpan sebagai **Global Widget/Template**, karena dipakai lagi di About. |
 | Testimonials | Latar Secondary, 3 kolom. Review asli dari homepage lama. |
 | About teaser | 2 kolom teks + foto tim + link ke About |
 
@@ -239,9 +238,10 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | File | Ukuran | Upload ke Media Library dengan alt |
 |---|---|---|
 | `jimbaran.jpg` | 1280×960 | "Jimbaran Bay on a clear morning…" (kredit: pedrizat, CC BY-SA 2.0) |
-| `team-4.jpg` | 1030×708 | lihat alt di `home.html`. Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
+| `rolly-client.jpg` | 1400×933 | band Why choose us, alt lihat `home.html`. Dari BAPAK ROLL.jpg (kiriman Ari 2026-10-28) |
+| `team-office.jpg` | 1800×900 | foto tim di Home, radius 4px, lebar penuh. Alt lihat `home.html`. Dari fotoasd.jpg (kiriman Ari 2026-10-28), di-crop 2:1 |
+| `team-4.jpg` | 1030×708 | hero Contact (alt kosong). Dari TEAM44.jpg (kiriman Ari 2026-10-28), softbox di pojok sudah di-crop |
 | `team-3.jpg` | 1376×768 | hero About (alt kosong). Dari TEAM3.jpg (kiriman Ari 2026-10-28) |
-| `team-3-cutout.webp` | 1084×630, transparan | foto tim di Home, background dihapus (revisi Ayik 2026-10-28). Alt lihat `home.html`. Image widget lebar maks 680 (sumber cuma 1085px, lebih lebar jadi pecah di layar retina), tengah |
 | `owner.webp` | 768×1296, transparan | Foto Pak Rolly ROLLY3.jpg (revisi Ayik 2026-10-28), background putih dihapus. Di Elementor: Image widget tanpa latar (transparan di atas putih), gambar rata kiri-bawah, sejajar caption |
 | `staff/*.jpg` | 19 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Urutan dan role dari Ayik 2026-10-28 (kiri ke kanan), lihat `team` di `about.html`. File AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede (dipetakan dengan eliminasi, ⚠️ perlu konfirmasi). Foto Marlon menyusul 2026-10-28 |
 | `logo.png`, `logo-light.png` | 360×178 | Visa4Bali |
