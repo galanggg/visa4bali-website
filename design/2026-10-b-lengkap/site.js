@@ -2,7 +2,10 @@
    In WordPress every item below is a WooCommerce product: `group` is its product category, `code`, `stay` and `time`
    are product attributes (or ACF fields), and `route` decides the button. "buy" = simple product, paid online;
    "chat" = external product whose button URL is the WhatsApp link. `woo` is the live product ID it maps to (null = no
-   product yet). Prices follow the June 2026 flyers; where WooCommerce disagrees, PANDUAN-SLICING.md lists it. */
+   product yet). Prices and processing times follow Ari's revision of 2026-10-31; where WooCommerce disagrees,
+   PANDUAN-SLICING.md lists it. `feat` = shown in the home finder and the "Visas for every kind of stay" band (in Woo:
+   a Featured product). `from` = the price is a starting price (variable product). `extra` = a second line under the
+   price. Groups are sorted by stay, shortest first. */
 window.V4B = {
   wa: "+62 878 6227 3133",
   waHref: "https://wa.me/6287862273133",
@@ -13,22 +16,29 @@ window.V4B = {
       ask: "I haven't flown in yet",
       blurb: "Short stays for holidays, meetings and visiting.",
       items: [
-        { code: "e-VOA", name: "Electronic Visa on Arrival", stay: "30 days", time: "5–7 working days", price: 750000, route: "buy", woo: 494 },
-        { code: "C1", name: "Tourist Visa", stay: "60 days, extendable to 180", time: "12–14 working days", price: 2200000, route: "buy", woo: 351 },
-        { code: "C2", name: "Business Visa", stay: "60 days", time: "12–14 working days", price: 3500000, route: "chat", woo: null }
+        { code: "e-VOA", slug: "e-voa", name: "Electronic Visa on Arrival", stay: "30 days, extendable to 60 in total", time: "2–3 working days", price: 750000, route: "buy", woo: 494, feat: 1 },
+        { code: "C1", slug: "c1", name: "Tourist Visa", stay: "60 days, extendable to 180 in total", time: "5–9 working days", price: 2000000, from: 1, route: "buy", woo: 351, feat: 1 },
+        { code: "C2", slug: "c2", name: "Business Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 3500000, route: "chat", woo: null, feat: 1 }
       ]
     },
     {
       id: "already-in-bali",
       label: "Already in Bali",
       ask: "I'm here and need more time",
-      blurb: "We collect your passport and bring it back stamped.",
+      blurb: "No passport collection needed. Your Stay Permit letter will be provided digitally.",
       items: [
-        { code: "VOA", name: "VOA Extension", stay: "+30 days", time: "8–10 working days", price: 800000, route: "buy", woo: 342 },
-        { code: "VOA", name: "VOA Extension, faster", stay: "+30 days", time: "3–5 working days", price: 1000000, route: "buy", woo: null },
-        { code: "C1", name: "Tourist Visa Extension", stay: "+60 days", time: "Ask us", price: 1800000, route: "buy", woo: 346 },
-        { code: "D1", name: "Multiple Entry Visa Extension", stay: "+60 days", time: "Ask us", price: 1800000, route: "buy", woo: 1572 },
-        { code: "D12", name: "D12 Visa Extension", stay: "Ask us", time: "Ask us", price: 3000000, route: "buy", woo: 1575 }
+        { code: "VOA", slug: "voa-extension", name: "VOA Extension", stay: "+30 days", time: "8–10 working days", price: 800000, route: "buy", woo: 342, feat: 1 },
+        { code: "C1", slug: "c1-extension", name: "Tourist Visa Extension", stay: "+60 days", time: "8–10 working days", price: 1800000, route: "buy", woo: 346, feat: 1 },
+        { code: "D1", slug: "d1-extension", name: "Multiple Entry Visa Extension", stay: "+60 days", time: "8–10 working days", price: 1800000, route: "buy", woo: 1572 },
+        { code: "D2", slug: "d2-extension", name: "Multiple Entry Business Visa Extension", stay: "+60 days", time: "8–10 working days", price: 1800000, route: "buy", woo: null },
+        { code: "Bridging", slug: "bridging-visa", name: "Bridging Visa (Transitional Stay Permit)", stay: "+60 days", time: "7–9 working days", price: 3000000, route: "chat", woo: null },
+        { code: "D12", slug: "d12-extension", name: "Pre-Investment Visa Extension", stay: "+180 days", time: "10–12 working days", price: 3250000, route: "buy", woo: 1575, feat: 1 },
+        // one Woo variable product, attribute Duration: +1 year 10,000,000 / +2 years 15,500,000
+        { code: "KITAS", slug: "family-itas-extension", name: "Family ITAS Extension", stay: "+1 or 2 years", time: "14–21 working days", price: 10000000, from: 1, route: "chat", woo: null },
+        { code: "KITAS", slug: "retirement-kitas-extension", name: "Retirement KITAS Extension", stay: "+1 year", time: "14–21 working days", price: 10000000, route: "chat", woo: null },
+        { code: "E33G", slug: "e33g-extension", name: "Remote Worker KITAS Extension", stay: "+1 year", time: "14–21 working days", price: 12000000, route: "chat", woo: null },
+        { code: "KITAS", slug: "working-kitas-extension", name: "Working KITAS Extension", stay: "+1 year", time: "2.5–3 months", price: 14300000, extra: "+ USD 1,200", route: "chat", woo: null },
+        { code: "KITAS", slug: "investor-kitas-extension", name: "Investor KITAS Extension", stay: "+2 years", time: "14–21 working days", price: 16000000, route: "chat", woo: null }
       ]
     },
     {
@@ -37,20 +47,40 @@ window.V4B = {
       ask: "I want to live or work here",
       blurb: "Multiple-entry visas and stay permits, one case manager.",
       items: [
-        { code: "D1", name: "Multiple Entry Visa, 1 year", stay: "60 days per arrival", time: "12–14 working days", price: 5000000, route: "chat", woo: 355 },
-        { code: "D12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "12–14 working days", price: 7500000, route: "chat", woo: 668 },
-        { code: "E33G", name: "Remote Worker KITAS, offshore", stay: "1 year", time: "12–14 working days", price: 12000000, route: "chat", woo: 515 },
-        { code: "KITAS", name: "Family KITAS, 1 year onshore", stay: "1 year", time: "14–21 working days", price: 11500000, route: "chat", woo: 627 },
-        { code: "KITAS", name: "Retirement KITAS, offshore", stay: "1 year", time: "12–14 working days", price: 13000000, route: "chat", woo: null },
-        { code: "KITAS", name: "Investor KITAS, 2 years offshore", stay: "2 years", time: "12–14 working days", price: 16000000, route: "chat", woo: null }
+        { code: "KITAS", slug: "family-kitas", name: "Family KITAS, 1 year offshore", stay: "1 year", time: "7–9 working days", price: 11500000, route: "chat", woo: 627, feat: 1 },
+        { code: "D12", slug: "d12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "7–9 working days", price: 7000000, route: "chat", woo: 668, feat: 1 },
+        { code: "E33G", slug: "e33g", name: "Remote Worker KITAS, offshore", stay: "1 year", time: "9–12 working days", price: 12500000, route: "chat", woo: 515, feat: 1 },
+        { code: "KITAS", slug: "retirement-kitas", name: "Retirement KITAS, offshore", stay: "1 year", time: "12–14 working days", price: 13000000, route: "chat", woo: null },
+        { code: "KITAS", slug: "investor-kitas", name: "Investor KITAS, 2 years offshore", stay: "2 years", time: "12–14 working days", price: 16000000, route: "chat", woo: null }
+      ]
+    },
+    /* Visas for Indonesian citizens going abroad. Home finder only: no price, each pair goes straight to the WhatsApp of
+       the staff member who handles it. The three numbers are placeholders until Ari sends them. */
+    {
+      id: "travelling-abroad",
+      label: "Travelling abroad",
+      ask: "For Indonesian passport holders",
+      finderOnly: true,
+      items: [
+        { code: "JP/CN", name: "Japan or China visa", stay: "Indonesian passport", time: "Ari answers on WhatsApp", price: null, route: "chat", wa: "TODO_whatsapp_ari", tanya: "visa Jepang atau China", feat: 1 },
+        { code: "EU/US", name: "Schengen or USA visa", stay: "Indonesian passport", time: "Feny answers on WhatsApp", price: null, route: "chat", wa: "TODO_whatsapp_feny", tanya: "visa Schengen atau Amerika", feat: 1 },
+        { code: "AU/KR", name: "Australia or Korea visa", stay: "Indonesian passport", time: "Nanda answers on WhatsApp", price: null, route: "chat", wa: "TODO_whatsapp_nanda", tanya: "visa Australia atau Korea", feat: 1 }
       ]
     }
   ],
   rp: function (n) { return "Rp " + n.toLocaleString("en-US"); },
   from: function (g) { return Math.min.apply(null, g.items.map(function (i) { return i.price; })); },
-  // two sample product pages in this mockup: one for "buy" visas, one for "chat" visas
-  url: function (v) { return v.route === "chat" ? "product-chat.html" : "product.html"; },
+  feat: function (g) { var f = g.items.filter(function (v) { return v.feat; }); return f.length ? f : g.items.slice(0, 3); },
+  // price cell: optional "From" line above, optional extra line below (e.g. a fee paid in dollars)
+  price: function (v) {
+    if (v.price == null) return "";
+    return (v.from ? "<small>From</small>" : "") + V4B.rp(v.price) + (v.extra ? "<small>" + v.extra + "</small>" : "");
+  },
+  // one Single Product template for every visa; detail.js holds each product's description
+  url: function (v) { return "product.html?visa=" + v.slug; },
   act: function (v, cls) {
+    if (v.wa) return '<a class="' + cls + '-act ' + cls + '-chat" href="https://wa.me/' + v.wa + "?text=" +
+      encodeURIComponent("Halo Visa4Bali, saya mau tanya " + v.tanya) + '">Ask us</a>';
     return v.route === "buy"
       ? '<a class="' + cls + '-act ' + cls + '-buy" href="' + V4B.url(v) + '" data-add="' + v.code + "|" + v.name + "|" + v.price + '">Apply online</a>'
       : '<a class="' + cls + '-act ' + cls + '-chat" href="' + V4B.waHref + '" data-chat data-visa="' + v.code + ", " + v.name + '">Ask us</a>';
@@ -80,9 +110,9 @@ V4B.finder = function (root, opts) {
   var list = root.querySelector(".pk-list");
   function show(id) {
     var g = V4B.groups.filter(function (x) { return x.id === id; })[0];
-    list.innerHTML = g.items.slice(0, 3).map(function (v) {
-      return '<li class="pk-row"><span class="pk-code">' + v.code + '</span><span class="pk-main"><b class="pk-name"><a href="' + V4B.url(v) + '">' + v.name +
-        '</a></b><span class="pk-meta">' + v.stay + " · " + v.time + '</span></span><span class="pk-price num">' + V4B.rp(v.price) + "</span>" + V4B.act(v, "pk") + "</li>";
+    list.innerHTML = V4B.feat(g).map(function (v) {
+      return '<li class="pk-row"><span class="pk-code">' + v.code + '</span><span class="pk-main"><b class="pk-name">' + (v.wa ? v.name : '<a href="' + V4B.url(v) + '">' + v.name + "</a>") +
+        '</b><span class="pk-meta">' + v.stay + " · " + v.time + '</span></span><span class="pk-price num">' + V4B.price(v) + "</span>" + V4B.act(v, "pk") + "</li>";
     }).join("");
     list.classList.remove("pk-in"); void list.offsetWidth; list.classList.add("pk-in");
   }
@@ -92,11 +122,8 @@ V4B.finder = function (root, opts) {
 
 /* Three stay groups with a "from" price (home, shop hero). */
 V4B.stays = function (root, link) {
-  root.innerHTML = V4B.groups.map(function (g) {
-    var seen = {};
-    var rows = g.items.filter(function (v) {
-      var k = v.name.replace(/, .*$/, ""); if (seen[k]) return false; seen[k] = 1; return true;
-    }).slice(0, 3).map(function (v) {
+  root.innerHTML = V4B.groups.filter(function (g) { return !g.finderOnly; }).map(function (g) {
+    var rows = V4B.feat(g).map(function (v) {
       var n = v.name.replace(/, .*$/, "");
       return "<li>" + (n.indexOf(v.code) === -1 ? v.code + " " : "") + n + "<span>" + v.stay + "</span></li>";
     }).join("");
@@ -107,13 +134,13 @@ V4B.stays = function (root, link) {
 
 /* Shop: one group per product category, one row per product. */
 V4B.table = function (root, only) {
-  root.innerHTML = V4B.groups.filter(function (g) { return !only || g.id === only; }).map(function (g) {
+  root.innerHTML = V4B.groups.filter(function (g) { return !g.finderOnly && (!only || g.id === only); }).map(function (g) {
     return '<section class="pt-group" id="' + g.id + '"><header class="pt-head"><h2 class="pt-title">' + g.label +
       '</h2><p class="pt-blurb">' + g.blurb + '</p></header><div class="pt-rows">' +
       g.items.map(function (v) {
-        return '<div class="pt-row"><span class="pt-code">' + v.code + '</span><span class="pt-name"><a href="' + V4B.url(v) + '">' + v.name +
+        return '<div class="pt-row"><span class="pt-code' + (v.code.length > 5 ? " long" : "") + '">' + v.code + '</span><span class="pt-name"><a href="' + V4B.url(v) + '">' + v.name +
           '</a></span><span class="pt-stay"><i>Stay</i>' + v.stay + '</span><span class="pt-time"><i>Processing</i>' + v.time +
-          '</span><span class="pt-price num">' + V4B.rp(v.price) + "</span>" + V4B.act(v, "pt") + "</div>";
+          '</span><span class="pt-price num">' + V4B.price(v) + "</span>" + V4B.act(v, "pt") + "</div>";
       }).join("") + "</div></section>";
   }).join("");
 };
