@@ -1,6 +1,6 @@
 # Panduan slicing: arah B "Resor Jimbaran" ke WordPress + Elementor Pro
 
-Mockup ini terdiri dari 8 halaman: `home.html`, `shop.html`, `product.html`, `product-chat.html`, `basket.html`, `checkout.html`, `about.html`, `contact.html`. Semuanya memakai satu stylesheet, `style.css`, dan satu file data, `site.js`. Mockup ini sengaja dibuat mengikuti cara kerja Elementor:
+Mockup ini terdiri dari 7 template halaman: `home.html`, `shop.html`, `product.html` (satu template untuk 19 visa, `product.html?visa=<slug>`), `basket.html`, `checkout.html`, `about.html`, `contact.html`. Semuanya memakai satu stylesheet, `style.css`, dan dua file data: `site.js` (daftar visa) dan `detail.js` (deskripsi produk per visa). `data-visa.html` adalah checklist internal untuk Ari (bagian deskripsi yang belum ada datanya), bukan halaman situs. Mockup ini sengaja dibuat mengikuti cara kerja Elementor:
 
 - Setiap warna dan font di `:root` (`style.css`) = satu **Global Colour / Global Font**.
 - Breakpoint hanya dua, sama dengan default Elementor: **tablet ≤1024px**, **mobile ≤767px**.
@@ -19,8 +19,7 @@ Panduan ini menjelaskan **cara** membangun tiap bagian. **Urutan, syarat tiap fa
 |---|---|---|
 | `home.html` | Page **Home** (149) | Elementor page |
 | `shop.html` | WooCommerce **Shop** (`/shop/`, 335) | Theme Builder › **Product Archive** |
-| `product.html` | `/product/*` visa yang dibeli online (Simple product) | Theme Builder › **Single Product** |
-| `product-chat.html` | `/product/*` kasus kompleks (External product) | template **Single Product** yang sama, tampil beda karena tipe produknya |
+| `product.html?visa=<slug>` | `/product/*`, semua 19 visa: yang dibeli online (Simple/Variable product) dan yang lewat chat (External product) | Theme Builder › **Single Product**, satu template |
 | `basket.html` | WooCommerce **Basket** (`/basket/`, 336) | Elementor Pro widget **Cart** |
 | `checkout.html` | WooCommerce **Checkout** (+ halaman *Order received* di bagian bawah file) | Elementor Pro widget **Checkout** + template thank-you |
 | `about.html` | Page **About Us** (155) | Elementor page |
@@ -193,7 +192,7 @@ Kalau slug diubah, buat redirect 301 dari slug lama.
 | Kotak harga di HP | Container yang sama diduplikasi di bawah fakta, *Hide On Desktop*. Container sticky aslinya *Hide On Tablet & Mobile*. |
 | Related | Loop Grid "Visa row", query Related/kategori sama, 3 item |
 
-**Varian chat (`product-chat.html`, contoh E33G).** Template Single Product-nya sama. Bedanya ada di produknya: External product, jadi Add To Cart menampilkan tombol "Ask us" yang membuka Popup Chat. Di bawahnya ditambah satu baris "We check your documents with you on WhatsApp or Telegram before you pay." Pakai widget Text Editor dengan Display Condition *product type = external*, atau buat dua template Single Product dengan kondisi per kategori `staying-longer`. Fakta ketiga juga beda per produk (e-VOA: *Longest stay*, E33G: *Income*), jadi simpan sebagai atribut produk `fact_3_label` dan `fact_3_value`.
+**Varian chat (contoh `product.html?visa=e33g`; `product-chat.html` lama sekarang hanya redirect ke situ).** Template Single Product-nya sama. Bedanya ada di produknya: External product, jadi Add To Cart menampilkan tombol "Ask us" yang membuka Popup Chat. Di bawahnya ditambah satu baris "We check your documents with you on WhatsApp or Telegram before you pay." Pakai widget Text Editor dengan Display Condition *product type = external*, atau buat dua template Single Product dengan kondisi per kategori `staying-longer`. Fakta ketiga juga beda per produk (e-VOA: *Longest stay*, E33G: *Income*), jadi simpan sebagai atribut produk `fact_3_label` dan `fact_3_value`.
 
 ### Basket (`basket.html`), WooCommerce › Basket
 | Section | Widget |
@@ -270,27 +269,36 @@ Data di `site.js` hanya untuk mockup. Sumber kebenaran di WordPress adalah produ
 
 ## 8. Masih perlu konfirmasi Ari/Devi sebelum live
 
-Harga di mockup mengikuti flyer Juni 2026. Harga di WooCommerce **berbeda** untuk produk berikut, dan checkout memakai harga WooCommerce:
+Harga, lama proses dan daftar visa di mockup mengikuti **revisi Ari 2026-10-31** (PDF "White and Black Minimalist Shoes For Men Facebook Cover"). Checkout memakai harga WooCommerce, jadi produk berikut harus disesuaikan di Woo sebelum live:
 
-| Visa | Mockup (flyer) | WooCommerce live | Catatan |
+| Visa | Mockup (revisi Ari) | WooCommerce live | Yang perlu dilakukan di Woo |
 |---|---|---|---|
-| C1 Tourist Visa | 2.200.000 | 2.000.000 (#351 "Visa4bali Offshore"?) | promo 2,0 jt? |
-| D12 Multiple Entry 1 th | 7.500.000 | 7.000.000 (#668 "C12 & D12") | |
-| E33G Remote Worker | 12.000.000 | 13.000.000 (#515) | Woo: "termasuk pajak $150" |
-| Family KITAS | 11.500.000 (flyer lain 13.500.000) | 11.000.000 (#627) | tiga angka berbeda |
-| e-VOA proses | 5–7 hari kerja | "1–2 working days" (deskripsi #494) | |
-| E33G proses | 12–14 hari kerja | "5-6 working days" (deskripsi #515) | |
-| D12 Extension | belum ada di flyer | 3.000.000 (#1575) | stay & proses? |
-| D1/D2 Extension | belum ada di flyer | 1.800.000 (#1572) | proses? |
-| VOA Extension cepat | 1.000.000 | tidak ada produk; deskripsi #342: "percepat +250.000" | buat produk/variasi? |
-| C2, Retirement, Investor KITAS | ada di flyer | tidak ada produk | buat sebagai External product (WhatsApp) |
+| e-VOA (#494) | 750.000, 2–3 hari kerja | 750.000, "1–2 working days" | ubah teks proses |
+| C1 Tourist Visa (#351) | **mulai** 2.000.000, 5–9 hari kerja | 2.000.000 | jadikan variable product kalau ada opsi lebih mahal |
+| C2 Business Visa | 3.500.000, 7–9 hari kerja (regular saja) | tidak ada produk | External product (WhatsApp) |
+| C1 Extension (#346) | 1.800.000, 8–10 hari kerja | 1.800.000 | isi proses |
+| D1 Extension (#1572) | 1.800.000, 8–10 hari kerja | 1.800.000 ("D1/D2") | pisahkan D1 dan D2? |
+| D2 Business Extension | sama dengan D1 | ikut #1572 | produk/variasi baru |
+| D12 Pre-Investment Extension (#1575) | 3.250.000, +180 hari, 10–12 hari kerja | 3.000.000 | ubah harga |
+| Bridging Visa (Transitional Stay Permit) | 3.000.000, +60 hari, 7–9 hari kerja | tidak ada produk | produk baru |
+| Family ITAS Extension | +1 th 10.000.000 / +2 th 15.500.000, 14–21 hari kerja | tidak ada produk | variable product, atribut Duration |
+| Retirement KITAS Extension | 10.000.000, +1 th, 14–21 hari kerja | tidak ada produk | produk baru |
+| E33G Extension | 12.000.000, +1 th, 14–21 hari kerja | tidak ada produk | produk baru |
+| Working KITAS Extension | 14.300.000 + USD 1.200, +1 th, 2,5–3 bulan | tidak ada produk | External product; biaya USD tampil sebagai teks |
+| Investor KITAS Extension | 16.000.000, +2 th, 14–21 hari kerja | tidak ada produk | produk baru |
+| Family KITAS offshore (#627) | 11.500.000, 7–9 hari kerja | 11.000.000 (onshore) | ubah nama, harga, proses |
+| D12 Multiple Entry 1 th (#668) | 7.000.000, 7–9 hari kerja | 7.000.000 | isi proses |
+| E33G Remote Worker (#515) | 12.500.000, 9–12 hari kerja | 13.000.000, "5-6 working days" | ubah harga dan proses |
+| VOA Extension cepat | **dihapus** | tidak ada produk | — |
+| D1 Multiple Entry 1 th (#355) | **dihapus** dari Staying longer | ada | sembunyikan (Catalog visibility: Hidden) |
+
+Asumsi mockup yang perlu dicek Ari: stay D2 = +60 hari (Ari hanya menulis "harga dan proses sama kyk D1"); tombol Bridging, KITAS extension dan E33G extension = "Ask us" (WhatsApp), bukan bayar online; urutan Already in Bali = stay terpendek dulu, lalu harga termurah.
 
 Lainnya:
 - **Penamaan E33G** dan **lama perpanjangan C1** (dari daftar ronde 4).
-- **Kontak chat** (revisi Ari): nomor WhatsApp tim berbahasa Rusia, username Telegram untuk tim English dan tim Rusia. Di `site.js` masih placeholder `TODO_…`.
+- **Kontak chat** (revisi Ari): nomor WhatsApp tim berbahasa Rusia, username Telegram untuk tim English dan tim Rusia, dan (revisi 2026-10-31) nomor WhatsApp Ari, Feny dan Nanda untuk tab "Travelling abroad" (visa luar negeri untuk WNI). Di `site.js` masih placeholder `TODO_…`.
 - **Metode bayar di DOKU** yang aktif (kartu, virtual account, QRIS, e-wallet?), supaya teks di Checkout bisa lebih spesifik.
 - **Halaman terms & privacy policy** untuk checkbox di Checkout. Link di mockup masih `#`.
-- **E33G** (`product-chat.html`): proses 12–14 hari kerja (flyer) vs 5–6 hari kerja (WooCommerce), harga 12 jt vs 13 jt.
 - **Pemetaan foto staf**: role 19 staf sudah diisi dari daftar Ayik (2026-10-28). Yang tersisa hanya konfirmasi file foto AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede (dipetakan dengan eliminasi).
 - Klaim yang **sengaja tidak dipakai** karena belum terverifikasi: penghargaan "best visa agency", angka counter (20K+ klien, 48 tim, 144K+ visa).
 

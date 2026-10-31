@@ -201,12 +201,14 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .pt-blurb{color:var(--muted)}
 .pt-row{display:grid;grid-template-columns:96px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) 150px 170px;gap:18px;align-items:center;padding-block:20px;border-bottom:1px solid var(--line)}
 .pt-code{font-family:var(--serif);font-size:var(--t-h4);line-height:1.2;color:var(--sea);white-space:nowrap}
+.pt-code.long{font-size:var(--t-serif)}
 .pt-name{font-weight:500}
 .pt-name a{text-decoration:none}
 .pt-name a:hover{text-decoration:underline}
 .pt-stay,.pt-time{font-size:var(--t-small);color:var(--muted)}
 .pt-stay i,.pt-time i{display:block;font-style:normal;font-weight:500;font-size:var(--t-label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .pt-price{font-family:var(--serif);font-size:var(--t-serif);line-height:1.2;text-align:right;white-space:nowrap}
+.pk-price small,.pt-price small{display:block;font:400 var(--t-label)/1.5 var(--sans);color:var(--muted)}
 .pt-act{justify-self:end;font-size:var(--t-small);font-weight:500;text-decoration:none;padding:11px 18px;border-radius:999px;white-space:nowrap}
 .pt-buy{background:var(--merah);color:#fff}
 .pt-buy:hover{background:var(--merah-2)}
@@ -250,6 +252,9 @@ small{font-size:var(--t-small)} /* Jost is loaded at 400 and 500 only; 700 would
 .facts dd{margin:6px 0 0;font-family:var(--serif);font-size:var(--t-serif);line-height:1.3}
 .facts dd small{display:block;font-family:var(--sans);font-size:var(--t-small);line-height:1.55;color:var(--muted);margin-top:4px}
 .pd-block{margin-top:64px}
+/* mockup only: product data Ari still has to supply. Not part of the Elementor build. */
+.todo{margin-top:18px;padding:14px 18px;border:1px dashed var(--merah);border-radius:6px;background:#FFF6F5;font-size:var(--t-small);color:var(--ink)}
+.todo b{display:block;font-weight:500;color:var(--merah-2)}
 .pd-block h2{font-size:var(--t-h3);margin-bottom:20px}
 .pd-block > p{color:var(--muted);max-width:64ch}
 .pd-block > p + p{margin-top:14px}
