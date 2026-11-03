@@ -29,21 +29,21 @@ V4B.detail = {
     src: "Woo #494 + Ari 31/10 + Ari 2/11",
     title: "Electronic Visa on Arrival, 30 days",
     short: "A 30-day Indonesian tourist visa you get before you fly to Bali. You skip the airport VOA queue and go straight to the immigration counter when you land.",
-    facts: [["Stay", "30 days", "from the day you arrive"], ["Processing", "2–3 working days", "weekends and holidays not counted"], ["Longest stay", "60 days", "with one 30-day extension"]],
+    facts: [["Stay", "30 days", "from the day you arrive"], ["Processing", "1–2 working days", "weekends and holidays not counted"], ["Longest stay", "60 days", "with one 30-day extension"]],
     buyIncl: "Includes the government e-VOA charge.",
     who: 'Citizens of the countries on the <a href="https://www.imigrasi.go.id/wna/daftar-negara-voa-bvk-calling-visa/daftar-negara-subjek-visa-on-arrival" target="_blank" rel="noopener">Visa on Arrival list of Indonesian Immigration</a>.',
     need: [["Your passport", "Valid for at least 6 more months. A clear photo of the main page is enough."], ["A photo of you", "A clear photo of the passport holder."], ["Your onward flight ticket", "The ticket out of Indonesia."]],
     incl: [["The e-VOA application", "Prepared and submitted by our team in Balangan."], ["The government e-VOA charge", "Nothing more to pay at the airport for the visa itself."]],
     lastStep: ["Fly to Bali", "Your e-VOA arrives by email. Show it at the immigration counter when you land."],
     faq: [["Can I extend the e-VOA?", 'Yes, once, for another 30 days, so you can stay up to 60 days in total. We handle the <a href="product.html?visa=voa-extension">VOA extension</a> too.'],
-      ["When should I apply?", "Before you fly. Processing takes 2 to 3 working days, and Saturdays, Sundays and public holidays are not counted."],
+      ["When should I apply?", "Before you fly. Processing takes 1 to 2 working days, and Saturdays, Sundays and public holidays are not counted."],
       ["I want to stay longer than 60 days", 'Then the <a href="product.html?visa=c1">C1 Tourist Visa</a> fits better: 60 days on arrival, extendable to 180 days.']]
   },
   "c1": {
-    src: "Woo #346 (C1 rules) + Ari 31/10 + Ari 2/11",
+    src: "Woo #346 (C1 rules) + Ari 31/10 + Ari 2/11 + Ari 3/11 (Faster)",
     title: "Tourist Visa, 60 days",
     short: "A 60-day Indonesian tourist visa you get before you fly to Bali. You can extend it twice, 60 days at a time, and stay up to 180 days in total.",
-    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "5–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
+    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
     who: r.calling,
     need: [r.passport6, r.photo],
     incl: [r.docs, ["The e-visa", "Sent to you by email."], r.pnbp],
@@ -190,8 +190,32 @@ V4B.detail = {
     faq: [["How long is the Family KITAS valid?", 'A full year (12 months) from the day your family arrives in Indonesia. It can be <a href="product.html?visa=family-itas-extension">extended</a> every year without leaving Indonesia.'],
       ["Can a Family KITAS holder work in Indonesia?", "No. Working or earning money in Indonesia is not allowed."]]
   },
+  "d1": {
+    src: "Woo #355 (D1 rules) + Ari 3/11",
+    title: "Multiple Entry Tourist Visa D1, 60 days",
+    short: "A tourist visa you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.",
+    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
+    buyIncl: "Includes the government e-visa fee.",
+    who: "Foreigners visiting Indonesia for tourism.",
+    need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
+    incl: [["The D1 e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
+    faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."],
+      ["Can I stay longer than 60 days?", 'Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href="product.html?visa=d1-extension">D1 extension</a> too.']]
+  },
+  "d2": {
+    src: "Woo #355 (D2 rules) + Ari 3/11",
+    title: "Multiple Entry Business Visa D2, 60 days",
+    short: "A visa for business meetings and tourism, which you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.",
+    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
+    buyIncl: "Includes the government e-visa fee.",
+    who: "Foreigners coming to Indonesia for business meetings as well as tourism.",
+    need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
+    incl: [["The D2 e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
+    faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."],
+      ["Can I stay longer than 60 days?", 'Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href="product.html?visa=d2-extension">D2 extension</a> too.']]
+  },
   "d12": {
-    src: "Woo #668 + Ari 31/10",
+    src: "Woo #668 + Ari 31/10 + Ari 3/11 (Faster)",
     title: "Multiple Entry Visa D12, 1 year",
     short: "A multiple-entry pre-investment visa. You get 180 days each time you arrive and can fly in and out of Indonesia while the visa is valid.",
     facts: [["Stay", "180 days", "each time you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Valid for", "1 year", "multiple entry"]],
@@ -202,7 +226,7 @@ V4B.detail = {
     faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."]]
   },
   "d12-2y": {
-    src: "Woo #668 + Ari 3/11",
+    src: "Woo #668 + Ari 3/11 (Faster)",
     title: "Multiple Entry Visa D12, 2 years",
     short: "A two-year multiple-entry pre-investment visa. You get 180 days each time you arrive and can fly in and out of Indonesia while the visa is valid.",
     facts: [["Stay", "180 days", "each time you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Valid for", "2 years", "multiple entry"]],
@@ -294,10 +318,22 @@ V4B.product = function (slug) {
   var btns = chat
     ? '<a class="btn btn-k" href="' + V4B.waHref + '" data-chat data-visa="' + visa + '"><svg><use href="#i-chat"/></svg>Ask us</a>' +
       '<p class="buy-why">We check your documents with you on WhatsApp or Telegram before you pay.</p>'
-    : '<a class="btn btn-k" href="#" data-add="' + v.code + "|" + v.name + "|" + v.price + '">Apply online</a>' +
+    : '<a class="btn btn-k" href="#" data-add="' + v.code + "|" + v.name + "|" + v.price + '" data-base="' + v.name + '">Apply online</a>' +
       '<a class="btn btn-o" href="' + V4B.waHref + '" data-chat data-visa="' + visa + '">Ask us first</a>';
-  var price = '<p class="buy-label">' + (v.from ? "Price from" : "Price") + '</p><p class="buy-price num">' + V4B.rp(v.price) + "</p>" +
-    (d.buyIncl ? '<p class="buy-incl">' + d.buyIncl + "</p>" : "");
+  // Faster option = the Woo variation picker (attribute Processing); Regular is the default variation
+  var n = 0;
+  function speed() {
+    if (!v.fast) return "";
+    var id = "speed-" + (++n);
+    return '<fieldset class="speed"><legend>Processing</legend>' + [["Regular", v.time, v.price], ["Faster", v.fast.time, v.fast.price]].map(function (o, i) {
+      return '<label><input type="radio" name="' + id + '" value="' + i + '"' + (i ? "" : " checked") + ' data-speed><span><b>' + o[0] + "</b>" + o[1] +
+        '</span><span class="num">' + V4B.rp(o[2]) + "</span></label>";
+    }).join("") + "</fieldset>";
+  }
+  function price() {
+    return speed() + '<p class="buy-label">' + (v.from ? "Price from" : "Price") + '</p><p class="buy-price num">' + V4B.rp(v.price) + "</p>" +
+      (d.buyIncl ? '<p class="buy-incl">' + d.buyIncl + "</p>" : "");
+  }
 
   document.title = "Visa4Bali · " + V4B.label(v);
   document.querySelector("[data-crumbs]").innerHTML = '<li><a href="home.html">Home</a></li><li><a href="shop.html">Visas &amp; prices</a></li>' +
@@ -306,9 +342,10 @@ V4B.product = function (slug) {
     '<div class="pd-head"><span class="pd-code">' + v.code + "</span><h1>" + (d.title || v.name) + "</h1>" +
     (d.short ? '<p class="pd-short">' + d.short + "</p>" : todo("short")) +
     '<dl class="facts">' + (d.facts || [["Stay", v.stay, ""], ["Processing", v.time, ""]]).map(function (f) {
-      return "<div><dt>" + f[0] + "</dt><dd>" + f[1] + (f[2] ? "<small>" + f[2] + "</small>" : "") + "</dd></div>";
+      var note = f[0] === "Processing" && v.fast ? "or " + v.fast.time + " with Faster" : f[2];
+    return "<div><dt>" + f[0] + "</dt><dd>" + f[1] + (note ? "<small>" + note + "</small>" : "") + "</dd></div>";
     }).join("") + "</dl>" +
-    '<div class="buy buy-inline">' + price + btns + "</div></div>" +
+    '<div class="buy buy-inline">' + price() + btns + "</div></div>" +
     (d.who ? block("Who it is for", "<p>" + d.who + "</p>") : chat ? block("Who it is for", todo("who")) : "") +
     block("What we need from you", d.need ? ticks(d.need, "doc") : todo("need")) +
     block("What the price includes", d.incl ? ticks(d.incl, "tick") : todo("incl")) +
@@ -316,11 +353,21 @@ V4B.product = function (slug) {
     block("Good to know", d.faq ? '<div class="faq">' + d.faq.map(function (f, i) {
       return "<details" + (i ? "" : " open") + "><summary>" + f[0] + "</summary><p>" + f[1] + "</p></details>";
     }).join("") + "</div>" : todo("faq"));
-  document.querySelector("[data-pd-buy]").innerHTML = price + btns +
+  document.querySelector("[data-pd-buy]").innerHTML = price() + btns +
     '<ul><li><svg><use href="#i-shield"/></svg>Payments go to VISA4BALI only, never to a personal account.</li>' +
     '<li><svg><use href="#i-pin"/></svg>A real office in Balangan, open Monday to Friday, 08:00–17:00.</li>' +
     '<li><svg><use href="#i-tick"/></svg>' + (chat ? "One person handles your case from start to finish." : "Updates on WhatsApp from the person handling your case.") + "</li></ul>" +
     '<p class="buy-help' + (chat ? "" : " num") + '">' + (chat ? "English or Russian · WhatsApp or Telegram" : "Questions? " + V4B.wa) + "</p>";
+
+  // both buy boxes (inline on mobile, sticky on desktop) follow the chosen speed
+  document.addEventListener("change", function (e) {
+    if (!e.target.hasAttribute("data-speed")) return;
+    var fast = e.target.value === "1", p = fast ? v.fast.price : v.price, name = v.name + (fast ? V4B.fasterTag : "");
+    document.querySelectorAll("[data-speed]").forEach(function (r) { r.checked = r.value === e.target.value; });
+    document.querySelectorAll(".buy-price").forEach(function (el) { el.textContent = V4B.rp(p); });
+    document.querySelectorAll("[data-base]").forEach(function (b) { b.setAttribute("data-add", v.code + "|" + name + "|" + p); });
+    document.querySelectorAll(".buy [data-visa]").forEach(function (b) { b.setAttribute("data-visa", visa + (fast ? ", Faster" : "")); });
+  });
 
   // related: up to three other visas from the same category
   var holder = document.createElement("div");
