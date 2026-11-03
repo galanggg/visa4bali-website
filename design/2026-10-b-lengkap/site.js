@@ -5,7 +5,9 @@
    product yet). Prices and processing times follow Ari's revision of 2026-10-31; where WooCommerce disagrees,
    PANDUAN-SLICING.md lists it. `feat` = shown in the home finder and the "Visas for every kind of stay" band (in Woo:
    a Featured product). `from` = the price is a starting price (variable product). `extra` = a second line under the
-   price. Groups are sorted by stay, shortest first. */
+   price. `fast` = a Faster processing option (Ari 3/11): in Woo a variable product with attribute Processing =
+   Regular / Faster, Regular being the default variation; the product page shows the choice. Groups are sorted by stay,
+   shortest first. */
 window.V4B = {
   wa: "+62 878 6227 3133",
   waHref: "https://wa.me/6287862273133",
@@ -16,9 +18,14 @@ window.V4B = {
       ask: "I haven't flown in yet",
       blurb: "Short stays for holidays, meetings and visiting.",
       items: [
-        { code: "e-VOA", slug: "e-voa", name: "Electronic Visa on Arrival", stay: "30 days, extendable to 60 in total", time: "2–3 working days", price: 750000, route: "buy", woo: 494, feat: 1 },
-        { code: "C1", slug: "c1", name: "Tourist Visa", stay: "60 days, extendable to 180 in total", time: "5–9 working days", price: 2000000, from: 1, route: "buy", woo: 351, feat: 1 },
-        { code: "C2", slug: "c2", name: "Business Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 3500000, route: "chat", woo: null, feat: 1 }
+        { code: "e-VOA", slug: "e-voa", name: "Electronic Visa on Arrival", stay: "30 days, extendable to 60 in total", time: "1–2 working days", price: 750000, route: "buy", woo: 494, feat: 1 },
+        { code: "C1", slug: "c1", name: "Tourist Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 2000000, fast: { time: "5 working days", price: 2500000 }, route: "buy", woo: 351, feat: 1 },
+        { code: "C2", slug: "c2", name: "Business Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 3500000, route: "chat", woo: null, feat: 1 },
+        // Woo #355 is one product for D1 and D2 today: split it, or make Visa type a second attribute
+        { code: "D1", slug: "d1", name: "Multiple Entry Tourist Visa, 1 year", stay: "60 days per arrival", time: "7–9 working days", price: 4500000, fast: { time: "5 working days", price: 5000000 }, route: "buy", woo: 355 },
+        { code: "D2", slug: "d2", name: "Multiple Entry Business Visa, 1 year", stay: "60 days per arrival", time: "7–9 working days", price: 5500000, fast: { time: "5 working days", price: 6000000 }, route: "buy", woo: 355 },
+        { code: "D12", slug: "d12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "7–9 working days", price: 7000000, fast: { time: "5 working days", price: 7500000 }, route: "chat", woo: 668 },
+        { code: "D12", slug: "d12-2y", name: "Multiple Entry Visa, 2 years", stay: "180 days per arrival", time: "7–9 working days", price: 11000000, fast: { time: "5 working days", price: 11500000 }, route: "buy", woo: null }
       ]
     },
     {
@@ -48,8 +55,6 @@ window.V4B = {
       blurb: "Multiple-entry visas and stay permits, one case manager.",
       items: [
         { code: "KITAS", slug: "family-kitas", name: "Family KITAS, 1 year offshore", stay: "1 year", time: "7–9 working days", price: 11500000, route: "chat", woo: 627, feat: 1 },
-        { code: "D12", slug: "d12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "7–9 working days", price: 7000000, route: "chat", woo: 668, feat: 1 },
-        { code: "D12", slug: "d12-2y", name: "Multiple Entry Visa, 2 years", stay: "180 days per arrival", time: "7–9 working days", price: 11000000, route: "buy", woo: null },
         { code: "E33G", slug: "e33g", name: "Remote Worker KITAS, offshore", stay: "1 year", time: "9–12 working days", price: 12500000, route: "chat", woo: 515, feat: 1 },
         { code: "KITAS", slug: "retirement-kitas", name: "Retirement KITAS, offshore", stay: "1 year", time: "12–14 working days", price: 13000000, route: "chat", woo: null },
         { code: "KITAS", slug: "investor-kitas", name: "Investor KITAS, 2 years offshore", stay: "2 years", time: "12–14 working days", price: 16000000, route: "chat", woo: null }
@@ -75,13 +80,17 @@ window.V4B = {
   // price cell: optional "From" line above, optional extra line below (e.g. a fee paid in dollars)
   price: function (v) {
     if (v.price == null) return "";
-    return (v.from ? "<small>From</small>" : "") + V4B.rp(v.price) + (v.extra ? "<small>" + v.extra + "</small>" : "");
+    return (v.from ? "<small>From</small>" : "") + V4B.rp(v.price) + (v.extra ? "<small>" + v.extra + "</small>" : "") +
+      (v.fast ? "<small>Faster " + V4B.rp(v.fast.price) + "</small>" : "");
   },
+  // processing cell: regular time, plus the Faster time when there is one
+  time: function (v) { return v.time + (v.fast ? "<small>Faster: " + v.fast.time + "</small>" : ""); },
   // one Single Product template for every visa; detail.js holds each product's description
   url: function (v) { return "product.html?visa=" + v.slug; },
   act: function (v, cls) {
     if (v.wa) return '<a class="' + cls + '-act ' + cls + '-chat" href="https://wa.me/' + v.wa + "?text=" +
       encodeURIComponent("Halo Visa4Bali, saya mau tanya " + v.tanya) + '">Ask us</a>';
+    if (v.route === "buy" && v.fast) return '<a class="' + cls + '-act ' + cls + '-buy" href="' + V4B.url(v) + '">Apply online</a>';
     return v.route === "buy"
       ? '<a class="' + cls + '-act ' + cls + '-buy" href="' + V4B.url(v) + '" data-add="' + v.code + "|" + v.name + "|" + v.price + '">Apply online</a>'
       : '<a class="' + cls + '-act ' + cls + '-chat" href="' + V4B.waHref + '" data-chat data-visa="' + v.code + ", " + v.name + '">Ask us</a>';
@@ -140,7 +149,7 @@ V4B.table = function (root, only) {
       '</h2><p class="pt-blurb">' + g.blurb + '</p></header><div class="pt-rows">' +
       g.items.map(function (v) {
         return '<div class="pt-row"><span class="pt-code' + (v.code.length > 5 ? " long" : "") + '">' + v.code + '</span><span class="pt-name"><a href="' + V4B.url(v) + '">' + v.name +
-          '</a></span><span class="pt-stay"><i>Stay</i>' + v.stay + '</span><span class="pt-time"><i>Processing</i>' + v.time +
+          '</a></span><span class="pt-stay"><i>Stay</i>' + v.stay + '</span><span class="pt-time"><i>Processing</i>' + V4B.time(v) +
           '</span><span class="pt-price num">' + V4B.price(v) + "</span>" + V4B.act(v, "pt") + "</div>";
       }).join("") + "</div></section>";
   }).join("");
@@ -160,10 +169,11 @@ V4B.chatOptions = function (visa) {
 /* Basket: Elementor's Menu Cart widget (side cart), the Basket page and the Checkout summary all read the same list.
    The mockup keeps it in localStorage so it survives page changes; WooCommerce keeps it in the session.
    qty = number of travellers, because every person needs their own visa. */
+V4B.fasterTag = " – Faster";
 V4B.find = function (name) {
-  var hit = null;
-  V4B.groups.forEach(function (g) { g.items.forEach(function (v) { if (v.name === name) hit = v; }); });
-  return hit;
+  var hit = null, fast = name.slice(-V4B.fasterTag.length) === V4B.fasterTag, base = fast ? name.slice(0, -V4B.fasterTag.length) : name;
+  V4B.groups.forEach(function (g) { g.items.forEach(function (v) { if (v.name === base) hit = v; }); });
+  return hit && fast && hit.fast ? { stay: hit.stay, time: hit.fast.time } : hit;
 };
 V4B.basket = {
   get: function () { try { return JSON.parse(localStorage.getItem("v4b-basket")) || []; } catch (e) { return []; } },

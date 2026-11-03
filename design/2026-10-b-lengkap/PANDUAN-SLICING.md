@@ -243,7 +243,7 @@ Field tambahan butuh plugin field editor, misalnya *Checkout Field Editor for Wo
 | `team-office.jpg` | 1800×900 | foto tim di Home, radius 4px, lebar penuh. Alt lihat `home.html`. Dari fotoasd.jpg (kiriman Ari 2026-10-28), di-crop 2:1 |
 | `ulun-danu.jpg` | 1600×1067 | hero About (alt kosong). Pura Ulun Danu, Katarzyna Zygnerska / Unsplash (lisensi Unsplash, kredit tidak wajib). Revisi Ari 2026-10-29 |
 | `uluwatu.jpg` | 1600×1065 | hero Contact (alt kosong). Pantai Uluwatu, Max Kukurudziak / Unsplash (lisensi Unsplash, kredit tidak wajib). Revisi Ari 2026-10-29 |
-| `owner.webp` | 768×1296, transparan | Foto Pak Rolly ROLLY3.jpg (revisi Ayik 2026-10-28), background putih dihapus. Di Elementor: Image widget tanpa latar (transparan di atas putih), gambar rata kiri-bawah, sejajar caption |
+| `owner.jpg` | 1066×1600 | Foto asli Pak Rolly, jas biru (Ari 2026-11-03: jangan di-crop, pakai yang original). Di Elementor: Image widget, ukuran asli, rasio 2:3, tanpa crop |
 | `staff/*.jpg` | 19 × 480×600 | "Nama, Role at Visa4Bali". Di-crop 4:5 dari foto studio seragam merah-hitam (PHOTO.zip, Ari 2026-10-28). Urutan dan role dari Ayik 2026-10-28 (kiri ke kanan), lihat `team` di `about.html`. File AYIK1 = Ari, SUMAR = Kadek, SUWANTARA = Gede (dipetakan dengan eliminasi, ⚠️ perlu konfirmasi). Foto Marlon menyusul 2026-10-28 |
 | `logo.png`, `logo-light.png` | 360×178 | Visa4Bali |
 
@@ -273,8 +273,8 @@ Harga, lama proses dan daftar visa di mockup mengikuti **revisi Ari 2026-10-31**
 
 | Visa | Mockup (revisi Ari) | WooCommerce live | Yang perlu dilakukan di Woo |
 |---|---|---|---|
-| e-VOA (#494) | 750.000, 2–3 hari kerja | 750.000, "1–2 working days" | ubah teks proses |
-| C1 Tourist Visa (#351) | **mulai** 2.000.000, 5–9 hari kerja | 2.000.000 | jadikan variable product kalau ada opsi lebih mahal |
+| e-VOA (#494) | 750.000, 1–2 hari kerja (Ari 3/11) | 750.000, "1–2 working days" | sudah sama |
+| C1 Tourist Visa (#351) | Regular 2.000.000, 7–9 hari kerja / Faster 2.500.000, 5 hari kerja (Ari 3/11) | 2.000.000 | variable product, atribut Processing (Regular default) |
 | C2 Business Visa | 3.500.000, 7–9 hari kerja (regular saja) | tidak ada produk | External product (WhatsApp) |
 | C1 Extension (#346) | 1.800.000, 8–10 hari kerja | 1.800.000 | isi proses |
 | D1 Extension (#1572) | 1.800.000, 8–10 hari kerja | 1.800.000 ("D1/D2") | pisahkan D1 dan D2? |
@@ -287,11 +287,12 @@ Harga, lama proses dan daftar visa di mockup mengikuti **revisi Ari 2026-10-31**
 | Working KITAS Extension | 14.300.000 + USD 1.200, +1 th, 2,5–3 bulan | tidak ada produk | External product; biaya USD tampil sebagai teks |
 | Investor KITAS Extension | 16.000.000, +2 th, 14–21 hari kerja | tidak ada produk | produk baru |
 | Family KITAS offshore (#627) | 11.500.000, 7–9 hari kerja | 11.000.000 (onshore) | ubah nama, harga, proses |
-| D12 Multiple Entry 1 th (#668) | 7.000.000, 7–9 hari kerja | 7.000.000 | isi proses |
-| D12 Multiple Entry 2 th (revisi Ari 3/11) | 11.000.000, 7–9 hari kerja, bayar online | tidak ada produk | produk baru (Simple), atau variasi Duration di #668 |
+| D12 Multiple Entry 1 th (#668) | pindah ke Arriving soon; Regular 7.000.000, 7–9 hari / Faster 7.500.000, 5 hari | 7.000.000 | variable product, atribut Processing; ganti kategori |
+| D12 Multiple Entry 2 th (revisi Ari 3/11) | pindah ke Arriving soon; Regular 11.000.000, 7–9 hari / Faster 11.500.000, 5 hari, bayar online | tidak ada produk | produk baru (variable, atribut Processing), atau variasi Duration × Processing di #668 |
 | E33G Remote Worker (#515) | 12.500.000, 9–12 hari kerja | 13.000.000, "5-6 working days" | ubah harga dan proses |
 | VOA Extension cepat | **dihapus** | tidak ada produk | — |
-| D1 Multiple Entry 1 th (#355) | **dihapus** dari Staying longer | ada | sembunyikan (Catalog visibility: Hidden) |
+| D2 Multiple Entry Business 1 th (Ari 3/11) | Arriving soon; Regular 5.500.000, 7–9 hari / Faster 6.000.000, 5 hari | ikut #355 | produk baru dari #355, variable product atribut Processing |
+| D1 Multiple Entry 1 th (#355) | kembali, di Arriving soon (Ari 3/11): Regular 4.500.000, 7–9 hari / Faster 5.000.000, 5 hari | 5.000.000–10.000.000 ("D1 & D2", 1 atau 2 th) | pisah D1 dan D2, variable product atribut Processing |
 
 Asumsi mockup yang perlu dicek Ari: stay D2 = +60 hari (Ari hanya menulis "harga dan proses sama kyk D1"); tombol Bridging, KITAS extension dan E33G extension = "Ask us" (WhatsApp), bukan bayar online; urutan Already in Bali = stay terpendek dulu, lalu harga termurah.
 
