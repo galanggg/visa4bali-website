@@ -130,7 +130,7 @@ V4B.detail = {
     src: "Ari 31/10 + Ari 2/11",
     title: "Family ITAS Extension, 1 or 2 years",
     short: "Extends the stay permit that lets family members live in Indonesia with their spouse or parent, so the family can stay together.",
-    facts: [["Extends by", "1 or 2 years", "1 year Rp 10,000,000 · 2 years Rp 15,500,000"], ["Processing", "14–21 working days", "weekends and holidays not counted"]],
+    facts: [["Extends by", "1 or 2 years", "1 year Rp 10,000,000<br>2 years Rp 15,500,000"], ["Processing", "14–21 working days", "weekends and holidays not counted"]],
     who: "Foreign spouses and children of a KITAS or KITAP holder (an investor, for example) or of an Indonesian citizen. The permit follows the sponsor’s own permit, or you choose a stay of 1 or 2 years.",
     need: [r.passport24, r.photo, ["Your current e-stay permit or visa", "The family permit you are staying on now."], ["A letter from your Indonesian spouse", "If your spouse is Indonesian: their request letter for your visa."], r.onshore, r.askNeed],
     incl: incl4,
@@ -200,6 +200,18 @@ V4B.detail = {
     need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
     incl: [["The e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
     faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."]]
+  },
+  "d12-2y": {
+    src: "Woo #668 + Ari 3/11",
+    title: "Multiple Entry Visa D12, 2 years",
+    short: "A two-year multiple-entry pre-investment visa. You get 180 days each time you arrive and can fly in and out of Indonesia while the visa is valid.",
+    facts: [["Stay", "180 days", "each time you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Valid for", "2 years", "multiple entry"]],
+    buyIncl: "Includes the government e-visa fee.",
+    who: "Foreigners preparing to start a business in Indonesia, including field surveys and feasibility studies. You can also use it for tourism and to visit friends or family.",
+    need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
+    incl: [["The e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
+    faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."],
+      ["Is there a 1-year D12?", 'Yes, the <a href="product.html?visa=d12">1-year D12</a> costs Rp 7,000,000.']]
   },
   "e33g": {
     src: "Woo #515 + Ari 31/10",

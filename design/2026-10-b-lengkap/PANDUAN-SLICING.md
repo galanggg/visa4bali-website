@@ -288,6 +288,7 @@ Harga, lama proses dan daftar visa di mockup mengikuti **revisi Ari 2026-10-31**
 | Investor KITAS Extension | 16.000.000, +2 th, 14–21 hari kerja | tidak ada produk | produk baru |
 | Family KITAS offshore (#627) | 11.500.000, 7–9 hari kerja | 11.000.000 (onshore) | ubah nama, harga, proses |
 | D12 Multiple Entry 1 th (#668) | 7.000.000, 7–9 hari kerja | 7.000.000 | isi proses |
+| D12 Multiple Entry 2 th (revisi Ari 3/11) | 11.000.000, 7–9 hari kerja, bayar online | tidak ada produk | produk baru (Simple), atau variasi Duration di #668 |
 | E33G Remote Worker (#515) | 12.500.000, 9–12 hari kerja | 13.000.000, "5-6 working days" | ubah harga dan proses |
 | VOA Extension cepat | **dihapus** | tidak ada produk | — |
 | D1 Multiple Entry 1 th (#355) | **dihapus** dari Staying longer | ada | sembunyikan (Catalog visibility: Hidden) |
