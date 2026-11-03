@@ -22,10 +22,8 @@ window.V4B = {
         { code: "C1", slug: "c1", name: "Tourist Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 2000000, fast: { time: "5 working days", price: 2500000 }, route: "buy", woo: 351, feat: 1 },
         { code: "C2", slug: "c2", name: "Business Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 3500000, route: "chat", woo: null, feat: 1 },
         // Woo #355 is one product for D1 and D2 today: split it, or make Visa type a second attribute
-        { code: "D1", slug: "d1", name: "Multiple Entry Tourist Visa, 1 year", stay: "60 days per arrival", time: "7–9 working days", price: 4500000, fast: { time: "5 working days", price: 5000000 }, route: "buy", woo: 355 },
-        { code: "D2", slug: "d2", name: "Multiple Entry Business Visa, 1 year", stay: "60 days per arrival", time: "7–9 working days", price: 5500000, fast: { time: "5 working days", price: 6000000 }, route: "buy", woo: 355 },
-        { code: "D12", slug: "d12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "7–9 working days", price: 7000000, fast: { time: "5 working days", price: 7500000 }, route: "chat", woo: 668 },
-        { code: "D12", slug: "d12-2y", name: "Multiple Entry Visa, 2 years", stay: "180 days per arrival", time: "7–9 working days", price: 11000000, fast: { time: "5 working days", price: 11500000 }, route: "buy", woo: null }
+        { code: "D1", slug: "d1", name: "Multiple Entry Tourist Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 4500000, fast: { time: "5 working days", price: 5000000 }, route: "buy", woo: 355 },
+        { code: "D2", slug: "d2", name: "Multiple Entry Business Visa", stay: "60 days, extendable to 180 in total", time: "7–9 working days", price: 5500000, fast: { time: "5 working days", price: 6000000 }, route: "chat", woo: 355 }
       ]
     },
     {
@@ -55,6 +53,8 @@ window.V4B = {
       blurb: "Multiple-entry visas and stay permits, one case manager.",
       items: [
         { code: "KITAS", slug: "family-kitas", name: "Family KITAS, 1 year offshore", stay: "1 year", time: "7–9 working days", price: 11500000, route: "chat", woo: 627, feat: 1 },
+        { code: "D12", slug: "d12", name: "Multiple Entry Visa, 1 year", stay: "180 days per arrival", time: "7–9 working days", price: 7000000, fast: { time: "5 working days", price: 7500000 }, route: "buy", woo: 668, feat: 1 },
+        { code: "D12", slug: "d12-2y", name: "Multiple Entry Visa, 2 years", stay: "180 days per arrival", time: "7–9 working days", price: 11000000, fast: { time: "5 working days", price: 11500000 }, route: "buy", woo: null },
         { code: "E33G", slug: "e33g", name: "Remote Worker KITAS, offshore", stay: "1 year", time: "9–12 working days", price: 12500000, route: "chat", woo: 515, feat: 1 },
         { code: "KITAS", slug: "retirement-kitas", name: "Retirement KITAS, offshore", stay: "1 year", time: "12–14 working days", price: 13000000, route: "chat", woo: null },
         { code: "KITAS", slug: "investor-kitas", name: "Investor KITAS, 2 years offshore", stay: "2 years", time: "12–14 working days", price: 16000000, route: "chat", woo: null }

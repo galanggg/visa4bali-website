@@ -287,12 +287,12 @@ Harga, lama proses dan daftar visa di mockup mengikuti **revisi Ari 2026-10-31**
 | Working KITAS Extension | 14.300.000 + USD 1.200, +1 th, 2,5–3 bulan | tidak ada produk | External product; biaya USD tampil sebagai teks |
 | Investor KITAS Extension | 16.000.000, +2 th, 14–21 hari kerja | tidak ada produk | produk baru |
 | Family KITAS offshore (#627) | 11.500.000, 7–9 hari kerja | 11.000.000 (onshore) | ubah nama, harga, proses |
-| D12 Multiple Entry 1 th (#668) | pindah ke Arriving soon; Regular 7.000.000, 7–9 hari / Faster 7.500.000, 5 hari | 7.000.000 | variable product, atribut Processing; ganti kategori |
-| D12 Multiple Entry 2 th (revisi Ari 3/11) | pindah ke Arriving soon; Regular 11.000.000, 7–9 hari / Faster 11.500.000, 5 hari, bayar online | tidak ada produk | produk baru (variable, atribut Processing), atau variasi Duration × Processing di #668 |
+| D12 Multiple Entry 1 th (#668) | Staying longer; Regular 7.000.000, 7–9 hari / Faster 7.500.000, 5 hari; bayar online (Ari 3/11) | 7.000.000 | variable product, atribut Processing |
+| D12 Multiple Entry 2 th (revisi Ari 3/11) | Staying longer; Regular 11.000.000, 7–9 hari / Faster 11.500.000, 5 hari, bayar online | tidak ada produk | produk baru (variable, atribut Processing), atau variasi Duration × Processing di #668 |
 | E33G Remote Worker (#515) | 12.500.000, 9–12 hari kerja | 13.000.000, "5-6 working days" | ubah harga dan proses |
 | VOA Extension cepat | **dihapus** | tidak ada produk | — |
-| D2 Multiple Entry Business 1 th (Ari 3/11) | Arriving soon; Regular 5.500.000, 7–9 hari / Faster 6.000.000, 5 hari | ikut #355 | produk baru dari #355, variable product atribut Processing |
-| D1 Multiple Entry 1 th (#355) | kembali, di Arriving soon (Ari 3/11): Regular 4.500.000, 7–9 hari / Faster 5.000.000, 5 hari | 5.000.000–10.000.000 ("D1 & D2", 1 atau 2 th) | pisah D1 dan D2, variable product atribut Processing |
+| D2 Multiple Entry Business (Ari 3/11) | Arriving soon; tombol "Ask us" (WhatsApp), bukan bayar online; 60 hari, bisa diperpanjang sampai 180 hari; Regular 5.500.000, 7–9 hari / Faster 6.000.000, 5 hari | ikut #355 | produk baru dari #355, variable product atribut Processing |
+| D1 Multiple Entry Tourist (#355) | kembali, di Arriving soon (Ari 3/11): 60 hari, bisa diperpanjang sampai 180 hari; Regular 4.500.000, 7–9 hari / Faster 5.000.000, 5 hari | 5.000.000–10.000.000 ("D1 & D2", "1 atau 2 th") | pisah D1 dan D2, variable product atribut Processing; hapus teks "1 or 2 years" |
 
 Asumsi mockup yang perlu dicek Ari: stay D2 = +60 hari (Ari hanya menulis "harga dan proses sama kyk D1"); tombol Bridging, KITAS extension dan E33G extension = "Ask us" (WhatsApp), bukan bayar online; urutan Already in Bali = stay terpendek dulu, lalu harga termurah.
 

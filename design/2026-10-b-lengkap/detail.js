@@ -192,27 +192,27 @@ V4B.detail = {
   },
   "d1": {
     src: "Woo #355 (D1 rules) + Ari 3/11",
-    title: "Multiple Entry Tourist Visa D1, 1 year",
-    short: "A one-year multiple-entry tourist visa. You get 60 days each time you arrive and can fly in and out of Indonesia while the visa is valid.",
-    facts: [["Stay", "60 days", "each time you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Valid for", "1 year", "multiple entry"]],
+    title: "Multiple Entry Tourist Visa D1, 60 days",
+    short: "A tourist visa you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.",
+    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
     buyIncl: "Includes the government e-visa fee.",
-    who: "Foreigners visiting Indonesia for tourism who want to come and go during the year.",
+    who: "Foreigners visiting Indonesia for tourism.",
     need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
     incl: [["The D1 e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
     faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."],
-      ["Can I stay longer than 60 days?", 'Yes. Each stay can be extended twice, 60 days at a time, up to 180 days. We handle the <a href="product.html?visa=d1-extension">D1 extension</a> too.']]
+      ["Can I stay longer than 60 days?", 'Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href="product.html?visa=d1-extension">D1 extension</a> too.']]
   },
   "d2": {
     src: "Woo #355 (D2 rules) + Ari 3/11",
-    title: "Multiple Entry Business Visa D2, 1 year",
-    short: "A one-year multiple-entry visa for business meetings and tourism. You get 60 days each time you arrive and can fly in and out of Indonesia while the visa is valid.",
-    facts: [["Stay", "60 days", "each time you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Valid for", "1 year", "multiple entry"]],
+    title: "Multiple Entry Business Visa D2, 60 days",
+    short: "A visa for business meetings and tourism, which you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.",
+    facts: [["Stay", "60 days", "from the day you arrive"], ["Processing", "7–9 working days", "weekends and holidays not counted"], ["Longest stay", "180 days", "with two 60-day extensions"]],
     buyIncl: "Includes the government e-visa fee.",
     who: "Foreigners coming to Indonesia for business meetings as well as tourism.",
     need: [["Your passport", "Valid for at least 6 more months. Send a good-quality photo of it."], ["A photo of you", "A photo of the passport holder; a phone photo is fine."]],
     incl: [["The D2 e-visa", "Prepared and submitted by our team in Balangan."], ["Sponsorship", "We act as your sponsor for the application."], ["The government e-visa fee", "Paid by us as part of the application."]],
     faq: [["Do I need to visit an embassy?", "No. Once the e-visa is ready you can use it directly."],
-      ["Can I stay longer than 60 days?", 'Yes. Each stay can be extended twice, 60 days at a time, up to 180 days. We handle the <a href="product.html?visa=d2-extension">D2 extension</a> too.']]
+      ["Can I stay longer than 60 days?", 'Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href="product.html?visa=d2-extension">D2 extension</a> too.']]
   },
   "d12": {
     src: "Woo #668 + Ari 31/10 + Ari 3/11 (Faster)",
