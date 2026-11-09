@@ -60,14 +60,22 @@ Snippet #2254 sekarang `874fef14…` (SHA-256 cocok dengan `migration/wp/v4b-sho
 - Kondisi uji "Product #2232" di 2255 sempat tersimpan ulang saat publish; sudah dibersihkan. Kondisi 2255 sekarang hanya kategori 38/39/40.
 - Global sistem Site Settings (Fase 6 langkah 2) **tidak** masuk skrip, perlu keputusan owner (lihat runbook).
 
+**Uji DOKU tanpa bayar (Senin malam, opsi A):**
+
+- **Bug desain B, diperbaiki:** "Apply online" di produk Regular/Faster (C1, D1, D2, D12) tidak memasukkan apa pun ke keranjang. WooCommerce 9.0.4 menolak produk variable tanpa `variation_id` ("Please choose product options"). Sekarang radio Regular/Faster membawa `variation_id` itu sendiri (tetap tanpa JS); WooCommerce mengisi atribut Processing dari variannya. Diuji: D12 1 th Regular 7.000.000 dan Faster 7.500.000 masuk keranjang dengan atribut benar. Snippet #2254 sekarang `b3ba4630…` (build biasa).
+- Alur draft: produk #2232 → Basket 2281 (Subtotal + "Doku transaction fee" 3% = total) → Checkout 2282 → order #2316 → link bayar `checkout.doku.com` (produksi). Order #2316 dibatalkan.
+- **Temuan di situs live, bukan dari migrasi: pembayaran DOKU mati sejak ±2 Nov.** Plugin `woo-doku-jokul` 1.3.12 memuat JS popup dari `sandbox.doku.com` (hardcode, walau Environment = Production). Sejak 2 Nov URL itu membalas halaman "Service Maintenance", jadi popup tidak pernah terbuka. Order DOKU terbayar terakhir #2157 (29 Okt); 14 order 2–8 Nov semuanya tidak terbayar.
+- **Hotfix (owner setuju, 9 Nov):** WPCode snippet #2318 memuat JS produksi `jokul.doku.com` di `<head>` halaman bayar saja. Sumber: [`audit/doku-popup-hotfix.php`](../audit/doku-popup-hotfix.php). Diverifikasi: popup terbuka untuk admin (#2316) dan untuk order tamu dari checkout lama (#2317, dites owner); keduanya dibatalkan. Transaksi terbayar pertama setelah hotfix belum ada.
+- Upstream sudah memperbaiki di 1.3.14 (Nov 2024). Update plugin ditunda sampai setelah go-live: mulai 1.3.16 file utama berganti nama (plugin nonaktif saat diganti) dan mulai 1.3.17 ID gateway berganti `jokul_*` → `doku_*` tanpa migrasi setting (client ID + secret key harus diisi ulang). Setelah update, snippet #2318 dihapus.
+
 **Sisa sebelum go-live:**
 
 | Kapan | Pekerjaan | Status |
 |---|---|---|
 | Selasa pagi | Cek semua draft di 390 / 768 / 1024 / 1440, perbaiki yang kurang | ✅ Senin sore, lihat di atas |
 | Selasa siang | Skrip go-live (6 produk diperbarui, 5 produk lama ke Draft + 301, 16 produk dipublish, format harga Woo, template header/footer/single product, isi halaman 149/155/193/102/336/337, saklar `V4B_LIVE`, nonaktifkan snippet 2054, redirect `/shop/` dan kategori) | ✅ Senin malam: [`golive/RUNBOOK.md`](golive/RUNBOOK.md), skrip dilatih pada salinan sementara |
-| Selasa siang | Transaksi DOKU asli bernominal kecil di draft | belum |
-| Selasa sore | Screenshot semua halaman (desktop + HP) untuk Ari, Ayik, Devi; approval malam itu | belum |
+| Selasa siang | Uji DOKU tanpa bayar di draft (sampai halaman bayar DOKU); transaksi asli setelah go-live (owner 9 Nov, opsi A) | ✅ Senin malam, lihat "Uji DOKU" di atas |
+| Selasa sore | ~~Screenshot semua halaman untuk Ari, Ayik, Devi~~ (di-skip, owner 9 Nov); approval go-live dari owner malam itu | belum |
 | Selasa | Owner konfirmasi backup hPanel | belum |
 | Rabu pagi | Backup ulang → go-live → transaksi uji → cek logged-out | belum |
 
@@ -130,7 +138,7 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
 ### Yang tidak boleh dipangkas
 
 - Backup penuh sebelum mulai dan sekali lagi sebelum go-live.
-- Transaksi DOKU asli, di draft dan setelah go-live. Kalau gagal di draft, go-live ditahan.
+- DOKU: di draft diuji sampai halaman bayar DOKU tanpa membayar; transaksi asli langsung setelah go-live (keputusan owner 9 Nov). Kalau uji draft gagal, go-live ditahan; kalau transaksi asli gagal, rollback.
 - Cek logged-out di 390 / 768 / 1024 / 1440.
 - Halaman live tidak berubah tampilan sampai go-live, dan rollback hari-H siap.
 
@@ -139,7 +147,7 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
 | Hari | Pekerjaan |
 |---|---|
 | **Senin 9 Nov** ✅ | Fase 1, Fase 2 (tanpa mengubah produk live), Fase 3 dan Fase 4 selesai sebagai draft. Lebih cepat dari rencana: Single Product dan semua halaman sudah jadi hari ini, cek responsif (jadwal Selasa pagi) selesai sore, dan skrip go-live (jadwal Selasa siang) selesai malam, dilatih pada salinan sementara. Detail di "Posisi sekarang". |
-| **Selasa 10 Nov** | Pagi: ~~cek responsif semua draft~~ (selesai Senin). Siang: ~~skrip go-live~~ (selesai Senin) + transaksi DOKU di draft (Fase 5). Sore: screenshot ke Ari, Ayik, Devi. **Malam: approval go-live.** |
+| **Selasa 10 Nov** | Pagi: ~~cek responsif semua draft~~ (selesai Senin). Siang: ~~skrip go-live~~ (selesai Senin) + uji DOKU tanpa bayar di draft (Fase 5). Sore: ~~screenshot ke Ari, Ayik, Devi~~ (di-skip, keputusan owner 9 Nov). **Malam: approval go-live dari owner.** |
 | **Rabu 11 Nov pagi** | Fase 6: go-live di jam sepi, transaksi uji, cek semua tipe halaman logged-out. |
 | Rabu siang – Jumat | Cadangan hotfix. Fase 7 mulai. |
 

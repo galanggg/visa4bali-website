@@ -6,8 +6,8 @@ Semua langkah dijalankan dari Claude Code lewat Chrome DevTools MCP, di browser 
 
 | # | Gerbang | Siapa |
 |---|---|---|
-| G1 | Ari, Ayik, Devi menyetujui tampilan (screenshot Selasa) | Owner |
-| G2 | Transaksi DOKU asli di draft berhasil: order masuk, email terkirim | Owner bayar, Claude cek |
+| G1 | Approval go-live dari owner (screenshot untuk tim di-skip, keputusan owner 9 Nov) | Owner |
+| G2 | Uji DOKU tanpa bayar di draft: Apply online → Basket → Checkout → halaman bayar DOKU muncul; order uji "Pending payment" lalu dibatalkan. Transaksi asli dipindah ke langkah 10 (keputusan owner 9 Nov, opsi A). ✅ 9 Nov (order #2316); butuh hotfix DOKU snippet #2318 yang harus tetap aktif | Claude, owner login |
 | G3 | Backup hPanel hari itu ada, plus export All-in-One WP Migration diunduh ke luar server | Owner |
 | G4 | `sh verify.sh before` → 0 failed | Claude |
 | G5 | `01-snapshot` → semua `checks` "yes", 16/16, Store API 12 | Claude |
@@ -31,7 +31,7 @@ Perkiraan total 30–40 menit. Situs tampil campuran (sebagian lama, sebagian ba
 | 7. Cache | wp-admin | `06-rocket-purge.generated.js` | status 200 |
 | 8. Cek | terminal | `sh verify.sh after` | 0 failed |
 | 9. Cek visual | Chrome, konteks terisolasi (logged-out) | harness responsif (`../make-harness.py`) di 390 / 768 / 1024 / 1440 | Tidak ada overflow; gaya sama seperti cek 9 Nov |
-| 10. Transaksi uji | Chrome logged-out | beli 1 visa (owner bayar) | Order masuk, DOKU sukses, email terkirim |
+| 10. Transaksi uji | Chrome logged-out | beli 1 visa (owner bayar). Ini transaksi asli pertama di desain B; gagal = rollback langkah 5 (Basket/Checkout) atau semua | Order masuk, DOKU sukses, email terkirim |
 
 Catatan per langkah:
 
