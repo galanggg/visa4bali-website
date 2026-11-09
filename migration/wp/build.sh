@@ -7,7 +7,7 @@ python3 -I scope-css.py ../../design/2026-10-b-lengkap/style.css > v4b.css
 python3 -I - <<'PY'
 import re, json
 p = open('v4b-shortcodes.php').read()
-css = re.sub(r"[ \t]+\n", "\n", open('v4b.css').read() + "\n" + open('v4b-extra.css').read())
+css = re.sub(r"[ \t]+\n", "\n", open('v4b.css').read() + "\n" + open('v4b-extra.css').read() + "\n" + open('legal-page.css').read())
 out = re.sub(r"/\*V4B-CSS-START\*/.*?/\*V4B-CSS-END\*/", lambda m: "/*V4B-CSS-START*/\n" + css + "\n/*V4B-CSS-END*/", p, flags=re.S)
 switch = "define( 'V4B_LIVE', false );"
 assert out.count(switch) == 1, 'V4B_LIVE switch not found exactly once'
