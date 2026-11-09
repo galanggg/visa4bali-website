@@ -71,6 +71,18 @@ Snippet #2254 sekarang `874fef14…` (SHA-256 cocok dengan `migration/wp/v4b-sho
 - **Hotfix (owner setuju, 9 Nov):** WPCode snippet #2318 memuat JS produksi `jokul.doku.com` di `<head>` halaman bayar saja. Sumber: [`audit/doku-popup-hotfix.php`](../audit/doku-popup-hotfix.php). Diverifikasi: popup terbuka untuk admin (#2316) dan untuk order tamu dari checkout lama (#2317, dites owner); keduanya dibatalkan. Transaksi terbayar pertama setelah hotfix belum ada.
 - Upstream sudah memperbaiki di 1.3.14 (Nov 2024). Update plugin ditunda sampai setelah go-live: mulai 1.3.16 file utama berganti nama (plugin nonaktif saat diganti) dan mulai 1.3.17 ID gateway berganti `jokul_*` → `doku_*` tanpa migrasi setting (client ID + secret key harus diisi ulang). Setelah update, snippet #2318 dihapus.
 
+**Selisih mockup (Vercel) vs live, dicek 9 Nov malam — lanjut 10 Nov:**
+
+Sudah sama: Home, Visas & prices, About, Contact (urutan section identik), 22 halaman produk termasuk produk "Ask us", header, footer, side cart, Privacy Policy (tampilan saja), langkah Basket → Details & payment → Done.
+
+Belum diterapkan, urut prioritas:
+
+1. **Halaman "Thank you" (`/checkout/order-received/…`)** masih template lama. Mockup (`checkout.html`, bagian Done): "Payment received / Thank you", nomor order, 4 langkah (We message you → Send your documents → We apply → Receive your visa), catatan paspor. Popup DOKU (hotfix snippet #2318) ada di halaman ini: setelah diubah, uji ulang alur bayar.
+2. **Halaman Basket**: masih tabel bawaan WooCommerce (Product/Price/Quantity/Subtotal, kupon, Update cart, "Cart totals"). Mockup: baris per visa dengan pengatur jumlah traveller + "Every traveller needs their own visa", ringkasan "Summary" + "Prices in Indonesian rupiah…" + "Continue to checkout" + catatan pembayaran. Notifikasi "…added to your cart" → "basket".
+3. **Halaman Checkout**: masih field alamat bawaan Woo (company, country, alamat, kota, provinsi, kode pos), kupon, "Place order". Mockup: Your details (nama, email, WhatsApp dengan kode negara, kewarganegaraan), Your trip (tiba, izin berakhir, hotel/villa), centang terms & privacy, tombol "Pay", catatan "Do not send passport photos here", kotak "What happens next". Field tambahan ditunda owner 9 Nov — perlu keputusan owner + cek field wajib DOKU.
+
+Sengaja disembunyikan (menunggu data owner): pilihan bahasa × aplikasi chat (EN/RU × WhatsApp/Telegram; sekarang semua ke WhatsApp English) dan tab "Travelling abroad" di Home (WA Ari, Feny, Nanda). `data-visa.html` = halaman status internal, bukan bagian situs.
+
 **Sisa sebelum go-live:**
 
 | Kapan | Pekerjaan | Status |
