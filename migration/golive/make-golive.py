@@ -184,7 +184,7 @@ write(f"98-template-oldfooter-{OLD_FOOTER}-rollback.generated.js", """async () =
 }""" % {"tid": OLD_FOOTER, "ready": EDITOR_READY, "save": SAVE_CONDS})
 
 # ---------------------------------------------------------------- 04 pages (run in each live page's editor)
-STAMP = "2026-11-11"
+STAMP = "2026-11-09"
 for name, pid in PAGES.items():
     secs = json.load(open(os.path.join(PAGES_DIR, f"{name}.json")))
     write(f"04-page-{name}-{pid}.generated.js", """async () => {
