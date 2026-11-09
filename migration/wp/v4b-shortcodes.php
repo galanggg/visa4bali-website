@@ -48,6 +48,12 @@ add_filter( 'option_woolentor_woo_template_tabs', function ( $o ) {
 	return $o;
 } );
 
+/* Elementor Pro validates Tel fields server-side against [0-9()#&+*-=.]+ and rejects spaces, so the Contact form (2272)
+   refused "+62 813 3701 8814", the way people write WhatsApp numbers. Sanitising runs before validation: drop the spaces. */
+add_filter( 'elementor_pro/forms/sanitize/tel', function ( $value ) {
+	return preg_replace( '/\s+/u', '', (string) $value );
+} );
+
 /* 301s for the old URLs, only once live. Retired products are Draft (kept whole), so without this their URLs would 404.
    Priority 1 runs before redirect_canonical's 404 guessing. Keep in sync with products-payload.json "retire". */
 add_action( 'template_redirect', function () {

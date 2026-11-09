@@ -134,6 +134,8 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
   - tab "Travelling abroad" (nomor WA Ari, Feny, Nanda);
   - opsi tim Rusia dan Telegram di Popup Chat. Yang tampil hanya WhatsApp English 6287862273133.
 - **Fase 7 (pantau 2 minggu)** tetap jalan, tapi setelah go-live dan tidak dihitung dalam 3 hari.
+- **SEO ditunda ke Fase 7 (owner, 9 Nov).** Cek 9 Nov: H1 semua draft beres, meta AIOSEO halaman live tetap terpakai. Yang ditunda: (1) meta lama yang bertentangan dengan desain B — "since 2012" vs "since 2014", "3-day express processing" vs 1–2 / 8–10 / Faster 5 hari kerja, "B211" vs C1, title produk 351 "Bali Offshore Visa" dan 346 "Bali Visa 211" padahal jadi C1; (2) FAQPage schema untuk 4 FAQ di Visas & prices; (3) og:image 1200×630 (sekarang logo 512×512); (4) meta AIOSEO 16 produk baru. Pertanyaan owner: berdiri 2012 atau 2014, dan apakah dukungan bahasa Rusia masih ada.
+- **Cek analytics dan performa juga pindah ke setelah go-live (owner, 9 Nov).** Tag GA `G-FJP9BS0KTV` dipasang site-wide (bukan di konten halaman), dan sesi admin tidak dilacak, jadi cek di draft tidak banyak membuktikan. Setelah go-live: `page_view` logged-out, add_to_cart/purchase, lalu performa HP dibandingkan baseline 9 Nov (Home LCP 3,5 s, Our Services 13,4 s, Contact 7,0 s).
 
 ### Yang tidak boleh dipangkas
 
