@@ -1,0 +1,52 @@
+/* Side cart: Elementor Pro Menu Cart (header 2245, Cart Type: Side Cart) dressed as the mockup's basket drawer
+   (design/2026-10-b-lengkap style.css ".basket"). Markup extras (title, code, note) come from the mini-cart filters in
+   v4b-shortcodes.php. Tokens written out: the header widget is not inside .v4b. */
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__main{width:min(420px,100%);max-width:100%;padding:0;background:#FFFFFF;font:400 17px/1.65 "Jost","Avenir Next","Segoe UI",sans-serif;color:#1C2326;box-shadow:none}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button{position:absolute;top:16px;right:16px;width:48px;height:48px;margin:0;border-radius:50%;display:grid;place-items:center;z-index:2}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button:hover{background:#EEECE7}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button::before,
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button::after{background:#1C2326;width:20px;height:1.5px}
+.elementor-widget-woocommerce-menu-cart .widget_shopping_cart_content{display:flex;flex-direction:column;min-height:100%;height:100%}
+.elementor-widget-woocommerce-menu-cart .v4b-mc-title{position:sticky;top:0;z-index:1;background:#FFFFFF;margin:0 -28px;padding:26px 80px 22px 28px;border-bottom:1px solid #D9D6CF;font:400 clamp(28px,2.6vw,36px)/1.12 "Gilda Display",Georgia,"Times New Roman",serif;color:#1C2326;letter-spacing:-.005em}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__products{flex:1;overflow:auto;margin:0;padding:0 28px}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product{display:grid;grid-template-columns:76px minmax(0,1fr) 40px;grid-template-rows:auto auto;column-gap:12px;row-gap:2px;align-items:start;padding:20px 0;margin:0;border-bottom:1px solid #D9D6CF;position:relative}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-image{grid-column:1;grid-row:1 / span 2;width:auto;margin:0}
+.elementor-widget-woocommerce-menu-cart .v4b-mc-code{display:block;font:400 clamp(21px,1.7vw,24px)/1.2 "Gilda Display",Georgia,"Times New Roman",serif;color:#1D3940;white-space:nowrap}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-image img{display:none}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-name{grid-column:2;grid-row:1;margin:0;padding:0;font:500 17px/1.4 "Jost","Avenir Next","Segoe UI",sans-serif}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-name a{color:#1C2326;text-decoration:none;font:inherit}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-name a:hover{text-decoration:underline;text-underline-offset:4px}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-price{grid-column:2;grid-row:2;margin:0;padding:0;font:400 clamp(19px,1.5vw,21px)/1.45 "Gilda Display",Georgia,"Times New Roman",serif;color:#1C2326;font-variant-numeric:tabular-nums}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-price small{font:400 15px/1 "Jost","Avenir Next","Segoe UI",sans-serif;color:#566064}
+/* Elementor positions the X and the click area absolutely against the whole row; anchor both to the 40px button instead */
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove{grid-column:3;grid-row:1 / span 2;position:relative;width:40px;height:40px;margin:0;border:0;border-radius:50%;align-self:start;background:none;overflow:hidden}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove:hover{background:#EEECE7}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove::before,
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove::after{background:#566064;width:14px;height:1.5px;left:13px;top:19.25px;margin:0}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove > a{position:absolute;inset:0;width:auto;height:auto;margin:0;z-index:1}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal{display:flex;justify-content:space-between;align-items:baseline;margin:0;padding:22px 28px 0;border:0;background:#EEECE7;text-align:left;font:400 15px/1.55 "Jost","Avenir Next","Segoe UI",sans-serif;color:#1C2326}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal strong{font-weight:400}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal .amount{font:400 clamp(24px,2vw,28px)/1.15 "Gilda Display",Georgia,"Times New Roman",serif;color:#1C2326;font-variant-numeric:tabular-nums}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons{display:flex;flex-direction:column;gap:10px;margin:0;padding:18px 28px 0;background:#EEECE7}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button{display:flex !important;align-items:center;justify-content:center;width:100%;margin:0;padding:16px 24px;border-radius:999px;font:500 15px/1 "Jost","Avenir Next","Segoe UI",sans-serif;letter-spacing:.01em;text-transform:none;transition:background .25s,border-color .25s}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button--checkout{order:-1;background:#C8102E;border:1px solid #C8102E;color:#FFFFFF}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button--checkout:hover{background:#A30D25;border-color:#A30D25}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button--view-cart{background:transparent;border:1px solid #1C2326;color:#1C2326}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button--view-cart:hover{background:#1C2326;color:#FFFFFF}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons .elementor-button-text{font:inherit;color:inherit}
+/* payment note under the buttons: Elementor's template has no hook there */
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons{padding-bottom:28px}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons::after{content:"Payments go to VISA4BALI only. After payment we ask for your documents on WhatsApp or email.";display:block;order:1;margin-top:4px;text-align:left;font:400 15px/1.55 "Jost","Avenir Next","Segoe UI",sans-serif;color:#566064}
+.elementor-widget-woocommerce-menu-cart .woocommerce-mini-cart__empty-message{padding:32px 28px;margin:0;color:#566064}
+/* the floating WhatsApp button (WP Chat App, z-index 999999999) sits on top of the drawer's buttons: hide it while the basket is open */
+body:has(.elementor-menu-cart--shown) .wa__btn_popup,
+body:has(.elementor-menu-cart--shown) .wa__popup_chat_box{display:none}
+/* the toggle keeps the browser focus ring for keyboards only, not a box after every mouse click */
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__toggle_button:focus:not(:focus-visible){outline:0;box-shadow:none}
+@media (max-width:767px){
+  .elementor-widget-woocommerce-menu-cart .v4b-mc-title{margin:0 -20px;padding:22px 76px 18px 20px}
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__products{padding:0 20px}
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal,
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons{padding-left:20px;padding-right:20px}
+  .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__footer-buttons{padding-bottom:24px}
+}

@@ -54,6 +54,41 @@ add_filter( 'elementor_pro/forms/sanitize/tel', function ( $value ) {
 	return preg_replace( '/\s+/u', '', (string) $value );
 } );
 
+/* Side cart (Elementor Menu Cart in header 2245) in the mockup's form: "Your basket" title, visa code instead of the old
+   product photo, short name, plain price (the payment note is CSS, mini-cart.css). Elementor Pro's own template
+   (modules/woocommerce/wc-templates/cart/mini-cart.php) does not fire woocommerce_before/after_mini_cart; it fires
+   woocommerce_before_mini_cart_contents before the items and woocommerce_mini_cart_contents after them. The flag set
+   between those two keeps the Basket and Checkout pages on their own output. */
+add_action( 'woocommerce_before_mini_cart_contents', function () {
+	$GLOBALS['v4b_in_mini_cart'] = true;
+	echo '<h2 class="v4b-mc-title">Your basket</h2>';
+} );
+add_action( 'woocommerce_mini_cart_contents', function () {
+	$GLOBALS['v4b_in_mini_cart'] = false;
+} );
+add_filter( 'woocommerce_cart_item_thumbnail', function ( $thumb, $item ) {
+	if ( empty( $GLOBALS['v4b_in_mini_cart'] ) ) { return $thumb; }
+	$code = v4b_meta( $item['product_id'], 'v4b_code' );
+	return $code ? '<span class="v4b-mc-code">' . esc_html( $code ) . '</span>' : '';
+}, 20, 2 );
+add_filter( 'woocommerce_cart_item_name', function ( $name, $item ) {
+	if ( empty( $GLOBALS['v4b_in_mini_cart'] ) ) { return $name; }
+	$short = v4b_meta( $item['product_id'], 'v4b_short_name' );
+	if ( ! $short ) { return $name; }
+	$speed = ( isset( $item['variation']['attribute_processing'] ) && 'Faster' === $item['variation']['attribute_processing'] ) ? ' · Faster' : '';
+	return esc_html( $short . $speed );
+}, 20, 2 );
+add_filter( 'woocommerce_widget_cart_item_quantity', function ( $html, $item ) {
+	if ( empty( $GLOBALS['v4b_in_mini_cart'] ) ) { return $html; }
+	$qty = (int) $item['quantity'];
+	return '<span class="quantity v4b-mc-price">' . esc_html( v4b_rp( (float) $item['line_subtotal'] ) )
+		. ( $qty > 1 ? ' <small>× ' . $qty . '</small>' : '' ) . '</span>';
+}, 20, 2 );
+/* "Basket" everywhere, as in the design (side cart button, add-to-basket notices) */
+add_filter( 'gettext', function ( $t, $text, $domain ) {
+	return ( 'View cart' === $text && ( 'woocommerce' === $domain || 'elementor-pro' === $domain ) ) ? 'View basket' : $t;
+}, 20, 3 );
+
 /* 301s for the old URLs, only once live. Retired products are Draft (kept whole), so without this their URLs would 404.
    Priority 1 runs before redirect_canonical's 404 guessing. Keep in sync with products-payload.json "retire". */
 add_action( 'template_redirect', function () {
