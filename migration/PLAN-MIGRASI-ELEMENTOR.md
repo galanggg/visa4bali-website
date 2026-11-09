@@ -1,6 +1,39 @@
 # Plan migrasi: desain B ke visa4bali.com (WordPress + Elementor Pro)
 
-**Dibuat:** 2026-10-29 · **Diperbarui:** 2026-11-09 (jadwal kilat) · **Status:** dimulai 2026-11-09 · **Mockup:** https://visa4bali-desain-b.vercel.app (source `design/2026-10-b-lengkap/`)
+**Dibuat:** 2026-10-29 · **Diperbarui:** 2026-11-09 malam · **Status:** hari 1 selesai, semua masih draft, situs live belum berubah · **Mockup:** https://visa4bali-desain-b.vercel.app (source `design/2026-10-b-lengkap/`)
+
+---
+
+## Posisi sekarang (Senin 9 Nov, malam)
+
+**Selesai hari 1 (tidak terlihat pengunjung):**
+
+| Fase | Yang sudah ada | ID / file |
+|---|---|---|
+| 1 Backup | Export All-in-One WP Migration 1,27 GB di Mac owner (salinan di server dihapus, URL 404). Backup hPanel: belum dikonfirmasi owner. | `~/Downloads/visa4bali-com-20261109-120759-kd5lt25g74ei.wpress` |
+| 1 Rollback | Isi Elementor 12 dokumen, Site Settings (kit 108), semua produk Woo + variasi. 6 library template `ROLLBACK 2026-11-09 — …`, isinya terbukti sama (jumlah elemen identik). | `audit/rollback/2026-11-09/`, template 2173–2188 |
+| 1 Baseline | SEO 18 URL sitemap. Performa HP 4 halaman (Home LCP 3,5 s, Our Services 13,4 s, e-VOA 7,5 s, Contact 7,0 s). | `migration/baseline-*.{csv,md}` |
+| 1 Fitur | Nested Elements diaktifkan (HTML Home terbukti tidak berubah). Popup Builder tidak tersedia di lisensi ini. | |
+| 2 Fondasi | 11 warna + 13 gaya teks B sebagai global baru (id `b4b*`, global lama utuh). 27 gambar dengan alt. 3 kategori baru. 16 produk baru (draft; D12 1 th #2232 Private untuk preview). Menu "Header B". | media 2192–2218, kategori 38–40, produk 2219–2240, menu 41 |
+| 3 Template | Header (draft), Footer (draft), Single Product (published, hanya berlaku untuk kategori 38–40 yang isinya non-publik), form Contact (Elementor Form → 3 email + simpan entri). | 2245, 2251, 2255, 2272 |
+| 3 Komponen data | WPCode snippet: finder, grup harga, tabel visa, kepala produk, kotak harga Regular/Faster, breadcrumb, visa terkait. Tanpa JS. CSS desain B (scoped `.v4b`) hanya dimuat untuk admin sampai opsi `v4b_live` = 1. | snippet #2254, `migration/wp/` |
+| 4 Halaman | Home, Visas & prices, About, Contact, Basket, Checkout sebagai draft Full Width. Basket/Checkout = shortcode WooCommerce + DOKU lama, hanya tampilannya. | 2259–2262, 2281, 2282 |
+| Repo | PR #19 merged ke main (`313c09d`). | |
+
+Diverifikasi logged-out setelah semua perubahan di atas: produk live masih template 424, Store API publik tetap 12 produk, URL produk baru 404, CSS desain B tidak dimuat, tidak ada error.
+
+**Perubahan dari rencana awal:** Loop Item "Visa row" dan Products Archive tidak dibuat. Penggantinya shortcode `[v4b_visa_table]`, `[v4b_finder]`, `[v4b_related]` yang membaca produk Woo langsung dan tidak bergantung JS (WP Rocket menunda JS sampai interaksi pertama). Popup diganti link WhatsApp langsung. Wordfence memblokir penyimpanan snippet PHP (false positive rule 9); owner menyetujui allowlist khusus field `wpcode_snippet_code` dan `wpcode_snippet_text` di `/wp-admin/admin.php`.
+
+**Sisa sebelum go-live:**
+
+| Kapan | Pekerjaan | Status |
+|---|---|---|
+| Selasa pagi | Cek semua draft di 390 / 768 / 1024 / 1440, perbaiki yang kurang | belum |
+| Selasa siang | Skrip go-live (6 produk diperbarui, 5 produk lama ke Draft + 301, 16 produk dipublish, format harga Woo, template header/footer/single product, isi halaman 149/155/193/102/336/337, `v4b_live` = 1, nonaktifkan snippet 2054, redirect `/shop/` dan kategori) | belum |
+| Selasa siang | Transaksi DOKU asli bernominal kecil di draft | belum |
+| Selasa sore | Screenshot semua halaman (desktop + HP) untuk Ari, Ayik, Devi; approval malam itu | belum |
+| Selasa | Owner konfirmasi backup hPanel | belum |
+| Rabu pagi | Backup ulang → go-live → transaksi uji → cek logged-out | belum |
 
 ---
 
@@ -15,7 +48,7 @@ Owner minta selesai dalam 2–3 hari, **go-live paling lambat Rabu 11 Nov pagi**
 | Gerbang Fase 0 | Desain sudah di-approve semua pihak (Ari, Ayik, Devi). |
 | K1 | **A:** Home (149), About Us (155), Contact Us (193) pindah dari Canvas ke **Elementor Full Width**. Satu Header dan satu Footer Theme Builder untuk seluruh situs. Template halaman diubah saat go-live (Fase 6.4), bukan sebelumnya. |
 | K2 | **Backup penuh disetujui.** |
-| K3 | **B:** `/our-services/` (102) dijadikan halaman Shop WooCommerce. |
+| K3 | `/our-services/` (102) jadi halaman daftar visa desain B. Awalnya "jadikan Shop page WooCommerce"; diperbarui sore harinya, lihat "Halaman Shop, Basket, Checkout". |
 | K4 | **Ditunda sampai setelah go-live.** Hari 1 dicek dulu apakah fitur yang dibutuhkan ada di versi sekarang. Kalau kurang, baru update. |
 | K5 | Go-live **Rabu 11 Nov pagi**, jam sepi diambil dari data GA. |
 
@@ -69,8 +102,8 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
 
 | Hari | Pekerjaan |
 |---|---|
-| **Senin 9 Nov** (mulai siang) | Fase 1: backup, export Kit, simpan halaman lama sebagai library template, baseline, CSV URL + SEO, cek fitur Elementor. Fase 2: global warna/font B sebagai entri baru, media, font lokal, produk WooCommerce lewat REST API (lihat "Tambahan" di bawah), redirect slug. Mulai Fase 3: Header, Footer, Popup Chat (draft). |
-| **Selasa 10 Nov** | Fase 3: Loop Item "Visa row", Product Archive, Single Product. Fase 4: draft Home, About, Contact, Basket, Checkout. Sore: Fase 5 di draft, termasuk transaksi DOKU. **Malam: link draft ke Ari, Ayik, Devi untuk approval go-live.** |
+| **Senin 9 Nov** ✅ | Fase 1, Fase 2 (tanpa mengubah produk live), Fase 3 dan Fase 4 selesai sebagai draft. Lebih cepat dari rencana: Single Product dan semua halaman sudah jadi hari ini. Detail di "Posisi sekarang". |
+| **Selasa 10 Nov** | Pagi: cek responsif semua draft. Siang: skrip go-live + transaksi DOKU di draft (Fase 5). Sore: screenshot ke Ari, Ayik, Devi. **Malam: approval go-live.** |
 | **Rabu 11 Nov pagi** | Fase 6: go-live di jam sepi, transaksi uji, cek semua tipe halaman logged-out. |
 | Rabu siang – Jumat | Cadangan hotfix. Fase 7 mulai. |
 
