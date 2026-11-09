@@ -24,7 +24,7 @@ if [ "$MODE" = before ]; then
     # an empty basket sends /checkout/ to /basket/ (302); checkout itself is checked in the browser with the DOKU test
     if [ "$p" = /checkout/ ]; then [ "$c" = 302 ] && ok "$p 302 (empty basket)" || bad "$p $c"; continue; fi
     [ "$c" = 200 ] && ok "$p 200" || bad "$p $c"
-    has 'id="v4b-inline-css"' && bad "$p design B CSS already loads for visitors" || ok "$p no design B CSS"
+    has 'id=.v4b-inline-css.' && bad "$p design B CSS already loads for visitors" || ok "$p no design B CSS"
     has 'data-elementor-id="2245"' && bad "$p new header already live" || ok "$p old header"
   done
   for s in $NEWPRODUCTS; do c=$(get "$B/product/$s/"); [ "$c" = 404 ] && ok "new product hidden: $s" || bad "new product visible: $s ($c)"; done
@@ -35,7 +35,7 @@ else
     c=$(get "$B$p")
     if [ "$p" = /checkout/ ]; then [ "$c" = 302 ] && ok "$p 302 (empty basket; check it in the browser)" || bad "$p $c"; continue; fi
     [ "$c" = 200 ] && ok "$p 200" || bad "$p $c"
-    has 'id="v4b-inline-css"' && ok "$p design B CSS" || bad "$p no design B CSS"
+    has 'id=.v4b-inline-css.' && ok "$p design B CSS" || bad "$p no design B CSS"
     has 'data-elementor-id="2245"' && ok "$p header 2245" || bad "$p header 2245 missing"
     has 'data-elementor-id="2251"' && ok "$p footer 2251" || bad "$p footer 2251 missing"
     has 'data-elementor-id="2059"' && bad "$p old footer 2059 still renders" || ok "$p no old footer"

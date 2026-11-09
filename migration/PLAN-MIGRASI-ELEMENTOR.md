@@ -6,6 +6,9 @@
 
 ## Posisi sekarang (Senin 9 Nov, malam)
 
+**✅ LIVE sejak Senin 9 Nov ±20:00 WITA** (dimajukan dari Rabu atas keputusan owner; backup baru dilewati karena sejak export 12:07 hanya ada order uji). Runbook langkah 1–10 selesai: snapshot `audit/rollback/2026-11-09/golive-snapshot.json`; produk diterapkan (varian Faster C1 = #2320); snippet #2254 build live `814a67e3…`; header 2245 + footer 2251 Entire Site, footer lama 2059 None; halaman 149/102/155/193/336/337 diganti (backup library 2321/2328/2335/2342/2349/2356); snippet 2054 nonaktif; WP Rocket di-purge; `verify.sh after` 63 ok / 0 failed; logged-out tanpa overflow di 9 halaman × 390/768/1024/1440; transaksi asli #2364 Rp 10.300 lunas via DOKU 20:07 (produk uji #2363 di-trash). Jebakan saat go-live: publish template dari editor menyimpan ulang kondisi kosong *setelah* skrip menyimpan kondisi, jadi kondisi 2245/2251 disimpan ulang tanpa publish.
+
+
 **Selesai hari 1 (tidak terlihat pengunjung):**
 
 | Fase | Yang sudah ada | ID / file |
@@ -135,6 +138,7 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
   - opsi tim Rusia dan Telegram di Popup Chat. Yang tampil hanya WhatsApp English 6287862273133.
 - **Fase 7 (pantau 2 minggu)** tetap jalan, tapi setelah go-live dan tidak dihitung dalam 3 hari.
 - **SEO ditunda ke Fase 7 (owner, 9 Nov).** Cek 9 Nov: H1 semua draft beres, meta AIOSEO halaman live tetap terpakai. Yang ditunda: (1) meta lama yang bertentangan dengan desain B — "since 2012" vs "since 2014", "3-day express processing" vs 1–2 / 8–10 / Faster 5 hari kerja, "B211" vs C1, title produk 351 "Bali Offshore Visa" dan 346 "Bali Visa 211" padahal jadi C1; (2) FAQPage schema untuk 4 FAQ di Visas & prices; (3) og:image 1200×630 (sekarang logo 512×512); (4) meta AIOSEO 16 produk baru. Pertanyaan owner: berdiri 2012 atau 2014, dan apakah dukungan bahasa Rusia masih ada.
+- **Temuan DOKU setelah go-live (9 Nov malam, ditunda karena Ari sudah off):** transaksi uji #2364 (Rp 10.300, lunas 20:07) dibayar lewat VA Mandiri di Livin', dan pembeli harus mengetik nominal sendiri. Penyebab kemungkinan besar: VA Mandiri di akun DOKU berjenis *open amount* (NO BILL). Plugin hanya mengirim total order, jadi ini setelan akun DOKU, bukan situs. Tindak lanjut bersama Ari: dashboard DOKU → Settings → Payment Virtual Account → ubah ke FIX BILL / *closed amount* (atau minta ke support DOKU), dan tanyakan apakah pembayaran kurang tetap membuat order "processing". Cek juga bank lain.
 - **Cek analytics dan performa juga pindah ke setelah go-live (owner, 9 Nov).** Tag GA `G-FJP9BS0KTV` dipasang site-wide (bukan di konten halaman), dan sesi admin tidak dilacak, jadi cek di draft tidak banyak membuktikan. Setelah go-live: `page_view` logged-out, add_to_cart/purchase, lalu performa HP dibandingkan baseline 9 Nov (Home LCP 3,5 s, Our Services 13,4 s, Contact 7,0 s).
 
 ### Yang tidak boleh dipangkas
