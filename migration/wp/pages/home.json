@@ -1,0 +1,37 @@
+[
+ {
+  "title": "hero",
+  "html": "<section class=\"hero\">\n    <img src=\"https://visa4bali.com/wp-content/uploads/2026/11/v4b-b-sidemen.jpg\" alt=\"Rice terraces in Sidemen, Bali, with Mount Agung in the morning mist\" width=\"1600\" height=\"1066\">\n    <div class=\"wrap\">\n      <h1>Wherever you’re going, we handle the visa</h1>\n      <p>Visas and extensions for your stay in Bali, and travel visas for Indonesian passport holders. Handled by our team in Balangan since 2014.</p>\n    </div>\n  </section>",
+  "shortcode": false
+ },
+ {
+  "title": "wrap bar-wrap",
+  "html": "<div class=\"wrap bar-wrap\">\n    [v4b_finder]\n  </div>",
+  "shortcode": true
+ },
+ {
+  "title": "sec sea center",
+  "html": "<section class=\"sec sea center\" style=\"margin-top:110px\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">Visas for every kind of stay</h2>\n      <p class=\"lead\">From a 30-day visit to a family stay permit. Standard visas can be paid online; for longer stays we check your documents with you first.</p>\n      [v4b_stays]\n    </div>\n  </section>",
+  "shortcode": true
+ },
+ {
+  "title": "sec ask center",
+  "html": "<section class=\"sec ask center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">Tell us about your trip</h2>\n      <p class=\"lead\">Send us your arrival date, how long you want to stay and your nationality. We will tell you which visa fits and what it costs before you pay anything.</p>\n      \n      <a class=\"btn btn-k\" href=\"https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20a%20visa\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg>Chat with us</a>\n      <small>WhatsApp or Telegram, in English or Russian · Monday to Friday, 08:00–17:00</small>\n    </div>\n  </section>",
+  "shortcode": false
+ },
+ {
+  "title": "why",
+  "html": "<section class=\"why\">\n    <div class=\"wrap\">\n      <div>\n        <h2>Why choose us?</h2>\n        <div class=\"why-points\">\n          <p><b>A real office in Balangan</b><span>Walk in and meet the person handling your case.</span></p>\n          <p><b>We come to you</b><span>Our staff can collect your documents from your preferred location and bring them back when the visa is done.</span></p>\n          <p><b>Payments to VISA4BALI only</b><span>Our bank account is only under the VISA4BALI name, never under a foreigner's name.</span></p>\n        </div>\n      </div>\n      <div class=\"why-photos\">\n        <img src=\"https://visa4bali.com/wp-content/uploads/2026/11/v4b-b-rolly-client.jpg\" alt=\"Mr. Rolly, owner of Visa4Bali, hugs a client at a Visa4Bali event\" width=\"1400\" height=\"933\" loading=\"lazy\">\n      </div>\n    </div>\n  </section>",
+  "shortcode": false
+ },
+ {
+  "title": "sec stone center",
+  "html": "<section class=\"sec stone center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">What our clients say</h2>\n      <div class=\"quotes\">\n        <blockquote class=\"q\"><p>“I was stuck in Dubai and couldn’t get my visa, but they did everything to help me. They were on the phone with me all the time, calming me down, and they got my visa in 3 days.”</p><footer><b>BlueBaby</b>English</footer></blockquote>\n        <blockquote class=\"q\" lang=\"ru\"><p>«Обращаюсь к ним уже четвёртый раз и обращусь ещё. Мне всё объяснили, исправили всю ситуацию и продлили визу.»</p><footer><b>Анастасия Карпова</b>Русский</footer></blockquote>\n        <blockquote class=\"q\"><p>“I’m very happy with the speed of service, organization and punctuality of opening company and KITAS process.”</p><footer><b>Super Mario</b>English</footer></blockquote>\n      </div>\n    </div>\n  </section>",
+  "shortcode": false
+ },
+ {
+  "title": "sec center",
+  "html": "<section class=\"sec center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">About us</h2>\n      <div class=\"cols-2\">\n        <div><h3>Our story</h3><p>Visa4Bali started in Balangan in 2014. Our owner, Mr. Rolly, has handled visa applications and stay-permit problems ever since, and he still works on difficult cases himself.</p></div>\n        <div><h3>Our promise</h3><p>You should be able to enjoy Bali while we deal with immigration. We prepare every document, keep you updated on WhatsApp, and work with immigration directly, not through brokers.</p></div>\n      </div>\n      <figure class=\"team-photo\"><img src=\"https://visa4bali.com/wp-content/uploads/2026/11/v4b-b-team-office.jpg\" alt=\"Four Visa4Bali staff in red and black uniforms in front of the wooden wall at the Balangan office\" width=\"1800\" height=\"900\" loading=\"lazy\"><figcaption>Our team at the Balangan office</figcaption></figure>\n      <a class=\"more\" href=\"/about-us/\">Meet the whole team →</a>\n    </div>\n  </section>",
+  "shortcode": false
+ }
+]

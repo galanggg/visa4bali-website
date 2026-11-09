@@ -1,0 +1,82 @@
+/* WordPress-only additions to the scoped mockup CSS (things site.js did with JS in the mockup) */
+.v4b{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:var(--t-body)}
+.v4b a{color:inherit}
+.v4b button.btn{font-family:var(--sans)}
+/* finder: show the list of the checked tab, no JS */
+.v4b .v4b-finder .pk-list{display:none}
+.v4b .v4b-finder:has(input[value="0"]:checked) .pk-list[data-g="0"],
+.v4b .v4b-finder:has(input[value="1"]:checked) .pk-list[data-g="1"],
+.v4b .v4b-finder:has(input[value="2"]:checked) .pk-list[data-g="2"]{display:block}
+/* Regular / Faster price follows the checked radio, no JS */
+.v4b .v4b-p-faster{display:none}
+.v4b .v4b-buy-form:has(input[value="Faster"]:checked) .v4b-p-faster{display:inline}
+.v4b .v4b-buy-form:has(input[value="Faster"]:checked) .v4b-p-regular{display:none}
+.v4b .buy .btn,.v4b .buy-inline .btn{width:100%;margin-top:24px}
+.v4b .buy .btn + .btn,.v4b .buy-inline .btn + .btn{margin-top:10px}
+/* WooCommerce "View basket" link added after AJAX add to cart */
+.v4b a.added_to_cart{display:none}
+.v4b .ajax_add_to_cart.loading{opacity:.6}
+/* product description (WooCommerce content written with H2 sections) */
+.v4b-desc{font-family:var(--sans);color:var(--ink);font-size:var(--t-body);line-height:1.65}
+.v4b-desc h2{font-family:var(--serif);font-weight:400;font-size:var(--t-h3);line-height:1.12;margin:64px 0 20px;color:var(--ink)}
+.v4b-desc h2:first-child{margin-top:0}
+.v4b-desc > p{color:var(--muted);max-width:64ch;margin:0}
+.v4b-desc .ticks{list-style:none;padding:0;margin:0}
+.v4b-desc .ticks li{display:flex;flex-direction:column;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);position:relative}
+.v4b-desc .ticks li:first-child{border-top:1px solid var(--line)}
+.v4b-desc .ticks li::before{content:"";position:absolute;left:0;top:18px;width:20px;height:20px;background:var(--sea);-webkit-mask:var(--v4b-tick) center/contain no-repeat;mask:var(--v4b-tick) center/contain no-repeat}
+.v4b-desc .ticks b{font-weight:500}
+.v4b-desc .ticks span{display:block;color:var(--muted);font-size:var(--t-small)}
+.v4b-desc .steps{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px;counter-reset:s}
+.v4b-desc .steps li{counter-increment:s}
+.v4b-desc .steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:1px solid var(--ink);font-family:var(--serif);font-size:var(--t-h5);margin-bottom:18px}
+.v4b-desc .steps b{display:block;font-weight:500;margin-bottom:6px}
+.v4b-desc .steps span{color:var(--muted)}
+.v4b-desc .faq details{border-bottom:1px solid var(--line)}
+.v4b-desc .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-block:22px;font-family:var(--serif);font-size:var(--t-h5);line-height:1.3}
+.v4b-desc .faq summary::-webkit-details-marker{display:none}
+.v4b-desc .faq summary::after{content:"+";font-family:var(--sans);font-size:28px;line-height:1}
+.v4b-desc .faq details[open] summary::after{content:"–"}
+.v4b-desc .faq details p{color:var(--muted);padding-bottom:24px;max-width:64ch;margin:0}
+.v4b-desc a{color:var(--ink);text-underline-offset:4px}
+.v4b,.v4b-desc{--v4b-tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+@media (max-width:767px){.v4b-desc .steps{grid-template-columns:1fr}}
+/* the old kit styles buttons in capitals; design B buttons are sentence case */
+.v4b .btn,.v4b .pt-act,.v4b .pk-act,.v4b button{text-transform:none;letter-spacing:.01em}
+.v4b .btn:hover,.v4b .pt-act:hover,.v4b .pk-act:hover{text-decoration:none}
+.v4b .pt-buy,.v4b .pk-buy,.v4b .btn-k{color:#fff}
+/* the old kit gives h1–h6 a fixed colour; in design B headings take the section's colour (white on sea) */
+.v4b h1,.v4b h2,.v4b h3,.v4b h4,.v4b h5,.v4b h6{color:inherit}
+/* ---------- Basket and Checkout: WooCommerce's own markup restyled (the DOKU flow stays untouched) ---------- */
+.v4b .page-h1{font-size:var(--t-h1);line-height:1.04}
+.v4b-woo{margin-top:var(--gap-head)}
+.v4b-woo .woocommerce{font-family:var(--sans);font-size:var(--t-body);color:var(--ink)}
+.v4b-woo table.shop_table{border:0;border-collapse:collapse;border-radius:0;margin:0 0 24px;width:100%}
+.v4b-woo table.shop_table th,.v4b-woo table.shop_table td{border:0;border-bottom:1px solid var(--line);padding:18px 12px;background:none;font-weight:400;vertical-align:middle}
+.v4b-woo table.shop_table thead th{font:500 var(--t-label)/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink)}
+.v4b-woo .product-thumbnail{display:none}
+.v4b-woo td.product-name a{color:var(--ink);text-decoration:none;font-weight:500}
+.v4b-woo td.product-name a:hover{text-decoration:underline}
+.v4b-woo td.product-price,.v4b-woo td.product-subtotal,.v4b-woo .cart_totals td,.v4b-woo .order-total td{font-family:var(--serif);font-size:var(--t-serif);font-variant-numeric:tabular-nums}
+.v4b-woo a.remove{color:var(--muted)!important;font-size:22px;font-weight:400;background:none!important}
+.v4b-woo a.remove:hover{color:var(--merah)!important}
+.v4b-woo .quantity .qty{width:72px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:4px;padding:10px 8px;text-align:center}
+.v4b-woo .coupon .input-text,.v4b-woo .input-text,.v4b-woo select,.v4b-woo textarea{font-family:var(--sans);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;min-height:0;line-height:1.4}
+.v4b-woo .input-text:focus,.v4b-woo select:focus,.v4b-woo textarea:focus{outline:2px solid var(--sea);border-color:var(--sea)}
+.v4b-woo .button,.v4b-woo button.button{font:500 var(--t-small)/1 var(--sans)!important;letter-spacing:.01em;text-transform:none;border-radius:999px!important;padding:14px 22px!important;background:transparent!important;color:var(--ink)!important;border:1px solid var(--ink)!important}
+.v4b-woo .button:hover{background:var(--stone)!important}
+.v4b-woo .button:disabled,.v4b-woo .button[disabled]{opacity:.45}
+.v4b-woo .cart_totals,.v4b-woo #order_review{background:var(--stone);border-radius:6px;padding:30px}
+.v4b-woo .cart-collaterals .cart_totals{width:min(100%,460px)}
+.v4b-woo .cart_totals h2,.v4b-woo #order_review_heading,.v4b-woo .woocommerce-billing-fields h3,.v4b-woo .woocommerce-additional-fields h3{font-family:var(--serif);font-weight:400;font-size:var(--t-h3);line-height:1.12;margin:0 0 18px;color:var(--ink)}
+.v4b-woo .cart_totals table.shop_table th,.v4b-woo .cart_totals table.shop_table td{padding:14px 0}
+.v4b-woo a.checkout-button,.v4b-woo #place_order{display:block;width:100%;text-align:center;background:var(--merah)!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:17px 24px!important;font:500 var(--t-small)/1 var(--sans)!important;text-transform:none;letter-spacing:.01em}
+.v4b-woo a.checkout-button:hover,.v4b-woo #place_order:hover{background:var(--merah-2)!important}
+.v4b-woo .form-row label{font-size:var(--t-small);font-weight:500;margin-bottom:6px;color:var(--ink)}
+.v4b-woo .form-row{margin-bottom:16px}
+.v4b-woo #payment{background:#fff!important;border-radius:4px}
+.v4b-woo #payment .payment_box{background:var(--stone)!important;color:var(--ink)}
+.v4b-woo .woocommerce-message,.v4b-woo .woocommerce-info,.v4b-woo .woocommerce-error{font-family:var(--sans);border-top-color:var(--sea);background:var(--stone);color:var(--ink)}
+.v4b-woo .woocommerce-message .button,.v4b-woo .woocommerce-info .button{border:0!important}
+.v4b-woo a{color:var(--ink)}
+@media (max-width:767px){.v4b-woo .cart_totals,.v4b-woo #order_review{padding:24px 20px}}

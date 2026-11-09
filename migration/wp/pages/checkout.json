@@ -1,0 +1,7 @@
+[
+ {
+  "title": "sec-sm checkout",
+  "shortcode": true,
+  "html": "<section class=\"sec-sm\"><div class=\"wrap\"><ol class=\"flow\" aria-label=\"Checkout steps\"><li class=\"done\"><a href=\"/basket/\">Basket</a></li><li aria-current=\"step\">Details &amp; payment</li><li>Done</li></ol><h1 class=\"page-h1\">Checkout</h1><div class=\"v4b-woo\">[woocommerce_checkout]</div></div></section>"
+ }
+]
