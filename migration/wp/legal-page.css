@@ -1,0 +1,25 @@
+/* Privacy Policy (page 3) is not an Elementor page: Hello's default template (main.site-main > .page-header + .page-content)
+   with WordPress block content. Restyled as a design B legal page: white ground, boxed 1200 wrap, page-h1, one 720px prose
+   column. Tokens are written out because the design B variables only exist inside .v4b. Owner chose layout only, text unchanged. */
+body.page-id-3{background:#FFFFFF}
+body.page-id-3 .site-main{max-width:1200px;margin-inline:auto;padding:80px 20px 110px;color:#1C2326;font:400 17px/1.65 "Jost","Avenir Next","Segoe UI",sans-serif}
+body.page-id-3 .site-main .page-header{max-width:none;margin:0;padding:0 0 40px;border-bottom:1px solid #D9D6CF}
+body.page-id-3 .site-main .page-header .entry-title{margin:0;padding:0;font:400 clamp(42px,4.6vw,64px)/1.04 "Gilda Display",Georgia,"Times New Roman",serif;letter-spacing:-.005em;color:#1C2326}
+body.page-id-3 .site-main .page-content{max-width:720px;margin:56px 0 0;padding:0}
+body.page-id-3 .site-main .page-content h2{margin:56px 0 16px;font:400 clamp(24px,2vw,28px)/1.15 "Gilda Display",Georgia,"Times New Roman",serif;letter-spacing:0;color:#1C2326}
+body.page-id-3 .site-main .page-content h2:first-child{margin-top:0}
+body.page-id-3 .site-main .page-content h3{margin:32px 0 8px;font:500 17px/1.4 "Jost","Avenir Next","Segoe UI",sans-serif;color:#1C2326}
+body.page-id-3 .site-main .page-content p,
+body.page-id-3 .site-main .page-content li{margin:0 0 16px;font:400 17px/1.65 "Jost","Avenir Next","Segoe UI",sans-serif;color:#1C2326}
+body.page-id-3 .site-main .page-content ul,
+body.page-id-3 .site-main .page-content ol{margin:0 0 16px;padding-left:1.25em}
+body.page-id-3 .site-main .page-content li{margin-bottom:8px}
+body.page-id-3 .site-main .page-content strong,
+body.page-id-3 .site-main .page-content b{font-weight:500}
+body.page-id-3 .site-main .page-content a{color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;overflow-wrap:anywhere}
+@media (max-width:767px){
+  body.page-id-3 .site-main{padding:56px 20px 72px}
+  body.page-id-3 .site-main .page-header{padding-bottom:32px}
+  body.page-id-3 .site-main .page-content{margin-top:40px}
+  body.page-id-3 .site-main .page-content h2{margin-top:48px}
+}
