@@ -24,11 +24,39 @@ Diverifikasi logged-out setelah semua perubahan di atas: produk live masih templ
 
 **Perubahan dari rencana awal:** Loop Item "Visa row" dan Products Archive tidak dibuat. Penggantinya shortcode `[v4b_visa_table]`, `[v4b_finder]`, `[v4b_related]` yang membaca produk Woo langsung dan tidak bergantung JS (WP Rocket menunda JS sampai interaksi pertama). Popup diganti link WhatsApp langsung. Wordfence memblokir penyimpanan snippet PHP (false positive rule 9); owner menyetujui allowlist khusus field `wpcode_snippet_code` dan `wpcode_snippet_text` di `/wp-admin/admin.php`.
 
+**Cek responsif (dikerjakan Senin 9 Nov sore, lebih awal dari jadwal Selasa pagi):**
+
+Cara: setiap draft dan halaman mockup (`design/2026-10-b-lengkap`, localhost) dimuat di iframe 390 / 768 / 1024 / 1440, lalu dibandingkan otomatis: overflow horizontal, gaya teks per elemen (font, ukuran, warna, posisi), dan posisi vertikal tiap heading. Skrip: `migration/measure-responsive.js`, `fingerprint.js`, `vertical.js`, `make-harness.py`. Setiap perbaikan CSS dibuktikan dulu dengan probe `<style>` sebelum dipasang.
+
+Hasil: tidak ada overflow horizontal di halaman mana pun. Home, Visas & prices, About cocok dengan mockup di keempat lebar (nol beda gaya). Yang diperbaiki:
+
+| Temuan | Penyebab | Perbaikan |
+|---|---|---|
+| **Halaman produk desain B tetap tampil dengan template lama 424** | Plugin ShopLentor (WooLentor) memaksa template global `woolentor_woo_template_tabs[singleproductpage] = 424` ke semua produk, jadi Theme Builder 2255 tidak pernah dipakai. Kondisi 2255 juga ternyata kosong ("Instances: None"). | Filter di snippet #2254: WooLentor mundur hanya untuk produk di kategori 38/39/40; produk lain tetap 424. Kondisi 2255 dipasang ulang (In Category 38, 39, 40). Diverifikasi: produk desain B → 2255, produk live 494/351 → 424. |
+| Pita abu-abu di bawah finder Home | `margin-top:110px` section "Visas for every kind of stay" tembus keluar `.v4b`, latar body tema lama terlihat | `.v4b:not(.e-con){display:flow-root}` |
+| Label finder, caption, link teks, letter-spacing | Aturan kit lama (`.elementor-kit-108 …`) menimpa | Aturan tambahan di `v4b-extra.css` |
+| Konten 40px lebih lebar dari mockup | Container boxed 1200 + padding 20 (mockup `.wrap` 1200 termasuk padding) | Header 2245, Footer 2251, Single Product 2255: lebar boxed 1160 |
+| H1 produk 72px, paragraf deskripsi warna ink, celah ekstra di daftar, H2 pertama +64px, FAQ menyempit di 1024 | Aturan mockup bergantung pada `.pd`, dan Elementor menyisipkan `<link>` sebelum H2 pertama | Aturan `.v4b .pd-head h1`, `.v4b-desc …` |
+| Form Contact: jarak kolom 10px, tanpa jarak atas, tanggal berupa teks, "(optional)" tebal | Setting widget form 2272 | Kolom 20px, margin atas 30px, date picker native, `<small>` di label (email HTML, jadi tampil wajar) |
+| Checkout: field Inter abu-abu 54%, dropdown Country/State gaya lama, heading menempel, teks privasi 17px | Aturan kit `input:not(...)` spesifisitas 0,3,1; selectWoo tidak tersentuh | Selector 0,3,2 + gaya selectWoo + jarak heading |
+| Basket HP: label kartu campur serif/sans, latar belang, input kupon pendek | CSS responsif WooCommerce | Label seperti kepala tabel, tanpa belang, input kupon 170px |
+| Header HP: logo 65px, keranjang 30px, ikon menu 3 garis | Setting widget | Logo 57px (setting responsif), tap keranjang 44px, ikon 2 garis seperti mockup |
+| Footer: copyright 13px/500 | Global "B Label" | Global "B Small" |
+
+Snippet #2254 sekarang `874fef14…` (SHA-256 cocok dengan `migration/wp/v4b-shortcodes.wpcode.txt`). Diverifikasi logged-out setelahnya: produk live 494/351 tetap 424, produk baru 404, CSS desain B tidak dimuat, Store API tetap 12 produk.
+
+**Catatan untuk skrip go-live dari cek ini:**
+- 6 produk lama yang diperbarui di tempat **harus** dimasukkan ke kategori 38/39/40, karena itu satu-satunya jalan mereka mendapat template 2255 (filter WooLentor + kondisi 2255 sama-sama berbasis kategori). Produk yang disembunyikan tetap di kategori lama dan tetap 424.
+- Menonaktifkan snippet 2054 menghapus aturan tap-target 44px; tombol Chat header jadi 35px tinggi seperti mockup. Itu memang yang dimaksud.
+- Preview Home/Visas & prices sebelum go-live belum menampilkan e-VOA, C1, VOA ext, C1 ext, D1 ext, D12 ext (masih di kategori lama). Screenshot untuk tim sebaiknya diambil setelah produk itu ada, atau diberi keterangan.
+- Setelah go-live cek logged-out bahwa garis bawah link teks (`.v4b a:where(:not([class]))`, spesifisitas 0,1,1) tetap menang atas `.elementor-kit-108 a`; bergantung urutan CSS jika WP Rocket menggabung/menyusun ulang CSS.
+- Label form Contact berisi `<small>`; di daftar Submissions admin mungkin tampil sebagai tag mentah.
+
 **Sisa sebelum go-live:**
 
 | Kapan | Pekerjaan | Status |
 |---|---|---|
-| Selasa pagi | Cek semua draft di 390 / 768 / 1024 / 1440, perbaiki yang kurang | belum |
+| Selasa pagi | Cek semua draft di 390 / 768 / 1024 / 1440, perbaiki yang kurang | ✅ Senin sore, lihat di atas |
 | Selasa siang | Skrip go-live (6 produk diperbarui, 5 produk lama ke Draft + 301, 16 produk dipublish, format harga Woo, template header/footer/single product, isi halaman 149/155/193/102/336/337, `v4b_live` = 1, nonaktifkan snippet 2054, redirect `/shop/` dan kategori) | belum |
 | Selasa siang | Transaksi DOKU asli bernominal kecil di draft | belum |
 | Selasa sore | Screenshot semua halaman (desktop + HP) untuk Ari, Ayik, Devi; approval malam itu | belum |
