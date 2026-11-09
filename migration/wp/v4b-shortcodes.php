@@ -24,11 +24,13 @@ if ( ! function_exists( 'v4b_item' ) ) {
 if ( ! defined( 'V4B_WA' ) ) {
 	define( 'V4B_GROUPS', array( 'arriving-soon', 'already-in-bali', 'staying-longer' ) );
 	define( 'V4B_WA', 'https://wa.me/6287862273133' );
+	// Go-live switch. build.sh writes false; "LIVE=1 sh build.sh" writes true. Pushing the other build is the rollback.
+	define( 'V4B_LIVE', false );
 }
 
-/* Stylesheet: loaded for editors always (to build and preview drafts), for visitors once option v4b_live = 1 (go-live). */
+/* Stylesheet: loaded for editors always (to build and preview drafts), for visitors once V4B_LIVE is true (go-live). */
 add_action( 'wp_enqueue_scripts', function () {
-	if ( ! get_option( 'v4b_live' ) && ! current_user_can( 'edit_pages' ) ) { return; }
+	if ( ! V4B_LIVE && ! current_user_can( 'edit_pages' ) ) { return; }
 	wp_register_style( 'v4b', false, array(), '1' );
 	wp_enqueue_style( 'v4b' );
 	wp_add_inline_style( 'v4b', v4b_css() );
@@ -45,6 +47,28 @@ add_filter( 'option_woolentor_woo_template_tabs', function ( $o ) {
 	}
 	return $o;
 } );
+
+/* 301s for the old URLs, only once live. Retired products are Draft (kept whole), so without this their URLs would 404.
+   Priority 1 runs before redirect_canonical's 404 guessing. Keep in sync with products-payload.json "retire". */
+add_action( 'template_redirect', function () {
+	if ( ! V4B_LIVE ) { return; }
+	$map  = array(
+		'/shop/'                                   => '/our-services/',
+		'/product-category/arriving-soon/'         => '/our-services/#arriving-soon',
+		'/product-category/already-in-bali/'       => '/our-services/#already-in-bali',
+		'/product-category/staying-longer/'        => '/our-services/#staying-longer',
+		'/product/offshore-business-visa-d212-ru/' => '/product/d1-multiple-entry-tourist-visa/',
+		'/product/family-visa/'                    => '/product/family-kitas-offshore/',
+		'/product/c12-d12-visa/'                   => '/product/d12-multiple-entry-visa-1-year/',
+		'/product/remote-working-visa-e33g/'       => '/product/e33g-remote-worker-kitas/',
+		'/product/visa4bali-onshore-ru/'           => '/our-services/',
+	);
+	$path = trailingslashit( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) );
+	if ( isset( $map[ $path ] ) ) {
+		wp_safe_redirect( home_url( $map[ $path ] ), 301, 'Visa4Bali design B' );
+		exit;
+	}
+}, 1 );
 
 // Owner 2026-11-09: one price format everywhere, "Rp 750.000"; WooCommerce is set to the same at go-live.
 function v4b_rp( $n ) { return 'Rp ' . number_format( (float) $n, 0, ',', '.' ); }
@@ -73,17 +97,30 @@ function v4b_item( $p ) {
 		'type'  => $p->get_type(),
 		'price' => (float) $p->get_regular_price(),
 		'fast'  => null,
+		'buy'   => '',
 	);
 	if ( $p->is_type( 'variable' ) ) {
 		$item['price'] = (float) $p->get_variation_regular_price( 'min' );
+		$public        = array();
 		foreach ( $p->get_children() as $vid ) {
 			$v = wc_get_product( $vid );
 			if ( ! $v || 'publish' !== $v->get_status() ) { continue; }
-			$opt = strtolower( (string) $v->get_attribute( 'processing' ) );
+			$public[] = $v;
+			$opt      = strtolower( (string) $v->get_attribute( 'processing' ) );
 			if ( 'regular' === $opt ) { $item['price'] = (float) $v->get_regular_price(); }
 			if ( 'faster' === $opt ) {
 				$item['fast'] = array( 'price' => (float) $v->get_regular_price(), 'time' => v4b_meta( $id, 'v4b_fast_time' ) );
 			}
+		}
+		/* Older products (VOA ext 342, C1 ext 346, D1 ext 1572, D12 ext 1575) are variable with ONE public variation
+		   (their "Fast" variations are private). WooCommerce only adds a variable product with its variation, so the
+		   button carries variation_id + its attributes: ?add-to-cart=342&variation_id=343&attribute_type=Regular. */
+		if ( ! $item['fast'] && 1 === count( $public ) ) {
+			$item['price'] = (float) $public[0]->get_regular_price();
+			$item['buy']   = add_query_arg( rawurlencode_deep( array_merge(
+				array( 'add-to-cart' => $id, 'variation_id' => $public[0]->get_id(), 'quantity' => 1 ),
+				$public[0]->get_variation_attributes()
+			) ), get_permalink( $id ) );
 		}
 	}
 	return $item;
@@ -128,6 +165,9 @@ function v4b_time_html( $v ) {
 function v4b_act( $v, $cls ) {
 	if ( $v['chat'] ) {
 		return '<a class="' . $cls . '-act ' . $cls . '-chat" href="' . esc_url( $v['p']->get_product_url() ) . '">Ask us</a>';
+	}
+	if ( $v['buy'] ) {
+		return '<a class="' . $cls . '-act ' . $cls . '-buy" href="' . esc_url( $v['buy'] ) . '" rel="nofollow" aria-label="' . esc_attr( 'Add ' . $v['label'] . ' to your basket' ) . '">Apply online</a>';
 	}
 	if ( $v['p']->is_type( 'variable' ) ) {
 		return '<a class="' . $cls . '-act ' . $cls . '-buy" href="' . esc_url( $v['url'] ) . '">Apply online</a>';
@@ -260,15 +300,17 @@ function v4b_buy_core( $v, $inline ) {
 			. '<button type="submit" class="btn btn-k">Apply online</button>' . $ask . '</form>';
 		return $html;
 	}
+	$btn = $v['buy']
+		? '<a class="btn btn-k" href="' . esc_url( $v['buy'] ) . '" rel="nofollow">Apply online</a>'
+		: sprintf( '<a class="btn btn-k add_to_cart_button ajax_add_to_cart" href="%1$s" data-quantity="1" data-product_id="%2$d" rel="nofollow">Apply online</a>', esc_url( $v['p']->add_to_cart_url() ), $v['id'] );
 	return '<p class="buy-label">' . ( $v['from'] ? 'Price from' : 'Price' ) . '</p><p class="buy-price num">' . esc_html( v4b_rp( $v['price'] ) ) . '</p>'
 		. ( $v['incl'] ? '<p class="buy-incl">' . esc_html( $v['incl'] ) . '</p>' : '' )
-		. sprintf( '<a class="btn btn-k add_to_cart_button ajax_add_to_cart" href="%1$s" data-quantity="1" data-product_id="%2$d" rel="nofollow">Apply online</a>', esc_url( $v['p']->add_to_cart_url() ), $v['id'] )
-		. $ask;
+		. $btn . $ask;
 }
 
 add_shortcode( 'v4b_product', function ( $a ) {
-	$a = shortcode_atts( array( 'part' => 'head' ), $a );
-	$v = v4b_item( get_the_ID() );
+	$a = shortcode_atts( array( 'part' => 'head', 'id' => 0 ), $a );
+	$v = v4b_item( $a['id'] ? (int) $a['id'] : get_the_ID() );
 	if ( ! $v ) { return ''; }
 	if ( 'buy' === $a['part'] ) {
 		$html = '<aside class="buy" aria-label="Price and apply">' . v4b_buy_core( $v, false )

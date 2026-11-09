@@ -16,7 +16,7 @@
 | 1 Fitur | Nested Elements diaktifkan (HTML Home terbukti tidak berubah). Popup Builder tidak tersedia di lisensi ini. | |
 | 2 Fondasi | 11 warna + 13 gaya teks B sebagai global baru (id `b4b*`, global lama utuh). 27 gambar dengan alt. 3 kategori baru. 16 produk baru (draft; D12 1 th #2232 Private untuk preview). Menu "Header B". | media 2192–2218, kategori 38–40, produk 2219–2240, menu 41 |
 | 3 Template | Header (draft), Footer (draft), Single Product (published, hanya berlaku untuk kategori 38–40 yang isinya non-publik), form Contact (Elementor Form → 3 email + simpan entri). | 2245, 2251, 2255, 2272 |
-| 3 Komponen data | WPCode snippet: finder, grup harga, tabel visa, kepala produk, kotak harga Regular/Faster, breadcrumb, visa terkait. Tanpa JS. CSS desain B (scoped `.v4b`) hanya dimuat untuk admin sampai opsi `v4b_live` = 1. | snippet #2254, `migration/wp/` |
+| 3 Komponen data | WPCode snippet: finder, grup harga, tabel visa, kepala produk, kotak harga Regular/Faster, breadcrumb, visa terkait. Tanpa JS. CSS desain B (scoped `.v4b`) hanya dimuat untuk admin sampai saklar `V4B_LIVE` di snippet = true (build live). | snippet #2254, `migration/wp/` |
 | 4 Halaman | Home, Visas & prices, About, Contact, Basket, Checkout sebagai draft Full Width. Basket/Checkout = shortcode WooCommerce + DOKU lama, hanya tampilannya. | 2259–2262, 2281, 2282 |
 | Repo | PR #19 merged ke main (`313c09d`); cek responsif PR #21 merged (`ced82ca`). | |
 
@@ -52,12 +52,20 @@ Snippet #2254 sekarang `874fef14…` (SHA-256 cocok dengan `migration/wp/v4b-sho
 - Setelah go-live cek logged-out bahwa garis bawah link teks (`.v4b a:where(:not([class]))`, spesifisitas 0,1,1) tetap menang atas `.elementor-kit-108 a`; bergantung urutan CSS jika WP Rocket menggabung/menyusun ulang CSS.
 - Label form Contact berisi `<small>`; di daftar Submissions admin mungkin tampil sebagai tag mentah.
 
+**Skrip go-live (dikerjakan Senin malam):** urutan, hasil yang diharapkan, dan rollback tiap langkah ada di [`golive/RUNBOOK.md`](golive/RUNBOOK.md). Temuan saat menyiapkannya:
+
+- Tombol "Apply online" di VOA ext (342), C1 ext (346), D1 ext (1572), D12 ext (1575) **tidak akan berfungsi** setelah go-live. Keempatnya produk variable dengan satu varian publik (varian Fast-nya private), sedangkan kotak beli memperlakukannya seperti produk simple. Diperbaiki di snippet: tombol membawa `variation_id` + atribut varian. Diuji: keempatnya masuk keranjang dengan harga benar.
+- C1 (351) punya atribut lama "Type" dengan satu varian "7-9 Working Days". Saat go-live atribut itu diganti "Processing" (Regular 2.000.000 = varian lama 1653, Faster 2.500.000 = varian baru). Dilatih pada produk sementara, termasuk rollback.
+- Opsi `v4b_live` diganti saklar `V4B_LIVE` di kode snippet. `build.sh` menghasilkan dua versi (biasa dan live) dengan hash masing-masing, jadi go-live dan rollback-nya sama-sama satu kali push. Redirect 301 ikut saklar ini.
+- Kondisi uji "Product #2232" di 2255 sempat tersimpan ulang saat publish; sudah dibersihkan. Kondisi 2255 sekarang hanya kategori 38/39/40.
+- Global sistem Site Settings (Fase 6 langkah 2) **tidak** masuk skrip, perlu keputusan owner (lihat runbook).
+
 **Sisa sebelum go-live:**
 
 | Kapan | Pekerjaan | Status |
 |---|---|---|
 | Selasa pagi | Cek semua draft di 390 / 768 / 1024 / 1440, perbaiki yang kurang | ✅ Senin sore, lihat di atas |
-| Selasa siang | Skrip go-live (6 produk diperbarui, 5 produk lama ke Draft + 301, 16 produk dipublish, format harga Woo, template header/footer/single product, isi halaman 149/155/193/102/336/337, `v4b_live` = 1, nonaktifkan snippet 2054, redirect `/shop/` dan kategori) | belum |
+| Selasa siang | Skrip go-live (6 produk diperbarui, 5 produk lama ke Draft + 301, 16 produk dipublish, format harga Woo, template header/footer/single product, isi halaman 149/155/193/102/336/337, saklar `V4B_LIVE`, nonaktifkan snippet 2054, redirect `/shop/` dan kategori) | ✅ Senin malam: [`golive/RUNBOOK.md`](golive/RUNBOOK.md), skrip dilatih pada salinan sementara |
 | Selasa siang | Transaksi DOKU asli bernominal kecil di draft | belum |
 | Selasa sore | Screenshot semua halaman (desktop + HP) untuk Ari, Ayik, Devi; approval malam itu | belum |
 | Selasa | Owner konfirmasi backup hPanel | belum |
