@@ -34,6 +34,18 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_add_inline_style( 'v4b', v4b_css() );
 }, 20 );
 
+/* ShopLentor/WooLentor renders its global single-product template (woolentor_woo_template_tabs[singleproductpage] = 424)
+   on every product, so Elementor Pro's Theme Builder template 2255 never gets a turn. Step WooLentor aside for design-B
+   products only (categories arriving-soon / already-in-bali / staying-longer); every other product keeps 424.
+   Until go-live those categories hold only draft/private products, so visitors see no change. */
+add_filter( 'option_woolentor_woo_template_tabs', function ( $o ) {
+	if ( is_array( $o ) && ! is_admin() && function_exists( 'is_product' ) && is_product()
+		&& has_term( V4B_GROUPS, 'product_cat', get_queried_object_id() ) ) {
+		$o['singleproductpage'] = '0';
+	}
+	return $o;
+} );
+
 // Owner 2026-11-09: one price format everywhere, "Rp 750.000"; WooCommerce is set to the same at go-live.
 function v4b_rp( $n ) { return 'Rp ' . number_format( (float) $n, 0, ',', '.' ); }
 function v4b_meta( $id, $key ) { return (string) get_post_meta( $id, $key, true ); }

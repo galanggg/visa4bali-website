@@ -3,3 +3,5 @@
 wp/v4b-shortcodes.build.php
 wp/v4b-shortcodes.wpcode.txt
 wp/v4b.css
+# screenshots/measurements from the responsive pass; checkout shots contain test billing data
+shots/
