@@ -1,0 +1,22 @@
+[
+ {
+  "title": "p-hero",
+  "html": "<section class=\"p-hero\">\n    <img src=\"https://visa4bali.com/wp-content/uploads/2026/11/v4b-b-sidemen.jpg\" alt=\"\" width=\"1600\" height=\"1066\">\n    <div class=\"wrap\">\n      <h1>Visas &amp; prices</h1>\n      <p class=\"lead\">Choose the visa that fits your stay. Standard visas are paid online; for longer stays we check your documents with you on WhatsApp first.</p>\n      [v4b_stays link=\"list\"]\n    </div>\n  </section>",
+  "shortcode": true
+ },
+ {
+  "title": "sec",
+  "html": "<section class=\"sec\">\n    <div class=\"wrap\">\n      [v4b_visa_table]\n      <p class=\"note\">Prices from our June 2026 price list, in Indonesian rupiah, tax and service included. Weekends, public holidays and immigration system outages are not counted as processing days.</p>\n    </div>\n  </section>",
+  "shortcode": true
+ },
+ {
+  "title": "sec stone center",
+  "html": "<section class=\"sec stone center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">How it works</h2>\n      <ol class=\"steps\">\n        <li><b>Choose your visa</b><span>Pick from the list above, or ask us which one fits your plans.</span></li>\n        <li><b>Pay</b><span>Pay on the website, or message us for other payment methods.</span></li>\n        <li><b>Send your documents</b><span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li>\n        <li><b>Receive your visa</b><span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li>\n      </ol>\n    </div>\n  </section>",
+  "shortcode": false
+ },
+ {
+  "title": "sec center",
+  "html": "<section class=\"sec center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">Questions clients ask</h2>\n      <div class=\"faq\">\n        <details open><summary>What do I need to send for a tourist visa?</summary><p>A photo of your passport's main page, valid for at least 6 months, and a photo of you holding your passport. Send them by WhatsApp or email.</p></details>\n        <details><summary>How long does it take?</summary><p>It depends on the visa: 1–2 working days for an e-VOA and 8–10 working days for a C1 extension. Each visa above shows its time.</p></details>\n        <details><summary>How do I extend my visa?</summary><p>An extension needs an Indonesian sponsor and a set of application documents. If we handle it, we only need your passport and we prepare everything else.</p></details>\n        <details><summary>What happens if I overstay?</summary><p>Immigration charges a fine of Rp 1,000,000 for every day of overstay. After 60 days of overstay you must pay the fine and you will be deported. Message us as early as you can.</p></details>\n      </div>\n      <div class=\"notice on-white\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z\"/><path d=\"m9 12 2 2 4-4\"/></svg><p><b>Beware of scammers.</b> Our bank account is only under the VISA4BALI name. We do not have bank accounts under foreigners' names.</p></div>\n    </div>\n  </section>",
+  "shortcode": false
+ }
+]

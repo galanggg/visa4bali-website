@@ -1,6 +1,87 @@
 # Plan migrasi: desain B ke visa4bali.com (WordPress + Elementor Pro)
 
-**Dibuat:** 2026-10-29 · **Status:** rencana, belum dimulai · **Mockup:** https://visa4bali-desain-b.vercel.app (source `design/2026-10-b-lengkap/`)
+**Dibuat:** 2026-10-29 · **Diperbarui:** 2026-11-09 (jadwal kilat) · **Status:** dimulai 2026-11-09 · **Mockup:** https://visa4bali-desain-b.vercel.app (source `design/2026-10-b-lengkap/`)
+
+---
+
+## Jadwal kilat: 9 sampai 11 November 2026 (berlaku di atas jadwal fase di bawah)
+
+Owner minta selesai dalam 2–3 hari, **go-live paling lambat Rabu 11 Nov pagi**. Urutan fase, gerbang, dan rollback di bawah tetap berlaku. Yang berubah hanya jadwal dan beberapa langkah yang dipangkas atau ditunda.
+
+### Keputusan (2026-11-09)
+
+| # | Keputusan |
+|---|---|
+| Gerbang Fase 0 | Desain sudah di-approve semua pihak (Ari, Ayik, Devi). |
+| K1 | **A:** Home (149), About Us (155), Contact Us (193) pindah dari Canvas ke **Elementor Full Width**. Satu Header dan satu Footer Theme Builder untuk seluruh situs. Template halaman diubah saat go-live (Fase 6.4), bukan sebelumnya. |
+| K2 | **Backup penuh disetujui.** |
+| K3 | **B:** `/our-services/` (102) dijadikan halaman Shop WooCommerce. |
+| K4 | **Ditunda sampai setelah go-live.** Hari 1 dicek dulu apakah fitur yang dibutuhkan ada di versi sekarang. Kalau kurang, baru update. |
+| K5 | Go-live **Rabu 11 Nov pagi**, jam sepi diambil dari data GA. |
+
+### Produk WooCommerce (keputusan owner 2026-11-09)
+
+- **Perubahan produk diterapkan saat go-live Rabu pagi (opsi B), bukan sekarang.** Sampai go-live, produk live tidak disentuh.
+- **Tidak ada produk atau variasi yang dihapus.** Yang tidak ada di desain baru disimpan dan disembunyikan ("pending tampilkan"): C12 Single Entry (variasi #668), E33G Onshore (variasi #515), Visa4Bali Onshore (#352), D1/D2 2 tahun (variasi #355), KITAS Working/Investor/Retirement bayar online (variasi #627).
+- **Slug produk lama tetap.** Hanya nama yang berubah.
+
+Cara menjalankannya:
+
+| Produk lama | Nasib saat go-live |
+|---|---|
+| 494 e-VOA, 351 C1, 342 VOA ext, 346 C1 ext, 1572 D1 ext, 1575 D12 ext | Diperbarui di tempat (nama, harga, deskripsi, kategori, Faster di C1). Slug tetap. Variasi lama tidak dihapus. |
+| 355 D1&D2, 627 Family Visa, 668 C12&D12, 515 E33G, 352 Onshore | Status **Draft** (utuh dengan semua variasinya, bisa dipublish lagi kapan saja) + redirect 301 dari slug lama ke produk baru penggantinya (352 → `/our-services/`). |
+| — | **16 produk baru** dibuat sekarang sebagai **Draft** (tidak terlihat), dipublish saat go-live. |
+| 356 Overstay Fee | Catalog visibility *Hidden*. |
+
+Skrip go-live dan datanya disimpan di `migration/`.
+
+### Popup "Chat with us" (2026-11-09)
+
+Elementor di situs ini tidak punya tipe template Popup ("Type popup does not exist", lisensi Pro aktif). Keputusan owner: **opsi A**. Semua tombol chat langsung ke WhatsApp English dengan pesan otomatis berisi nama visa. Popup dibuat nanti dengan CSS `:target` (tanpa Popup Builder, tanpa JS) setelah nomor WhatsApp Rusia atau username Telegram ada. Plugin WP Chat App (tombol hijau melayang): **tetap aktif** (owner 2026-11-09).
+
+### Halaman Shop, Basket, Checkout (2026-11-09)
+
+- **K3 diperbarui:** `/our-services/` (102) tetap halaman biasa dengan isi desain B (tabel `[v4b_visa_table]`). Setelan Shop page WooCommerce tetap `/shop/` (335). Saat go-live: 301 `/shop/` → `/our-services/`, dan `/product-category/<slug>/` → `/our-services/#<slug>` untuk 3 kategori baru. Alasannya: kalau 102 dijadikan Shop page, WooCommerce mengganti isinya dengan arsip produk.
+- **Basket dan Checkout:** struktur WooCommerce yang sekarang tetap dipakai, termasuk alur DOKU. Tampilannya disesuaikan dengan desain B lewat CSS plus header dan footer baru. Field tambahan dari mockup (WhatsApp, Nationality, tanggal tiba, hotel) ditunda sampai setelah go-live (owner: "Oke gas").
+
+### Format harga (2026-11-09)
+
+Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp). Shortcode desain B sudah memakai format ini. Saat go-live, setelan WooCommerce diubah: posisi mata uang *Left with space*, pemisah ribuan `.`, tanpa desimal.
+
+### Yang dipangkas atau ditunda
+
+- **Uji pulihkan backup (Fase 1.2) dilewati.** Backup tetap dibuat (backup hPanel + export ke luar server). Risiko ini diterima owner.
+- **Update plugin (Fase 1.6) ditunda** sampai setelah go-live, sesuai K4.
+- **Bagian yang datanya belum ada disembunyikan saat go-live**, lalu dinyalakan setelah datanya datang:
+  - tab "Travelling abroad" (nomor WA Ari, Feny, Nanda);
+  - opsi tim Rusia dan Telegram di Popup Chat. Yang tampil hanya WhatsApp English 6287862273133.
+- **Fase 7 (pantau 2 minggu)** tetap jalan, tapi setelah go-live dan tidak dihitung dalam 3 hari.
+
+### Yang tidak boleh dipangkas
+
+- Backup penuh sebelum mulai dan sekali lagi sebelum go-live.
+- Transaksi DOKU asli, di draft dan setelah go-live. Kalau gagal di draft, go-live ditahan.
+- Cek logged-out di 390 / 768 / 1024 / 1440.
+- Halaman live tidak berubah tampilan sampai go-live, dan rollback hari-H siap.
+
+### Jadwal
+
+| Hari | Pekerjaan |
+|---|---|
+| **Senin 9 Nov** (mulai siang) | Fase 1: backup, export Kit, simpan halaman lama sebagai library template, baseline, CSV URL + SEO, cek fitur Elementor. Fase 2: global warna/font B sebagai entri baru, media, font lokal, produk WooCommerce lewat REST API (lihat "Tambahan" di bawah), redirect slug. Mulai Fase 3: Header, Footer, Popup Chat (draft). |
+| **Selasa 10 Nov** | Fase 3: Loop Item "Visa row", Product Archive, Single Product. Fase 4: draft Home, About, Contact, Basket, Checkout. Sore: Fase 5 di draft, termasuk transaksi DOKU. **Malam: link draft ke Ari, Ayik, Devi untuk approval go-live.** |
+| **Rabu 11 Nov pagi** | Fase 6: go-live di jam sepi, transaksi uji, cek semua tipe halaman logged-out. |
+| Rabu siang – Jumat | Cadangan hotfix. Fase 7 mulai. |
+
+Risiko jadwal: approval tim harus selesai Selasa malam; owner harus standby untuk login WP admin di browser MCP dan menyetujui langkah yang menyentuh data live. Kalau salah satu meleset, go-live yang mundur, bukan kualitas yang turun.
+
+### Tambahan karena desain berubah setelah 2026-10-29
+
+- **Faster = variable product**, atribut Processing (Regular default): C1, D1, D2, D12 1 tahun, D12 2 tahun. Family ITAS Extension memakai atribut Duration. Single Product butuh pemilih variasi. Tombol "Apply online" di Loop Item untuk produk variable mengarah ke halaman produk, tidak langsung ke keranjang.
+- **Konten 19 halaman visa** (Who it is for, What we need, What the price includes, FAQ) dari `design/2026-10-b-lengkap/detail.js` masuk ke deskripsi produk Woo, bukan hanya short description. Diisi lewat WooCommerce REST API dari sesi admin, setelah export CSV produk.
+- **Tab "Travelling abroad"** bukan produk: tab statis keempat di Nested Tabs dengan 3 tombol WhatsApp, bukan Loop Grid. Disembunyikan sampai nomornya ada.
+- **Foto owner** memakai `img/owner.jpg` original, tanpa crop.
 
 Dokumen ini mengatur **urutan, gerbang, risiko, dan rollback**. Cara membangun tiap bagian di Elementor (widget, warna, font, struktur WooCommerce) sudah ada di [`design/2026-10-b-lengkap/PANDUAN-SLICING.md`](../design/2026-10-b-lengkap/PANDUAN-SLICING.md) dan tidak diulang di sini. Kondisi situs live sekarang dicatat di [`audit/TRACKER.md`](../audit/TRACKER.md).
 

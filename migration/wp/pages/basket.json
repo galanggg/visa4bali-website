@@ -1,0 +1,7 @@
+[
+ {
+  "title": "sec-sm basket",
+  "shortcode": true,
+  "html": "<section class=\"sec-sm\"><div class=\"wrap\"><ol class=\"flow\" aria-label=\"Checkout steps\"><li aria-current=\"step\">Basket</li><li>Details &amp; payment</li><li>Done</li></ol><h1 class=\"page-h1\">Your basket</h1><div class=\"v4b-woo\">[woocommerce_cart]</div><a class=\"more\" href=\"/our-services/\">← Add another visa</a></div></section>"
+ }
+]

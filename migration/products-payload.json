@@ -1,0 +1,2286 @@
+{
+  "built_at": "2026-11-09T05:59:22.180Z",
+  "source": "design/2026-10-b-lengkap site.js + detail.js",
+  "categories": [
+    {
+      "slug": "arriving-soon",
+      "name": "Arriving soon",
+      "description": "Short stays for holidays, meetings and visiting."
+    },
+    {
+      "slug": "already-in-bali",
+      "name": "Already in Bali",
+      "description": "No passport collection needed. Your Stay Permit letter will be provided digitally."
+    },
+    {
+      "slug": "staying-longer",
+      "name": "Staying longer",
+      "description": "Multiple-entry visas and stay permits, one case manager."
+    }
+  ],
+  "products": [
+    {
+      "key": "e-voa",
+      "action": "update",
+      "id": 494,
+      "slug": "e-voa-30-days",
+      "name": "e-VOA, Electronic Visa on Arrival",
+      "featured": true,
+      "menu_order": 0,
+      "category": "arriving-soon",
+      "short_description": "<p>A 30-day Indonesian tourist visa you get before you fly to Bali. You skip the airport VOA queue and go straight to the immigration counter when you land.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Citizens of the countries on the <a href=\"https://www.imigrasi.go.id/wna/daftar-negara-voa-bvk-calling-visa/daftar-negara-subjek-visa-on-arrival\" target=\"_blank\" rel=\"noopener\">Visa on Arrival list of Indonesian Immigration</a>.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months. A clear photo of the main page is enough.</span></li><li><b>A photo of you</b> <span>A clear photo of the passport holder.</span></li><li><b>Your onward flight ticket</b> <span>The ticket out of Indonesia.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The e-VOA application</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>The government e-VOA charge</b> <span>Nothing more to pay at the airport for the visa itself.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Fly to Bali</b> <span>Your e-VOA arrives by email. Show it at the immigration counter when you land.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Can I extend the e-VOA?</summary><p>Yes, once, for another 30 days, so you can stay up to 60 days in total. We handle the <a href=\"/product/visa-on-arrival-extension-ru/\">VOA extension</a> too.</p></details><details><summary>When should I apply?</summary><p>Before you fly. Processing takes 1 to 2 working days, and Saturdays, Sundays and public holidays are not counted.</p></details><details><summary>I want to stay longer than 60 days</summary><p>Then the <a href=\"/product/visa4bali-offshore-ru/\">C1 Tourist Visa</a> fits better: 60 days on arrival, extendable to 180 days.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "e-VOA"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Electronic Visa on Arrival"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Electronic Visa on Arrival, 30 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "arriving-soon"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "30 days, extendable to 60 in total"
+        },
+        {
+          "key": "v4b_time",
+          "value": "1–2 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-VOA charge."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #494 + Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "30 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "from the day you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "1–2 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "with one 30-day extension"
+        }
+      ],
+      "type": "keep",
+      "regular_price": "750000"
+    },
+    {
+      "key": "c1",
+      "action": "update",
+      "id": 351,
+      "slug": "visa4bali-offshore-ru",
+      "name": "C1 Tourist Visa",
+      "featured": true,
+      "menu_order": 1,
+      "category": "arriving-soon",
+      "short_description": "<p>A 60-day Indonesian tourist visa you get before you fly to Bali. You can extend it twice, 60 days at a time, and stay up to 180 days in total.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Every nationality except the countries on Indonesia’s calling-visa list: we cannot help citizens of Afghanistan, Israel, North Korea, Liberia, Nigeria or Somalia yet.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The e-visa</b> <span>Sent to you by email.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Can I extend the C1?</summary><p>Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href=\"/product/social-visa-b-211-ru/\">C1 extension</a> too.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "C1"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Tourist Visa"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Tourist Visa, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "arriving-soon"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "60 days, extendable to 180 in total"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": "5 working days"
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": "2500000"
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #346 (C1 rules) + Ari 31/10 + Ari 2/11 + Ari 3/11 (Faster)"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "from the day you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "or 5 working days with Faster"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "with two 60-day extensions"
+        }
+      ],
+      "type": "variable",
+      "processing": [
+        [
+          "Regular",
+          2000000,
+          "7–9 working days"
+        ],
+        [
+          "Faster",
+          2500000,
+          "5 working days"
+        ]
+      ]
+    },
+    {
+      "key": "c2",
+      "action": "create",
+      "id": null,
+      "slug": "c2-business-visa",
+      "name": "C2 Business Visa",
+      "featured": true,
+      "menu_order": 2,
+      "category": "arriving-soon",
+      "short_description": "<p>A 60-day Indonesian business visa, extendable up to 180 days in total.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners coming to Indonesia for business visits that are not operational work. Every nationality except the countries on Indonesia’s calling-visa list: we cannot help citizens of Afghanistan, Israel, North Korea, Liberia, Nigeria or Somalia yet.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Can I extend the C2?</summary><p>Yes, twice, up to 180 days in total. We can handle the extension for you too.</p></details><details><summary>Can I work for an Indonesian company with a C2?</summary><p>No, not at all. The C2 is only for business visits, not for operational work.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "C2"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Business Visa"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Business Visa, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "arriving-soon"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "60 days, extendable to 180 in total"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "from the day you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "regular service only"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "with extensions"
+        }
+      ],
+      "type": "external",
+      "regular_price": "3500000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20C2%20Business%20Visa",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "d1",
+      "action": "create",
+      "id": null,
+      "slug": "d1-multiple-entry-tourist-visa",
+      "name": "D1 Multiple Entry Tourist Visa",
+      "featured": false,
+      "menu_order": 3,
+      "category": "arriving-soon",
+      "short_description": "<p>A tourist visa you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners visiting Indonesia for tourism.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months. Send a good-quality photo of it.</span></li><li><b>A photo of you</b> <span>A photo of the passport holder; a phone photo is fine.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The D1 e-visa</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>Sponsorship</b> <span>We act as your sponsor for the application.</span></li><li><b>The government e-visa fee</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Do I need to visit an embassy?</summary><p>No. Once the e-visa is ready you can use it directly.</p></details><details><summary>Can I stay longer than 60 days?</summary><p>Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href=\"/product/d1-d2-visa-extension/\">D1 extension</a> too.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D1"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Tourist Visa"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Tourist Visa D1, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "arriving-soon"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "60 days, extendable to 180 in total"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-visa fee."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": "5 working days"
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": "5000000"
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #355 (D1 rules) + Ari 3/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "from the day you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "or 5 working days with Faster"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "with two 60-day extensions"
+        }
+      ],
+      "type": "variable",
+      "processing": [
+        [
+          "Regular",
+          4500000,
+          "7–9 working days"
+        ],
+        [
+          "Faster",
+          5000000,
+          "5 working days"
+        ]
+      ]
+    },
+    {
+      "key": "d2",
+      "action": "create",
+      "id": null,
+      "slug": "d2-multiple-entry-business-visa",
+      "name": "D2 Multiple Entry Business Visa",
+      "featured": false,
+      "menu_order": 4,
+      "category": "arriving-soon",
+      "short_description": "<p>A visa for business meetings and tourism, which you get before you fly to Bali. You get 60 days from the day you arrive and can extend twice, 60 days at a time, up to 180 days in total.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners coming to Indonesia for business meetings as well as tourism.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months. Send a good-quality photo of it.</span></li><li><b>A photo of you</b> <span>A photo of the passport holder; a phone photo is fine.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The D2 e-visa</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>Sponsorship</b> <span>We act as your sponsor for the application.</span></li><li><b>The government e-visa fee</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Do I need to visit an embassy?</summary><p>No. Once the e-visa is ready you can use it directly.</p></details><details><summary>Can I stay longer than 60 days?</summary><p>Yes, twice, 60 days at a time, up to 180 days in total. We handle the <a href=\"/product/d2-business-visa-extension/\">D2 extension</a> too.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D2"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Business Visa"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Business Visa D2, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "arriving-soon"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "60 days, extendable to 180 in total"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-visa fee."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": "5 working days"
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": "6000000"
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #355 (D2 rules) + Ari 3/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "from the day you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "or 5 working days with Faster"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "with two 60-day extensions"
+        }
+      ],
+      "type": "external",
+      "regular_price": "5500000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20D2%20Multiple%20Entry%20Business%20Visa",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "voa-extension",
+      "action": "update",
+      "id": 342,
+      "slug": "visa-on-arrival-extension-ru",
+      "name": "VOA Extension",
+      "featured": true,
+      "menu_order": 0,
+      "category": "already-in-bali",
+      "short_description": "<p>Adds 30 more days to your Visa on Arrival. A VOA can be extended once, and the extension is issued as an electronic stay permit.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Anyone in Indonesia on an active VOA or e-VOA (index B1).</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your valid visa</b> <span>The VOA or e-VOA you entered Indonesia with.</span></li><li><b>Your e-stay permit</b> <span>The electronic stay permit that came with it.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>When should I apply?</summary><p>Before your current stay permit expires. The extension can be finished after that date and you will not be fined.</p></details><details><summary>Which days count as processing days?</summary><p>Saturdays, Sundays, public holidays and days when the immigration system is down are not counted.</p></details><details><summary>How do I receive the extension?</summary><p>As an electronic stay permit. We send you the file; scanning its barcode opens your stay-permit details in the immigration system.</p></details><details><summary>Can I cancel?</summary><p>If you cancel an extension, the full price is charged.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "VOA"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "VOA Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "VOA Extension, 30 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+30 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #342 + Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "30 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "one extension per VOA"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "VOA plus one extension"
+        }
+      ],
+      "type": "keep",
+      "regular_price": "800000"
+    },
+    {
+      "key": "c1-extension",
+      "action": "update",
+      "id": 346,
+      "slug": "social-visa-b-211-ru",
+      "name": "C1 Tourist Visa Extension",
+      "featured": true,
+      "menu_order": 1,
+      "category": "already-in-bali",
+      "short_description": "<p>Adds 60 more days to your C1 tourist visa without leaving Indonesia. The C1 can be extended twice, up to 180 days in total.</p>",
+      "description": "<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your valid e-visa</b> <span>Your current C1 e-visa.</span></li><li><b>Your e-stay permit</b> <span>The electronic stay permit that came with it.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Is there a sticker in my passport?</summary><p>No. Each extension is an electronic stay permit: a soft-copy file with a barcode registered in the immigration system.</p></details><details><summary>When should I apply?</summary><p>Before your current permit expires. Weekends and Indonesian public holidays are not counted as processing days; the extension can still be completed shortly after the expiry date.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "C1"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Tourist Visa Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Tourist Visa Extension, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+60 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #346 + Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "up to two extensions"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "60 days plus two extensions"
+        }
+      ],
+      "type": "keep",
+      "regular_price": "1800000"
+    },
+    {
+      "key": "d1-extension",
+      "action": "update",
+      "id": 1572,
+      "slug": "d1-d2-visa-extension",
+      "name": "D1 Multiple Entry Visa Extension",
+      "featured": false,
+      "menu_order": 2,
+      "category": "already-in-bali",
+      "short_description": "<p>Adds 60 more days to your stay on a D1 multiple-entry tourist visa. Each arrival can be extended twice, up to 180 days.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Holders of an active D1 visa that has not expired yet.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Do I have to leave Indonesia for this extension?</summary><p>No, not at all. The D1 extension is done entirely inside Indonesia.</p></details><details><summary>When is the best time to apply?</summary><p>We strongly recommend applying 7 to 14 days before your first 60 days end, at the latest.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D1"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Visa Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Visa Extension, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+60 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #355 (D1 rules) + Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "up to two extensions"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "per arrival"
+        }
+      ],
+      "type": "keep",
+      "regular_price": "1800000"
+    },
+    {
+      "key": "d2-extension",
+      "action": "create",
+      "id": null,
+      "slug": "d2-business-visa-extension",
+      "name": "D2 Multiple Entry Business Visa Extension",
+      "featured": false,
+      "menu_order": 3,
+      "category": "already-in-bali",
+      "short_description": "<p>Adds 60 more days to your stay on a D2 multiple-entry business visa. Each arrival can be extended twice, up to 180 days.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Holders of an active D2 stay permit.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>A letter about your visit</b> <span>A statement, invitation or correspondence from a government office or private company in Indonesia that explains its relationship with you.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>How long can I stay each time?</summary><p>Up to 60 days per arrival, counted from the day you arrive.</p></details><details><summary>How many times can I extend?</summary><p>More than once, up to 180 days in total.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D2"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Business Visa Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Business Visa Extension, 60 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+60 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #355 (D2 rules) + Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "up to two extensions"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "8–10 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Longest stay"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "per arrival"
+        }
+      ],
+      "type": "simple",
+      "regular_price": "1800000"
+    },
+    {
+      "key": "bridging-visa",
+      "action": "create",
+      "id": null,
+      "slug": "bridging-visa",
+      "name": "Bridging Visa (Transitional Stay Permit)",
+      "featured": false,
+      "menu_order": 4,
+      "category": "already-in-bali",
+      "short_description": "<p>A transitional stay permit for foreigners already in Indonesia who want to change their visa type, for example from a VOA to a KITAS.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Only foreigners who are already inside Indonesia.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your current e-stay permit</b> <span>Still active, with at least 7 days left before it expires.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>What happens if I leave Indonesia?</summary><p>The bridging visa ends. It is only valid while you stay in the country.</p></details><details><summary>Can I extend a bridging visa?</summary><p>No. It cannot be extended.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "Bridging"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Bridging Visa (Transitional Stay Permit)"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Bridging Visa (Transitional Stay Permit)"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+60 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "60 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "3000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Bridging%20Visa%20(Transitional%20Stay%20Permit)",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "d12-extension",
+      "action": "update",
+      "id": 1575,
+      "slug": "d12-visa-extension-service",
+      "name": "D12 Pre-Investment Visa Extension",
+      "featured": true,
+      "menu_order": 5,
+      "category": "already-in-bali",
+      "short_description": "<p>Adds 180 more days to your stay on a D12 pre-investment visa.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>D12 holders who still need time for field surveys or feasibility studies for the business they plan to invest in. You can also use the visa for tourism and to visit friends or family.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months, or 12 months if you travel on a document other than a national passport.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your current e-stay permit or visa</b> <span>The D12 you are staying on now.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>How many times can I extend?</summary><p>Once, up to a total stay of 12 months (1 year) or 2 years, depending on the visa duration you chose.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D12"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Pre-Investment Visa Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Pre-Investment Visa Extension, 180 days"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+180 days"
+        },
+        {
+          "key": "v4b_time",
+          "value": "10–12 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "10–12 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "keep",
+      "regular_price": "3250000"
+    },
+    {
+      "key": "family-itas-extension",
+      "action": "create",
+      "id": null,
+      "slug": "family-itas-extension",
+      "name": "Family ITAS Extension",
+      "featured": false,
+      "menu_order": 6,
+      "category": "already-in-bali",
+      "short_description": "<p>Extends the stay permit that lets family members live in Indonesia with their spouse or parent, so the family can stay together.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreign spouses and children of a KITAS or KITAP holder (an investor, for example) or of an Indonesian citizen. The permit follows the sponsor’s own permit, or you choose a stay of 1 or 2 years.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months; more than 24 months is better.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your current e-stay permit or visa</b> <span>The family permit you are staying on now.</span></li><li><b>A letter from your Indonesian spouse</b> <span>If your spouse is Indonesian: their request letter for your visa.</span></li><li><b>You must be in Indonesia</b> <span>The application is made while you are in the country.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>I have another question</summary><p>Every case is a little different. <a href=\"https://wa.me/6287862273133\" class=\"v4b-chat\">Chat with us</a> and the person handling your case will answer.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Family ITAS Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Family ITAS Extension, 1 or 2 years"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+1 or 2 years"
+        },
+        {
+          "key": "v4b_time",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": "1"
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 or 2 years"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "1 year Rp 10,000,000<br>2 years Rp 15,500,000"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "10000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Family%20ITAS%20Extension",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "retirement-kitas-extension",
+      "action": "create",
+      "id": null,
+      "slug": "retirement-kitas-extension",
+      "name": "Retirement KITAS Extension",
+      "featured": false,
+      "menu_order": 7,
+      "category": "already-in-bali",
+      "short_description": "<p>Extends the 1-year retirement KITAS (E33F) for retirees who do not work or earn money in Indonesia.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Holders of a retirement KITAS, usually aged 55 or over.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months; more than 24 months is better.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your current e-stay permit or ITAS</b> <span>The retirement KITAS you are staying on now.</span></li><li><b>You must be in Indonesia</b> <span>The application is made while you are in the country.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>How many times can I extend?</summary><p>Up to four times, one year at a time.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Retirement KITAS Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Retirement KITAS Extension, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "10000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Retirement%20KITAS%20Extension",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "e33g-extension",
+      "action": "create",
+      "id": null,
+      "slug": "e33g-remote-worker-kitas-extension",
+      "name": "E33G Remote Worker KITAS Extension",
+      "featured": false,
+      "menu_order": 8,
+      "category": "already-in-bali",
+      "short_description": "<p>Is your E33G about to expire? Extend your remote-worker stay permit for another year, without leaving Indonesia.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Holders of an active, valid E33G remote-worker ITAS. Apply at least 30 days before it expires.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your active e-stay permit or ITAS</b> <span>The E33G you are staying on now.</span></li><li><b>You must be in Indonesia</b> <span>The application is made while you are in the country.</span></li><li><b>Proof of income</b> <span>At least US$60,000 a year, or US$5,000 a month.</span></li><li><b>Your employment contract</b> <span>With a company outside Indonesia.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>When is the best time to apply?</summary><p>30 days before your KITAS expires is the safest time.</p></details><details><summary>Is the government fee (PNBP) included?</summary><p>Yes. Our price is all-in.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "E33G"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Remote Worker KITAS Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Remote Worker KITAS Extension, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "12000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20E33G%20Remote%20Worker%20KITAS%20Extension",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "working-kitas-extension",
+      "action": "create",
+      "id": null,
+      "slug": "working-kitas-extension",
+      "name": "Working KITAS Extension",
+      "featured": false,
+      "menu_order": 9,
+      "category": "already-in-bali",
+      "short_description": "<p>Working in Indonesia is great; the paperwork is not. Our team takes over your whole Working KITAS extension, done fully by the rules.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners who already hold an active Working KITAS and want to extend it without leaving Indonesia.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Anything else</b> <span>Depends on your case. Ask us and we explain the full price.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>I have another question</summary><p>Every case is a little different. <a href=\"https://wa.me/6287862273133\" class=\"v4b-chat\">Chat with us</a> and the person handling your case will answer.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Working KITAS Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Working KITAS Extension, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "2.5–3 months"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": "+ USD 1,200"
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Plus USD 1,200."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "2.5–3 months"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": ""
+        }
+      ],
+      "type": "external",
+      "regular_price": "14300000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Working%20KITAS%20Extension",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "investor-kitas-extension",
+      "action": "create",
+      "id": null,
+      "slug": "investor-kitas-extension",
+      "name": "Investor KITAS Extension",
+      "featured": false,
+      "menu_order": 10,
+      "category": "already-in-bali",
+      "short_description": "<p>Extend your Investor KITAS by the rules, on time and without the hassle, with our specialist team.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners who already hold an Investor KITAS and want to extend it without leaving Indonesia.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Anything else</b> <span>Depends on your case. Ask us and we explain the full price.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>I have another question</summary><p>Every case is a little different. <a href=\"https://wa.me/6287862273133\" class=\"v4b-chat\">Chat with us</a> and the person handling your case will answer.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Investor KITAS Extension"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Investor KITAS Extension, 2 years"
+        },
+        {
+          "key": "v4b_group",
+          "value": "already-in-bali"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "+2 years"
+        },
+        {
+          "key": "v4b_time",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Extends by"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "2 years"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": ""
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "14–21 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "16000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Investor%20KITAS%20Extension",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "family-kitas",
+      "action": "create",
+      "id": null,
+      "slug": "family-kitas-offshore",
+      "name": "Family KITAS, 1 year offshore",
+      "featured": true,
+      "menu_order": 0,
+      "category": "staying-longer",
+      "short_description": "<p>Bring your family together in Indonesia. We apply for the 1-year Family KITAS from abroad, so it is ready before they arrive.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>The legal spouse, or a child under 18, of a KITAS or KITAP holder. The foreign spouse of an Indonesian citizen, and children of a mixed Indonesian–foreign marriage.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your marriage certificate</b> <span>For a spouse.</span></li><li><b>A birth certificate</b> <span>For a child.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>How long is the Family KITAS valid?</summary><p>A full year (12 months) from the day your family arrives in Indonesia. It can be <a href=\"/product/family-itas-extension/\">extended</a> every year without leaving Indonesia.</p></details><details><summary>Can a Family KITAS holder work in Indonesia?</summary><p>No. Working or earning money in Indonesia is not allowed.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Family KITAS, 1 year offshore"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Family KITAS, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "applied from outside Indonesia"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "11500000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Family%20KITAS%2C%201%20year%20offshore",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "d12",
+      "action": "create",
+      "id": null,
+      "slug": "d12-multiple-entry-visa-1-year",
+      "name": "D12 Multiple Entry Visa, 1 year",
+      "featured": true,
+      "menu_order": 1,
+      "category": "staying-longer",
+      "short_description": "<p>A multiple-entry pre-investment visa. You get 180 days each time you arrive and can fly in and out of Indonesia while the visa is valid.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners preparing to start a business in Indonesia, including field surveys and feasibility studies. You can also use it for tourism and to visit friends or family.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months. Send a good-quality photo of it.</span></li><li><b>A photo of you</b> <span>A photo of the passport holder; a phone photo is fine.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The e-visa</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>Sponsorship</b> <span>We act as your sponsor for the application.</span></li><li><b>The government e-visa fee</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Do I need to visit an embassy?</summary><p>No. Once the e-visa is ready you can use it directly.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D12"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Visa, 1 year"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Visa D12, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "180 days per arrival"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-visa fee."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": "5 working days"
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": "7500000"
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #668 + Ari 31/10 + Ari 3/11 (Faster)"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "each time you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "or 5 working days with Faster"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Valid for"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "multiple entry"
+        }
+      ],
+      "type": "variable",
+      "processing": [
+        [
+          "Regular",
+          7000000,
+          "7–9 working days"
+        ],
+        [
+          "Faster",
+          7500000,
+          "5 working days"
+        ]
+      ]
+    },
+    {
+      "key": "d12-2y",
+      "action": "create",
+      "id": null,
+      "slug": "d12-multiple-entry-visa-2-years",
+      "name": "D12 Multiple Entry Visa, 2 years",
+      "featured": false,
+      "menu_order": 2,
+      "category": "staying-longer",
+      "short_description": "<p>A two-year multiple-entry pre-investment visa. You get 180 days each time you arrive and can fly in and out of Indonesia while the visa is valid.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners preparing to start a business in Indonesia, including field surveys and feasibility studies. You can also use it for tourism and to visit friends or family.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months. Send a good-quality photo of it.</span></li><li><b>A photo of you</b> <span>A photo of the passport holder; a phone photo is fine.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The e-visa</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>Sponsorship</b> <span>We act as your sponsor for the application.</span></li><li><b>The government e-visa fee</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Pay online</b> <span>Apply on this page. You can also message us first if you are unsure.</span></li><li><b>Send your documents</b> <span>Send your required documents via WhatsApp or email. We’ll prepare your application.</span></li><li><b>We apply for you</b> <span>We submit the application and keep you updated on WhatsApp.</span></li><li><b>Receive your visa</b> <span>Your e-Visa or official Stay Permit letter will be sent directly to you. No passport stamping required.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Do I need to visit an embassy?</summary><p>No. Once the e-visa is ready you can use it directly.</p></details><details><summary>Is there a 1-year D12?</summary><p>Yes, the <a href=\"/product/d12-multiple-entry-visa-1-year/\">1-year D12</a> costs Rp 7,000,000.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "D12"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Multiple Entry Visa, 2 years"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Multiple Entry Visa D12, 2 years"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "180 days per arrival"
+        },
+        {
+          "key": "v4b_time",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "buy"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-visa fee."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": "5 working days"
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": "11500000"
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #668 + Ari 3/11 (Faster)"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "180 days"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "each time you arrive"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "7–9 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "or 5 working days with Faster"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Valid for"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "2 years"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "multiple entry"
+        }
+      ],
+      "type": "variable",
+      "processing": [
+        [
+          "Regular",
+          11000000,
+          "7–9 working days"
+        ],
+        [
+          "Faster",
+          11500000,
+          "5 working days"
+        ]
+      ]
+    },
+    {
+      "key": "e33g",
+      "action": "create",
+      "id": null,
+      "slug": "e33g-remote-worker-kitas",
+      "name": "E33G Remote Worker KITAS, offshore",
+      "featured": true,
+      "menu_order": 3,
+      "category": "staying-longer",
+      "short_description": "<p>A one-year stay permit for people who work for a company outside Indonesia. You can live in Bali, travel in and out, and bring your family.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners who work for a company outside Indonesia and want to live in Bali for a year. The permit lets you stay and bring your family with you.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 6 more months.</span></li><li><b>A photo of you</b> <span>A clear photo of the passport holder.</span></li><li><b>Proof of income</b> <span>A statement from your company (salary form) or your bank account, showing an income of at least US$60,000 a year.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The e-visa</b> <span>Prepared and submitted by our team in Balangan.</span></li><li><b>Sponsorship</b> <span>We act as your sponsor for the application.</span></li><li><b>The government e-visa fee</b> <span>Paid by us as part of the application.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Can I bring my family?</summary><p>Yes, the E33G lets your family come with you. Ask us what each family member needs and what it costs.</p></details><details><summary>Can I work for an Indonesian company with it?</summary><p>No. The E33G is for people whose employer or clients are outside Indonesia.</p></details><details><summary>Why can't I pay online straight away?</summary><p>A KITAS depends on your documents. We check them with you first, so you never pay for a permit you cannot get.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "E33G"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Remote Worker KITAS, offshore"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Remote Worker KITAS, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "9–12 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": "Includes the government e-visa fee."
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Woo #515 + Ari 31/10"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "multiple entry"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "9–12 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        },
+        {
+          "key": "v4b_fact3_label",
+          "value": "Income"
+        },
+        {
+          "key": "v4b_fact3_value",
+          "value": "US$60,000 a year"
+        },
+        {
+          "key": "v4b_fact3_note",
+          "value": "or more, from work abroad"
+        }
+      ],
+      "type": "external",
+      "regular_price": "12500000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20E33G%20Remote%20Worker%20KITAS%2C%20offshore",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "retirement-kitas",
+      "action": "create",
+      "id": null,
+      "slug": "retirement-kitas-offshore",
+      "name": "Retirement KITAS, offshore",
+      "featured": false,
+      "menu_order": 4,
+      "category": "staying-longer",
+      "short_description": "<p>Your retirement starts in Indonesia. We apply for the 1-year retirement KITAS from abroad, so it is ready before you arrive.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Foreigners aged 55 or over with a steady pension or passive income, who do not plan to work in Indonesia.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Proof of pension or passive income</b> <span>A pension fund or regular income from outside Indonesia.</span></li><li><b>Your rental agreement</b> <span>For the place you will live in Indonesia.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Flexible scheduling</b> <span>We book your biometrics and photo at the immigration office at a time that suits you.</span></li><li><b>VIP accompaniment</b> <span>A member of our team is with you at the immigration office.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>Can I work or open a business with a retirement KITAS?</summary><p>No, not at all.</p></details><details><summary>What does “offshore” mean? Do I have to come to Indonesia first?</summary><p>No. Offshore means we process all your documents while you are still abroad.</p></details><details><summary>Can I extend it without leaving Indonesia?</summary><p>Yes. Before your year ends, we can process the <a href=\"/product/retirement-kitas-extension/\">extension</a> inside Indonesia.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Retirement KITAS, offshore"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Retirement KITAS, 1 year"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_time",
+          "value": "12–14 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "1 year"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "applied from outside Indonesia"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "12–14 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "13000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Retirement%20KITAS%2C%20offshore",
+      "button_text": "Ask us"
+    },
+    {
+      "key": "investor-kitas",
+      "action": "create",
+      "id": null,
+      "slug": "investor-kitas-offshore",
+      "name": "Investor KITAS, 2 years offshore",
+      "featured": false,
+      "menu_order": 5,
+      "category": "staying-longer",
+      "short_description": "<p>Your time is too valuable for immigration paperwork. Hand your whole 2-year Investor KITAS application, made from abroad, to our specialist team.</p>",
+      "description": "<h2>Who it is for</h2>\n<p>Business founders and investors with a foreign-owned company (PT PMA) in Indonesia, whose shares meet the current minimum. Ask us about your case.</p>\n<h2>What we need from you</h2>\n<ul class=\"ticks\"><li><b>Your passport</b> <span>Valid for at least 12 more months.</span></li><li><b>A recent photo of you</b> <span>A colour passport-style photo.</span></li><li><b>Your sponsor company’s legal documents</b> <span>From your PT PMA in Indonesia.</span></li><li><b>Anything else</b> <span>Some cases need more documents. We tell you which ones when you chat with us.</span></li></ul>\n<h2>What the price includes</h2>\n<ul class=\"ticks\"><li><b>The application documents</b> <span>Prepared by our team.</span></li><li><b>The government fee (PNBP)</b> <span>Paid by us as part of the application.</span></li><li><b>Anything else</b> <span>Depends on your case. Ask us and we explain the full price.</span></li></ul>\n<h2>How it works</h2>\n<ol class=\"steps\"><li><b>Chat with us</b> <span>Tell us about your plans, in English or Russian, on WhatsApp or Telegram.</span></li><li><b>We check your documents</b> <span>Send us what the visa needs. We confirm it fits before you pay.</span></li><li><b>Pay online</b> <span>Once we confirm the visa fits, you pay on our website.</span></li><li><b>Receive your visa</b> <span>We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives.</span></li></ol>\n<h2>Good to know</h2>\n<div class=\"faq\"><details open><summary>How much capital do I need?</summary><p>Under the latest immigration and BKPM rules, your name must be in the PT PMA’s deed with personal shares worth at least Rp 10,000,000,000 (10 billion rupiah), and the company’s issued capital must also be at least Rp 10 billion.</p></details><details><summary>Can I extend it after 2 years without leaving Indonesia?</summary><p>Yes. Before your 2 years end, we can process the <a href=\"/product/investor-kitas-extension/\">extension</a> inside Indonesia.</p></details></div>\n",
+      "meta_data": [
+        {
+          "key": "v4b_code",
+          "value": "KITAS"
+        },
+        {
+          "key": "v4b_short_name",
+          "value": "Investor KITAS, 2 years offshore"
+        },
+        {
+          "key": "v4b_title",
+          "value": "Investor KITAS, 2 years"
+        },
+        {
+          "key": "v4b_group",
+          "value": "staying-longer"
+        },
+        {
+          "key": "v4b_stay",
+          "value": "2 years"
+        },
+        {
+          "key": "v4b_time",
+          "value": "12–14 working days"
+        },
+        {
+          "key": "v4b_route",
+          "value": "chat"
+        },
+        {
+          "key": "v4b_from",
+          "value": ""
+        },
+        {
+          "key": "v4b_extra",
+          "value": ""
+        },
+        {
+          "key": "v4b_buy_incl",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_time",
+          "value": ""
+        },
+        {
+          "key": "v4b_fast_price",
+          "value": ""
+        },
+        {
+          "key": "v4b_src",
+          "value": "Ari 31/10 + Ari 2/11"
+        },
+        {
+          "key": "v4b_fact1_label",
+          "value": "Stay"
+        },
+        {
+          "key": "v4b_fact1_value",
+          "value": "2 years"
+        },
+        {
+          "key": "v4b_fact1_note",
+          "value": "applied from outside Indonesia"
+        },
+        {
+          "key": "v4b_fact2_label",
+          "value": "Processing"
+        },
+        {
+          "key": "v4b_fact2_value",
+          "value": "12–14 working days"
+        },
+        {
+          "key": "v4b_fact2_note",
+          "value": "weekends and holidays not counted"
+        }
+      ],
+      "type": "external",
+      "regular_price": "16000000",
+      "external_url": "https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20Investor%20KITAS%2C%202%20years%20offshore",
+      "button_text": "Ask us"
+    }
+  ],
+  "retire": [
+    {
+      "id": 355,
+      "from": "/product/offshore-business-visa-d212-ru/",
+      "to": "/product/d1-multiple-entry-tourist-visa/"
+    },
+    {
+      "id": 627,
+      "from": "/product/family-visa/",
+      "to": "/product/family-kitas-offshore/"
+    },
+    {
+      "id": 668,
+      "from": "/product/c12-d12-visa/",
+      "to": "/product/d12-multiple-entry-visa-1-year/"
+    },
+    {
+      "id": 515,
+      "from": "/product/remote-working-visa-e33g/",
+      "to": "/product/e33g-remote-worker-kitas/"
+    },
+    {
+      "id": 352,
+      "from": "/product/visa4bali-onshore-ru/",
+      "to": "/our-services/"
+    }
+  ]
+}
