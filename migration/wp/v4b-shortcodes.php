@@ -97,6 +97,7 @@ function v4b_item( $p ) {
 		'type'  => $p->get_type(),
 		'price' => (float) $p->get_regular_price(),
 		'fast'  => null,
+		'vid'   => 0,
 		'buy'   => '',
 	);
 	if ( $p->is_type( 'variable' ) ) {
@@ -107,9 +108,9 @@ function v4b_item( $p ) {
 			if ( ! $v || 'publish' !== $v->get_status() ) { continue; }
 			$public[] = $v;
 			$opt      = strtolower( (string) $v->get_attribute( 'processing' ) );
-			if ( 'regular' === $opt ) { $item['price'] = (float) $v->get_regular_price(); }
+			if ( 'regular' === $opt ) { $item['price'] = (float) $v->get_regular_price(); $item['vid'] = $vid; }
 			if ( 'faster' === $opt ) {
-				$item['fast'] = array( 'price' => (float) $v->get_regular_price(), 'time' => v4b_meta( $id, 'v4b_fast_time' ) );
+				$item['fast'] = array( 'price' => (float) $v->get_regular_price(), 'time' => v4b_meta( $id, 'v4b_fast_time' ), 'vid' => $vid );
 			}
 		}
 		/* Older products (VOA ext 342, C1 ext 346, D1 ext 1572, D12 ext 1575) are variable with ONE public variation
@@ -275,7 +276,9 @@ function v4b_icon( $name ) {
 	return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $paths[ $name ] . '</svg>';
 }
 
-/** Price + buttons. Variable products post Regular/Faster straight to WooCommerce (attribute_processing), no JS needed. */
+/** Price + buttons. Variable products post the checked variation_id straight to WooCommerce, no JS needed.
+    WooCommerce 9 refuses a variable product without variation_id ("Please choose product options"), so the radio
+    carries the variation id itself; WooCommerce fills the Processing attribute from the variation. */
 function v4b_buy_core( $v, $inline ) {
 	$visa = $v['code'] . ', ' . $v['name'];
 	if ( $v['chat'] ) {
@@ -287,10 +290,10 @@ function v4b_buy_core( $v, $inline ) {
 	}
 	$ask = '<a class="btn btn-o" href="' . esc_url( v4b_wa( $visa ) ) . '">Ask us first</a>';
 	if ( $v['fast'] ) {
-		$opts = array( array( 'Regular', $v['time'], $v['price'] ), array( 'Faster', $v['fast']['time'], $v['fast']['price'] ) );
+		$opts = array( array( 'Regular', $v['time'], $v['price'], $v['vid'] ), array( 'Faster', $v['fast']['time'], $v['fast']['price'], $v['fast']['vid'] ) );
 		$html = '<form class="v4b-buy-form" method="post" action="' . esc_url( $v['url'] ) . '" enctype="multipart/form-data"><fieldset class="speed"><legend>Processing</legend>';
 		foreach ( $opts as $i => $o ) {
-			$html .= '<label><input type="radio" name="attribute_processing" value="' . esc_attr( $o[0] ) . '"' . ( $i ? '' : ' checked' ) . '><span><b>' . esc_html( $o[0] ) . '</b>'
+			$html .= '<label><input type="radio" name="variation_id" value="' . (int) $o[3] . '" data-speed="' . esc_attr( $o[0] ) . '"' . ( $i ? '' : ' checked' ) . ' required><span><b>' . esc_html( $o[0] ) . '</b>'
 				. esc_html( $o[1] ) . '</span><span class="num">' . esc_html( v4b_rp( $o[2] ) ) . '</span></label>';
 		}
 		$html .= '</fieldset><p class="buy-label">Price</p><p class="buy-price num"><span class="v4b-p-regular">' . esc_html( v4b_rp( $v['price'] ) )

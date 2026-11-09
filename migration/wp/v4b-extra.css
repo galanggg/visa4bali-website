@@ -16,8 +16,8 @@
 .v4b .v4b-finder:has(input[value="2"]:checked) .pk-list[data-g="2"]{display:block}
 /* Regular / Faster price follows the checked radio, no JS */
 .v4b .v4b-p-faster{display:none}
-.v4b .v4b-buy-form:has(input[value="Faster"]:checked) .v4b-p-faster{display:inline}
-.v4b .v4b-buy-form:has(input[value="Faster"]:checked) .v4b-p-regular{display:none}
+.v4b .v4b-buy-form:has(input[data-speed="Faster"]:checked) .v4b-p-faster{display:inline}
+.v4b .v4b-buy-form:has(input[data-speed="Faster"]:checked) .v4b-p-regular{display:none}
 .v4b .buy .btn,.v4b .buy-inline .btn{width:100%;margin-top:24px}
 .v4b .buy .btn + .btn,.v4b .buy-inline .btn + .btn{margin-top:10px}
 /* WooCommerce "View basket" link added after AJAX add to cart */
