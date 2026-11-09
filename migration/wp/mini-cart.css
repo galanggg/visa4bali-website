@@ -5,7 +5,7 @@
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button{position:absolute;top:16px;right:16px;width:48px;height:48px;margin:0;border-radius:50%;display:grid;place-items:center;z-index:2}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button:hover{background:#EEECE7}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button::before,
-.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button::after{background:#1C2326;width:20px;height:1.5px}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__close-button::after{background:#1C2326;width:20px;height:1.5px;left:14px;top:23.25px;right:auto;bottom:auto;margin:0}
 .elementor-widget-woocommerce-menu-cart .widget_shopping_cart_content{display:flex;flex-direction:column;min-height:100%;height:100%}
 .elementor-widget-woocommerce-menu-cart .v4b-mc-title{position:sticky;top:0;z-index:1;background:#FFFFFF;margin:0 -28px;padding:26px 80px 22px 28px;border-bottom:1px solid #D9D6CF;font:400 clamp(28px,2.6vw,36px)/1.12 "Gilda Display",Georgia,"Times New Roman",serif;color:#1C2326;letter-spacing:-.005em}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__products{flex:1;overflow:auto;margin:0;padding:0 28px}
@@ -19,10 +19,10 @@
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-price{grid-column:2;grid-row:2;margin:0;padding:0;font:400 clamp(19px,1.5vw,21px)/1.45 "Gilda Display",Georgia,"Times New Roman",serif;color:#1C2326;font-variant-numeric:tabular-nums}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-price small{font:400 15px/1 "Jost","Avenir Next","Segoe UI",sans-serif;color:#566064}
 /* Elementor positions the X and the click area absolutely against the whole row; anchor both to the 40px button instead */
-.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove{grid-column:3;grid-row:1 / span 2;position:relative;width:40px;height:40px;margin:0;border:0;border-radius:50%;align-self:start;background:none;overflow:hidden}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove{grid-column:3;grid-row:1 / span 2;position:relative;top:auto;right:auto;bottom:auto;left:auto;width:40px;height:40px;margin:0;border:0;border-radius:50%;align-self:start;background:none;overflow:hidden}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove:hover{background:#EEECE7}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove::before,
-.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove::after{background:#566064;width:14px;height:1.5px;left:13px;top:19.25px;margin:0}
+.elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove::after{background:#566064;width:14px;height:1.5px;left:13px;top:19.25px;right:auto;bottom:auto;margin:0}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__product-remove > a{position:absolute;inset:0;width:auto;height:auto;margin:0;z-index:1}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal{display:flex;justify-content:space-between;align-items:baseline;margin:0;padding:22px 28px 0;border:0;background:#EEECE7;text-align:left;font:400 15px/1.55 "Jost","Avenir Next","Segoe UI",sans-serif;color:#1C2326}
 .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__subtotal strong{font-weight:400}
