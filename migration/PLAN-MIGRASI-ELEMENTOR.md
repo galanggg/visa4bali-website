@@ -18,7 +18,7 @@
 | 3 Template | Header (draft), Footer (draft), Single Product (published, hanya berlaku untuk kategori 38–40 yang isinya non-publik), form Contact (Elementor Form → 3 email + simpan entri). | 2245, 2251, 2255, 2272 |
 | 3 Komponen data | WPCode snippet: finder, grup harga, tabel visa, kepala produk, kotak harga Regular/Faster, breadcrumb, visa terkait. Tanpa JS. CSS desain B (scoped `.v4b`) hanya dimuat untuk admin sampai saklar `V4B_LIVE` di snippet = true (build live). | snippet #2254, `migration/wp/` |
 | 4 Halaman | Home, Visas & prices, About, Contact, Basket, Checkout sebagai draft Full Width. Basket/Checkout = shortcode WooCommerce + DOKU lama, hanya tampilannya. | 2259–2262, 2281, 2282 |
-| Repo | PR #19 merged ke main (`313c09d`); cek responsif PR #21 merged (`ced82ca`). | |
+| Repo | PR #19 merged ke main (`313c09d`); cek responsif PR #21 (`ced82ca`); status rencana PR #22 (`f93096c`); skrip go-live PR #23 (`05756b2`). | |
 
 Diverifikasi logged-out setelah semua perubahan di atas: produk live masih template 424, Store API publik tetap 12 produk, URL produk baru 404, CSS desain B tidak dimuat, tidak ada error.
 
@@ -138,8 +138,8 @@ Satu format di seluruh situs: **"Rp 750.000"** (titik ribuan, spasi setelah Rp).
 
 | Hari | Pekerjaan |
 |---|---|
-| **Senin 9 Nov** ✅ | Fase 1, Fase 2 (tanpa mengubah produk live), Fase 3 dan Fase 4 selesai sebagai draft. Lebih cepat dari rencana: Single Product dan semua halaman sudah jadi hari ini, dan cek responsif (jadwal Selasa pagi) juga selesai sore ini. Detail di "Posisi sekarang". |
-| **Selasa 10 Nov** | Pagi: ~~cek responsif semua draft~~ (selesai Senin). Siang: skrip go-live + transaksi DOKU di draft (Fase 5). Sore: screenshot ke Ari, Ayik, Devi. **Malam: approval go-live.** |
+| **Senin 9 Nov** ✅ | Fase 1, Fase 2 (tanpa mengubah produk live), Fase 3 dan Fase 4 selesai sebagai draft. Lebih cepat dari rencana: Single Product dan semua halaman sudah jadi hari ini, cek responsif (jadwal Selasa pagi) selesai sore, dan skrip go-live (jadwal Selasa siang) selesai malam, dilatih pada salinan sementara. Detail di "Posisi sekarang". |
+| **Selasa 10 Nov** | Pagi: ~~cek responsif semua draft~~ (selesai Senin). Siang: ~~skrip go-live~~ (selesai Senin) + transaksi DOKU di draft (Fase 5). Sore: screenshot ke Ari, Ayik, Devi. **Malam: approval go-live.** |
 | **Rabu 11 Nov pagi** | Fase 6: go-live di jam sepi, transaksi uji, cek semua tipe halaman logged-out. |
 | Rabu siang – Jumat | Cadangan hotfix. Fase 7 mulai. |
 
