@@ -16,7 +16,7 @@
  },
  {
   "title": "sec ask center",
-  "html": "<section class=\"sec ask center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">Tell us about your trip</h2>\n      <p class=\"lead\">Send us your arrival date, how long you want to stay and your nationality. We will tell you which visa fits and what it costs before you pay anything.</p>\n      \n      <a class=\"btn btn-k\" href=\"https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20a%20visa\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg>Chat with us</a>\n      <small>WhatsApp or Telegram, in English or Russian · Monday to Friday, 08:00–17:00</small>\n    </div>\n  </section>",
+  "html": "<section class=\"sec ask center\">\n    <div class=\"wrap\">\n      <h2 class=\"h2\">Tell us about your trip</h2>\n      <p class=\"lead\">Send us your arrival date, how long you want to stay and your nationality. We will tell you which visa fits and what it costs before you pay anything.</p>\n      \n      <a class=\"btn btn-k\" href=\"https://wa.me/6287862273133?text=Hello%20Visa4Bali%2C%20I'd%20like%20to%20ask%20about%20a%20visa\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg>Chat with us</a>\n      <small>WhatsApp, in English or Russian · Monday to Friday, 08:00–17:00</small>\n    </div>\n  </section>",
   "shortcode": false
  },
  {

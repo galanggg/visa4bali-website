@@ -70,7 +70,7 @@ function description(v, d) {
   const ticks = (rows) => '<ul class="ticks">' + rows.map((r) => `<li><b>${r[0]}</b> <span>${r[1]}</span></li>`).join("") + "</ul>";
   const block = (h, body) => `<h2>${h}</h2>\n${body}\n`;
   const steps = chat
-    ? [["Chat with us", "Tell us about your plans, in English or Russian, on WhatsApp or Telegram."],
+    ? [["Chat with us", "Tell us about your plans, in English or Russian, on WhatsApp."],
        ["We check your documents", "Send us what the visa needs. We confirm it fits before you pay."],
        ["Pay online", "Once we confirm the visa fits, you pay on our website."],
        ["Receive your visa", "We apply for you and keep you updated until your e-Visa or Stay Permit letter arrives."]]
