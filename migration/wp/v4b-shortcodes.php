@@ -24,6 +24,20 @@ if ( ! function_exists( 'v4b_item' ) ) {
 if ( ! defined( 'V4B_WA' ) ) {
 	define( 'V4B_GROUPS', array( 'arriving-soon', 'already-in-bali', 'staying-longer' ) );
 	define( 'V4B_WA', 'https://wa.me/6287862273133' );
+	/* "Chat with us" chooser (Ari 2026-11-10): three WhatsApp lines only, no staff names shown.
+	   hello = prefilled message, followed by the visa name or by `any` when the button is not about one visa. */
+	define( 'V4B_CHAT', array(
+		array( 'lang' => 'English speaking', 'note' => 'We reply in English', 'wa' => '6287862273133', 'hello' => "Hello Visa4Bali, I'd like to ask about ", 'any' => 'a visa' ),
+		array( 'lang' => 'Russian speaking', 'note' => 'Отвечаем на русском', 'ru' => true, 'wa' => '6287860685505', 'hello' => 'Здравствуйте! Хочу узнать про ', 'any' => 'визу' ),
+		array( 'lang' => 'English & Russian speaking', 'note' => 'We reply in English or Russian', 'wa' => '628113994005', 'hello' => "Hello Visa4Bali, I'd like to ask about ", 'any' => 'a visa' ),
+	) );
+	/* Home finder 4th tab "Travelling abroad" (Ari 2026-11-10): visas for Indonesian passport holders, no price,
+	   each pair goes straight to the staff member who handles it, prefilled in Indonesian. */
+	define( 'V4B_ABROAD', array(
+		array( 'code' => 'JP/CN', 'name' => 'Japan or China visa', 'who' => 'Ari', 'wa' => '628113969025', 'tanya' => 'visa Jepang atau China' ),
+		array( 'code' => 'EU/US', 'name' => 'Schengen or USA visa', 'who' => 'Feny', 'wa' => '628113803025', 'tanya' => 'visa Schengen atau Amerika' ),
+		array( 'code' => 'AU/KR', 'name' => 'Australia or Korea visa', 'who' => 'Nanda', 'wa' => '6287862273133', 'tanya' => 'visa Australia atau Korea' ),
+	) );
 	// Go-live switch. build.sh writes false; "LIVE=1 sh build.sh" writes true. Pushing the other build is the rollback.
 	define( 'V4B_LIVE', false );
 }
@@ -114,7 +128,65 @@ add_action( 'template_redirect', function () {
 // Owner 2026-11-09: one price format everywhere, "Rp 750.000"; WooCommerce is set to the same at go-live.
 function v4b_rp( $n ) { return 'Rp ' . number_format( (float) $n, 0, ',', '.' ); }
 function v4b_meta( $id, $key ) { return (string) get_post_meta( $id, $key, true ); }
-function v4b_wa( $visa ) { return V4B_WA . '?text=' . rawurlencode( "Hello Visa4Bali, I'd like to ask about " . $visa ); }
+
+/* ---------- "Chat with us" popup, no JS: every Ask us / Chat button links to #v4b-chat or #v4b-chat-<visa>, and the
+   popup with that id shows through :target. WP Rocket delays all JS until the first interaction, so a JS popup would
+   miss the first tap. Popups are printed in wp_footer: the generic one always, one per visa only when a button on the
+   page asked for it (v4b_chat_href registers it while the shortcodes render, before wp_footer runs). ---------- */
+function v4b_chat_href( $visa = '' ) {
+	$id = $visa ? 'v4b-chat-' . sanitize_title( $visa ) : 'v4b-chat';
+	$GLOBALS['v4b_chats'][ $id ] = $visa;
+	return '#' . $id;
+}
+
+/* WhatsApp icon: one <symbol> printed in wp_footer, every button points at it (a page can hold a dozen popups). */
+function v4b_wa_svg() {
+	return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#v4b-i-wa"/></svg>';
+}
+
+/** The three WhatsApp lines; also used inline on the Contact page. */
+function v4b_chat_opts( $visa = '' ) {
+	$html = '';
+	foreach ( V4B_CHAT as $c ) {
+		$text  = $c['hello'] . ( $visa ? $visa : $c['any'] );
+		$html .= '<div class="lang"><p><b>' . esc_html( $c['lang'] ) . '</b><span' . ( empty( $c['ru'] ) ? '' : ' lang="ru"' ) . '>' . esc_html( $c['note'] ) . '</span></p>'
+			. '<a class="ch ch-wa" href="' . esc_url( 'https://wa.me/' . $c['wa'] . '?text=' . rawurlencode( $text ) ) . '">' . v4b_wa_svg() . 'WhatsApp</a></div>';
+	}
+	return $html;
+}
+
+add_action( 'wp_footer', function () {
+	if ( ! V4B_LIVE && ! current_user_can( 'edit_pages' ) ) { return; }
+	$chats = array( 'v4b-chat' => '' ) + (array) ( $GLOBALS['v4b_chats'] ?? array() );
+	echo '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="v4b-i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43M20.08 3.9A11.3 11.3 0 0 0 12.05.58C5.79.58.7 5.67.7 11.92c0 2 .52 3.95 1.52 5.67L.6 23.5l6.04-1.58a11.3 11.3 0 0 0 5.4 1.38c6.25 0 11.34-5.09 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02"/></symbol></svg>';
+	foreach ( $chats as $id => $visa ) {
+		echo '<div class="v4b v4b-chat-pop" id="' . esc_attr( $id ) . '" role="dialog" aria-labelledby="' . esc_attr( $id ) . '-t">'
+			. '<a class="v4b-chat-bg" href="#_" tabindex="-1" aria-hidden="true"></a><div class="chat-in">'
+			. '<a class="x" href="#_" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>'
+			. '<h2 id="' . esc_attr( $id ) . '-t">Chat with us</h2><p class="chat-about">' . ( $visa ? 'About: ' . esc_html( $visa ) : 'Choose the language you’d like to speak.' ) . '</p>'
+			. '<div class="chat-opts">' . v4b_chat_opts( $visa ) . '</div><p class="chat-hours">We reply Monday to Friday, 08:00–17:00 (Bali time).</p></div></div>';
+	}
+}, 5 );
+
+/* Chat links written into Elementor itself (header 2245 "Chat" button, "Chat with us" on Home/About, Contact page):
+   point them at the popup instead of the English line, and give the Contact page's inline chooser the three lines.
+   Done at render time so the pages and the header template are not re-saved (saving 2245 re-saves its display
+   conditions, see RUNBOOK). The footer phone number (bare link in an HTML widget) stays a direct link. */
+add_filter( 'elementor/widget/render_content', function ( $html, $widget ) {
+	if ( ! V4B_LIVE && ! current_user_can( 'edit_pages' ) ) { return $html; }
+	if ( false === strpos( $html, 'wa.me/6287862273133' ) ) { return $html; }
+	// generic "a visa" links only; links about one visa come from the shortcodes and already point at their popup.
+	// Before the inline chooser below, whose English line is itself an "a visa" link that must stay a WhatsApp link.
+	$html = preg_replace( '#href="https://wa\\.me/6287862273133\\?text=Hello%20Visa4Bali%2C%20I(?:\'|%27|&\\#039;)d%20like%20to%20ask%20about%20a%20visa"#', 'href="' . v4b_chat_href() . '"', $html );
+	if ( 'button' === $widget->get_name() ) {
+		$html = str_replace( 'href="https://wa.me/6287862273133"', 'href="' . v4b_chat_href() . '"', $html );
+	}
+	$html = preg_replace( '#<div class="chat-opts">.*?</a></div></div>#s', '<div class="chat-opts">' . v4b_chat_opts() . '</div>', $html, 1, $inline );
+	if ( $inline ) { $html = str_replace( 'Pick your language and app.', 'Pick your language.', $html ); }
+	// Owner 2026-11-10: WhatsApp only. Home/About "Chat with us" note (pages/home.json, about.json are already updated).
+	$html = str_replace( 'WhatsApp or Telegram, in English or Russian', 'WhatsApp, in English or Russian', $html );
+	return $html;
+}, 10, 2 );
 
 /** One visa as the design needs it. Prices come from WooCommerce, so changing a price in Woo changes the site. */
 function v4b_item( $p ) {
@@ -206,7 +278,7 @@ function v4b_time_html( $v ) {
 /** Row button: Ask us (external → WhatsApp), Apply online (variable → product page to pick Regular/Faster, simple → add to basket). */
 function v4b_act( $v, $cls ) {
 	if ( $v['chat'] ) {
-		return '<a class="' . $cls . '-act ' . $cls . '-chat" href="' . esc_url( $v['p']->get_product_url() ) . '">Ask us</a>';
+		return '<a class="' . $cls . '-act ' . $cls . '-chat" href="' . esc_attr( v4b_chat_href( $v['code'] . ', ' . $v['name'] ) ) . '">Ask us</a>';
 	}
 	if ( $v['buy'] ) {
 		return '<a class="' . $cls . '-act ' . $cls . '-buy" href="' . esc_url( $v['buy'] ) . '" rel="nofollow" aria-label="' . esc_attr( 'Add ' . $v['label'] . ' to your basket' ) . '">Apply online</a>';
@@ -271,8 +343,17 @@ add_shortcode( 'v4b_finder', function ( $a ) {
 		}
 		$lists .= '<ul class="pk-list" data-g="' . $i . '">' . $rows . '</ul>';
 	}
+	$i     = count( V4B_GROUPS );
+	$tabs .= '<label class="pk-opt"><input type="radio" name="v4b-pick" value="' . $i . '"><span class="pk-opt-label">Travelling abroad</span><span class="pk-opt-ask">For Indonesian passport holders</span></label>';
+	$rows  = '';
+	foreach ( V4B_ABROAD as $v ) {
+		$rows .= '<li class="pk-row"><span class="pk-code">' . esc_html( $v['code'] ) . '</span><span class="pk-main"><b class="pk-name">' . esc_html( $v['name'] ) . '</b><span class="pk-meta">'
+			. esc_html( 'Indonesian passport · ' . $v['who'] . ' answers on WhatsApp' ) . '</span></span><span class="pk-price num"></span>'
+			. '<a class="pk-act pk-chat" href="' . esc_url( 'https://wa.me/' . $v['wa'] . '?text=' . rawurlencode( 'Halo Visa4Bali, saya mau tanya ' . $v['tanya'] ) ) . '">Ask us</a></li>';
+	}
+	$lists .= '<ul class="pk-list" data-g="' . $i . '">' . $rows . '</ul>';
 	return v4b_wrap( '<div class="bar v4b-finder"><div class="pk-tabs"><p class="pk-legend" id="v4b-pick-l">' . esc_html( $a['legend'] ) . '</p><div class="pk-opts" role="radiogroup" aria-labelledby="v4b-pick-l">'
-		. $tabs . '</div></div>' . $lists . '<p class="pk-foot">Not sure which one? <a href="' . esc_url( v4b_wa( 'a visa' ) ) . '">Ask us</a> or <a href="/our-services/">see all visas</a>.</p></div>' );
+		. $tabs . '</div></div>' . $lists . '<p class="pk-foot">Not sure which one? <a href="' . esc_attr( v4b_chat_href() ) . '">Ask us</a> or <a href="/our-services/">see all visas</a>.</p></div>' );
 } );
 
 /* ---------- [v4b_stays] ---------- */
@@ -326,10 +407,10 @@ function v4b_buy_core( $v, $inline ) {
 		return '<p class="buy-label">' . ( $v['from'] ? 'Price from' : 'Price' ) . '</p><p class="buy-price num">' . esc_html( v4b_rp( $v['price'] ) ) . '</p>'
 			. ( $v['extra'] ? '<p class="buy-incl">' . esc_html( $v['extra'] ) . '</p>' : '' )
 			. ( $v['incl'] ? '<p class="buy-incl">' . esc_html( $v['incl'] ) . '</p>' : '' )
-			. '<a class="btn btn-k" href="' . esc_url( $v['p']->get_product_url() ) . '">' . v4b_icon( 'chat' ) . 'Ask us</a>'
+			. '<a class="btn btn-k" href="' . esc_attr( v4b_chat_href( $visa ) ) . '">' . v4b_icon( 'chat' ) . 'Ask us</a>'
 			. '<p class="buy-why">We check your documents with you on WhatsApp before you pay.</p>';
 	}
-	$ask = '<a class="btn btn-o" href="' . esc_url( v4b_wa( $visa ) ) . '">Ask us first</a>';
+	$ask = '<a class="btn btn-o" href="' . esc_attr( v4b_chat_href( $visa ) ) . '">Ask us first</a>';
 	if ( $v['fast'] ) {
 		$opts = array( array( 'Regular', $v['time'], $v['price'], $v['vid'] ), array( 'Faster', $v['fast']['time'], $v['fast']['price'], $v['fast']['vid'] ) );
 		$html = '<form class="v4b-buy-form" method="post" action="' . esc_url( $v['url'] ) . '" enctype="multipart/form-data"><fieldset class="speed"><legend>Processing</legend>';

@@ -13,7 +13,8 @@
 .v4b .v4b-finder .pk-list{display:none}
 .v4b .v4b-finder:has(input[value="0"]:checked) .pk-list[data-g="0"],
 .v4b .v4b-finder:has(input[value="1"]:checked) .pk-list[data-g="1"],
-.v4b .v4b-finder:has(input[value="2"]:checked) .pk-list[data-g="2"]{display:block}
+.v4b .v4b-finder:has(input[value="2"]:checked) .pk-list[data-g="2"],
+.v4b .v4b-finder:has(input[value="3"]:checked) .pk-list[data-g="3"]{display:block}
 /* Regular / Faster price follows the checked radio, no JS */
 .v4b .v4b-p-faster{display:none}
 .v4b .v4b-buy-form:has(input[data-speed="Faster"]:checked) .v4b-p-faster{display:inline}
@@ -127,3 +128,31 @@
 @media (max-width:767px){
   .elementor-2245 .elementor-menu-cart__toggle_button{min-width:44px;justify-content:center}
 }
+
+/* "Chat with us" popup (snippet: v4b_chat_href + wp_footer), no JS: shown while its id is the URL #fragment.
+   scope-css.py drops the mockup's dialog/.chat/.x rules (the mockup used <dialog> + JS), so they are restated here. */
+.v4b.v4b-chat-pop{display:none;position:fixed;inset:0;z-index:100000;align-items:center;justify-content:center;padding:16px;background:transparent}
+.v4b.v4b-chat-pop:target{display:flex}
+body:has(.v4b-chat-pop:target){overflow:hidden}
+/* WP Chat App float (z-index above the popup) would sit bright on top of the dimmed page */
+body:has(.v4b-chat-pop:target) .wa__btn_popup,
+body:has(.v4b-chat-pop:target) .wa__popup_chat_box{display:none}
+.v4b-chat-bg{position:absolute;inset:0;background:rgba(18,36,41,.55)}
+.v4b-chat-pop .chat-in{position:relative;width:100%;max-width:520px;max-height:100%;overflow:auto;background:var(--white);border-radius:8px;padding:34px 32px 28px;box-shadow:0 30px 80px -30px rgba(18,36,41,.6)}
+.v4b-chat-pop h2{font-family:var(--serif);font-weight:400;font-size:var(--t-h3);line-height:1.12;margin:0;padding-right:40px;color:var(--ink)}
+.v4b-chat-pop .chat-about{font-size:var(--t-small);color:var(--muted);margin:6px 0 0}
+.v4b-chat-pop .chat-hours{font-size:var(--t-small);color:var(--muted);margin:16px 0 0}
+.v4b-chat-pop .x{position:absolute;top:18px;right:18px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;color:var(--ink)}
+.v4b-chat-pop .x:hover{background:var(--stone)}
+.v4b-chat-pop .x svg{width:22px;height:22px}
+/* one WhatsApp button per line (Ari 2026-11-10): label left, button right, also on the Contact page */
+.v4b .chat-opts .lang{grid-template-columns:minmax(0,1fr) auto}
+.v4b .chat-opts .lang p{grid-column:auto;margin:0}
+@media (max-width:767px){
+  .v4b.v4b-chat-pop{align-items:flex-end;padding:0}
+  .v4b-chat-pop .chat-in{max-width:none;border-radius:12px 12px 0 0;padding:28px 20px calc(24px + env(safe-area-inset-bottom, 0px))}
+}
+/* Elementor's frontend-lite resets figures inside widgets: `.elementor .elementor-widget:not(.elementor-widget-text-editor)
+   :not(.elementor-widget-theme-post-content) figure{margin:0}` (specificity 0,4,1) beat `.v4b .team-photo` (0,2,0), so the
+   Home team photo sat right under "Our story / Our promise" instead of 56px below. :not(#v4b) lifts ours above it. */
+.v4b figure.team-photo:not(#v4b){margin:var(--gap-head) 0 0}

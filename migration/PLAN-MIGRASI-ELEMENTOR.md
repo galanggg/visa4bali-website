@@ -81,7 +81,13 @@ Belum diterapkan, urut prioritas:
 2. **Halaman Basket**: masih tabel bawaan WooCommerce (Product/Price/Quantity/Subtotal, kupon, Update cart, "Cart totals"). Mockup: baris per visa dengan pengatur jumlah traveller + "Every traveller needs their own visa", ringkasan "Summary" + "Prices in Indonesian rupiah…" + "Continue to checkout" + catatan pembayaran. Notifikasi "…added to your cart" → "basket".
 3. **Halaman Checkout**: masih field alamat bawaan Woo (company, country, alamat, kota, provinsi, kode pos), kupon, "Place order". Mockup: Your details (nama, email, WhatsApp dengan kode negara, kewarganegaraan), Your trip (tiba, izin berakhir, hotel/villa), centang terms & privacy, tombol "Pay", catatan "Do not send passport photos here", kotak "What happens next". Field tambahan ditunda owner 9 Nov — perlu keputusan owner + cek field wajib DOKU.
 
-Sengaja disembunyikan (menunggu data owner): pilihan bahasa × aplikasi chat (EN/RU × WhatsApp/Telegram; sekarang semua ke WhatsApp English) dan tab "Travelling abroad" di Home (WA Ari, Feny, Nanda). `data-visa.html` = halaman status internal, bukan bagian situs.
+~~Sengaja disembunyikan (menunggu data owner): pilihan bahasa × aplikasi chat dan tab "Travelling abroad" di Home.~~ **Live 10 Nov** (data dari Ari):
+- Tab "Travelling abroad" di finder Home: JP/CN → WA Ari 628113969025, EU/US → Feny 628113803025, AU/KR → Nanda 6287862273133, pesan otomatis bahasa Indonesia.
+- Popup "Chat with us" tanpa JS (`:target`): 3 baris WhatsApp, Telegram tidak dipakai, tanpa nama staf. English 6287862273133, Russian 6287860685505, English & Russian 628113994005. Dibuka oleh semua tombol Ask us / Ask us first / Chat with us / Chat (header). Link yang ditulis di Elementor (header 2245, Home, About, Contact) diarahkan ke popup lewat filter `elementor/widget/render_content` di snippet #2254, jadi template header tidak disimpan ulang.
+- Kata "Telegram" dihapus dari situs (12 deskripsi produk lewat REST, catatan di Home/About). Plugin WP Chat App dinonaktifkan (owner 10 Nov).
+- Foto tim Home: jarak 56px dipulihkan (reset `figure{margin:0}` Elementor menimpa CSS desain). Marlon → "Office Boy" di About.
+
+`data-visa.html` = halaman status internal, bukan bagian situs.
 
 **Sisa sebelum go-live:**
 
